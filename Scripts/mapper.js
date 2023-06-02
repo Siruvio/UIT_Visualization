@@ -5,10 +5,30 @@ function mapper() {
     let tree = Tree(data, {
         children: d => d.Children,
         label: d => d.Name,
-        title: null,
-        //title: (d, n) => `${n.ancestors().reverse().map(d => d.data.Name).join(".")}`, // hover text
+        title: (d) => {      // hover text
+            let synonyms = d.Synonyms
+                .map(s => s.charAt(0).toUpperCase() + s.slice(1))
+                .map(s => s.replace("_", " "))
+                .join(", ");
+            if ((synonyms === undefined) || (synonyms === "")) {
+                synonyms = "None"
+            }
+
+            let verbs = d.Verbs
+                .map(s => s.charAt(0).toUpperCase() + s.slice(1))
+                .join(", ");
+            if ((verbs === undefined) || (verbs === "")) {
+                verbs = "None"
+            }
+
+            return `Synonyms: ${synonyms}\nAssociated Verbs: ${verbs}`
+        },
         link: null,
-        width: 1152
+        width: window.innerWidth,
+
+        r: 4,
+        fill: "#31A1ED",
+        stroke: "#ED7D31"
     })
 
     return document.body.appendChild(tree);

@@ -1,0 +1,3817 @@
+{"Name": "object",
+ "Synonyms": [],
+ "Hypers": [],
+ "Verbs": [],
+ "Father": "ROOT",
+ "Children": [
+	{"Name": "beverage",
+	 "Synonyms": ["beverage", "drink", "drinkable", "potable"],
+	 "Hypers": [],
+	 "Verbs": [],
+	 "Father": "object",
+	 "Children": [
+		{"Name": "alcohol",
+		 "Synonyms": ["alcohol", "alcoholic_beverage", "alcoholic_drink", "inebriant", "intoxicant"],
+		 "Hypers": ["beverage"],
+		 "Verbs": ["add", "boil", "drive", "heat", "pour", "pour in", "put", "tip in", "whisk"],
+		 "Father": "beverage",
+		 "Children": [
+			{"Name": "liquor",
+			 "Synonyms": ["John_Barleycorn", "booze", "hard_drink", "hard_liquor", "liquor", "spirits", "strong_drink"],
+			 "Hypers": ["alcohol", "beverage"],
+			 "Verbs": ["reserve"],
+			 "Father": "alcohol",
+			 "Children": [
+				{"Name": "brandy",
+				 "Synonyms": ["brandy"],
+				 "Hypers": ["liquor", "alcohol", "beverage"],
+				 "Verbs": ["beat", "beat in", "combine", "drizzle", "flambé", "fold in", "make", "mix", "mix together", "serve", "set", "shape", "simmer", "soak", "splash in", "stir in", "warm", "whisk in", "wrap"],
+				 "Father": "liquor",
+				 "Children": [
+					{"Name": "armagnac",
+					 "Synonyms": ["Armagnac"],
+					 "Hypers": ["brandy", "liquor", "alcohol", "beverage"],
+					 "Verbs": [],
+					 "Father": "brandy",
+					 "Children": []
+					},
+					{"Name": "calvados",
+					 "Synonyms": ["Calvados"],
+					 "Hypers": ["brandy", "liquor", "alcohol", "beverage"],
+					 "Verbs": [],
+					 "Father": "brandy",
+					 "Children": []
+					},
+					{"Name": "cognac",
+					 "Synonyms": ["Cognac"],
+					 "Hypers": ["brandy", "liquor", "alcohol", "beverage"],
+					 "Verbs": [],
+					 "Father": "brandy",
+					 "Children": []
+					},
+					{"Name": "kirsch",
+					 "Synonyms": ["kirsch"],
+					 "Hypers": ["brandy", "liquor", "alcohol", "beverage"],
+					 "Verbs": ["include"],
+					 "Father": "brandy",
+					 "Children": []
+					}
+				]
+				},
+				{"Name": "rum",
+				 "Synonyms": ["rum"],
+				 "Hypers": ["liquor", "alcohol", "beverage"],
+				 "Verbs": ["beat in", "cream together", "fold", "fold in", "make", "mix", "paint", "serve", "stir in", "stir together"],
+				 "Father": "liquor",
+				 "Children": [
+					{"Name": "demerara",
+					 "Synonyms": ["demerara", "demerara_rum"],
+					 "Hypers": ["rum", "liquor", "alcohol", "beverage"],
+					 "Verbs": ["mix together", "roll in", "sprinkle over", "stir"],
+					 "Father": "rum",
+					 "Children": []
+					}
+				]
+				},
+				{"Name": "aquavit",
+				 "Synonyms": ["akvavit", "aquavit"],
+				 "Hypers": ["liquor", "alcohol", "beverage"],
+				 "Verbs": ["do"],
+				 "Father": "liquor",
+				 "Children": []
+				},
+				{"Name": "whiskey",
+				 "Synonyms": ["whiskey", "whisky"],
+				 "Hypers": ["liquor", "alcohol", "beverage"],
+				 "Verbs": ["leave", "mix", "stir", "stir in"],
+				 "Father": "liquor",
+				 "Children": [
+					{"Name": "bourbon",
+					 "Synonyms": ["bourbon"],
+					 "Hypers": ["whiskey", "liquor", "alcohol", "beverage"],
+					 "Verbs": ["pour over", "tip", "try"],
+					 "Father": "whiskey",
+					 "Children": []
+					}
+				]
+				},
+				{"Name": "gin",
+				 "Synonyms": ["gin"],
+				 "Hypers": ["liquor", "alcohol", "beverage"],
+				 "Verbs": ["divide", "mix", "top"],
+				 "Father": "liquor",
+				 "Children": []
+				},
+				{"Name": "tequila",
+				 "Synonyms": ["tequila"],
+				 "Hypers": ["liquor", "alcohol", "beverage"],
+				 "Verbs": ["combine"],
+				 "Father": "liquor",
+				 "Children": []
+				},
+				{"Name": "vodka",
+				 "Synonyms": ["vodka"],
+				 "Hypers": ["liquor", "alcohol", "beverage"],
+				 "Verbs": ["divide", "measure", "mix", "shake", "whisk in"],
+				 "Father": "liquor",
+				 "Children": []
+				}
+			]
+			},
+			{"Name": "liqueur",
+			 "Synonyms": ["cordial", "liqueur"],
+			 "Hypers": ["alcohol", "beverage"],
+			 "Verbs": ["fold", "mix in", "stir in"],
+			 "Father": "alcohol",
+			 "Children": [
+				{"Name": "benedictine",
+				 "Synonyms": ["benedictine"],
+				 "Hypers": ["liqueur", "alcohol", "beverage"],
+				 "Verbs": [],
+				 "Father": "liqueur",
+				 "Children": []
+				},
+				{"Name": "amaretto",
+				 "Synonyms": ["amaretto"],
+				 "Hypers": ["liqueur", "alcohol", "beverage"],
+				 "Verbs": ["splash"],
+				 "Father": "liqueur",
+				 "Children": []
+				},
+				{"Name": "maraschino",
+				 "Synonyms": ["maraschino", "maraschino_liqueur"],
+				 "Hypers": ["liqueur", "alcohol", "beverage"],
+				 "Verbs": [],
+				 "Father": "liqueur",
+				 "Children": []
+				}
+			]
+			},
+			{"Name": "wine",
+			 "Synonyms": ["vino", "wine"],
+			 "Hypers": ["alcohol", "beverage"],
+			 "Verbs": ["blitz", "bring", "drain", "drizzle", "fill", "make", "mix", "mix together", "pass", "place", "serve", "splash", "splash in", "spoon", "stir", "stir in", "tip", "toss", "whisk in"],
+			 "Father": "alcohol",
+			 "Children": [
+				{"Name": "fortified_wine",
+				 "Synonyms": [],
+				 "Hypers": ["wine", "alcohol", "beverage"],
+				 "Verbs": [],
+				 "Father": "wine",
+				 "Children": [
+					{"Name": "madeira",
+					 "Synonyms": ["Madeira"],
+					 "Hypers": ["fortified_wine", "wine", "alcohol", "beverage"],
+					 "Verbs": ["bubble", "cut", "fold in", "pulse", "soak"],
+					 "Father": "fortified_wine",
+					 "Children": []
+					},
+					{"Name": "marsala",
+					 "Synonyms": ["Marsala"],
+					 "Hypers": ["fortified_wine", "wine", "alcohol", "beverage"],
+					 "Verbs": ["spoon over"],
+					 "Father": "fortified_wine",
+					 "Children": []
+					},
+					{"Name": "port",
+					 "Synonyms": ["port", "port_wine"],
+					 "Hypers": ["fortified_wine", "wine", "alcohol", "beverage"],
+					 "Verbs": ["cook", "use"],
+					 "Father": "fortified_wine",
+					 "Children": []
+					},
+					{"Name": "sherry",
+					 "Synonyms": ["sherry"],
+					 "Hypers": ["fortified_wine", "wine", "alcohol", "beverage"],
+					 "Verbs": ["leave", "mix in", "warm", "whisk together"],
+					 "Father": "fortified_wine",
+					 "Children": []
+					}
+				]
+				},
+				{"Name": "rose",
+				 "Synonyms": ["blush_wine", "pink_wine", "rose", "rose_wine"],
+				 "Hypers": ["wine", "alcohol", "beverage"],
+				 "Verbs": [],
+				 "Father": "wine",
+				 "Children": []
+				},
+				{"Name": "vermouth",
+				 "Synonyms": ["vermouth"],
+				 "Hypers": ["wine", "alcohol", "beverage"],
+				 "Verbs": [],
+				 "Father": "wine",
+				 "Children": []
+				},
+				{"Name": "champagne",
+				 "Synonyms": ["bubbly", "champagne"],
+				 "Hypers": ["wine", "alcohol", "beverage"],
+				 "Verbs": ["chill", "take"],
+				 "Father": "wine",
+				 "Children": []
+				},
+				{"Name": "hock",
+				 "Synonyms": ["Rhenish", "Rhine_wine", "hock"],
+				 "Hypers": ["wine", "alcohol", "beverage"],
+				 "Verbs": ["handle", "pat", "remove"],
+				 "Father": "wine",
+				 "Children": []
+				}
+			]
+			},
+			{"Name": "brew",
+			 "Synonyms": ["brew", "brewage"],
+			 "Hypers": ["alcohol", "beverage"],
+			 "Verbs": [],
+			 "Father": "alcohol",
+			 "Children": [
+				{"Name": "beer",
+				 "Synonyms": ["beer"],
+				 "Hypers": ["brew", "alcohol", "beverage"],
+				 "Verbs": ["warm"],
+				 "Father": "brew",
+				 "Children": [
+					{"Name": "ale",
+					 "Synonyms": ["ale"],
+					 "Hypers": ["beer", "brew", "alcohol", "beverage"],
+					 "Verbs": [],
+					 "Father": "beer",
+					 "Children": [
+						{"Name": "stout",
+						 "Synonyms": ["stout"],
+						 "Hypers": ["ale", "beer", "brew", "alcohol", "beverage"],
+						 "Verbs": ["place", "stir"],
+						 "Father": "ale",
+						 "Children": [
+							{"Name": "guinness",
+							 "Synonyms": ["Guinness"],
+							 "Hypers": ["stout", "ale", "beer", "brew", "alcohol", "beverage"],
+							 "Verbs": ["mix together"],
+							 "Father": "stout",
+							 "Children": []
+							}
+						]
+						},
+						{"Name": "bitter",
+						 "Synonyms": ["bitter"],
+						 "Hypers": ["ale", "beer", "brew", "alcohol", "beverage"],
+						 "Verbs": [],
+						 "Father": "ale",
+						 "Children": []
+						}
+					]
+					}
+				]
+				},
+				{"Name": "mead",
+				 "Synonyms": ["mead"],
+				 "Hypers": ["brew", "alcohol", "beverage"],
+				 "Verbs": [],
+				 "Father": "brew",
+				 "Children": []
+				}
+			]
+			},
+			{"Name": "mixed_drink",
+			 "Synonyms": ["mixed_drink"],
+			 "Hypers": ["alcohol", "beverage"],
+			 "Verbs": [],
+			 "Father": "alcohol",
+			 "Children": [
+				{"Name": "cocktail",
+				 "Synonyms": ["cocktail"],
+				 "Hypers": ["mixed_drink", "alcohol", "beverage"],
+				 "Verbs": ["drag", "encourage", "garnish", "insert", "keep", "press", "push", "remove", "spread", "strain", "thread", "use"],
+				 "Father": "mixed_drink",
+				 "Children": [
+					{"Name": "martini",
+					 "Synonyms": ["martini"],
+					 "Hypers": ["cocktail", "mixed_drink", "alcohol", "beverage"],
+					 "Verbs": ["make", "mix"],
+					 "Father": "cocktail",
+					 "Children": []
+					},
+					{"Name": "sour",
+					 "Synonyms": ["sour"],
+					 "Hypers": ["cocktail", "mixed_drink", "alcohol", "beverage"],
+					 "Verbs": ["have"],
+					 "Father": "cocktail",
+					 "Children": []
+					}
+				]
+				},
+				{"Name": "punch",
+				 "Synonyms": ["punch"],
+				 "Hypers": ["mixed_drink", "alcohol", "beverage"],
+				 "Verbs": [],
+				 "Father": "mixed_drink",
+				 "Children": [
+					{"Name": "cup",
+					 "Synonyms": ["cup"],
+					 "Hypers": ["punch", "mixed_drink", "alcohol", "beverage"],
+					 "Verbs": ["arrange", "empty", "form", "place", "scoop", "shake", "spread", "top"],
+					 "Father": "punch",
+					 "Children": []
+					}
+				]
+				},
+				{"Name": "highball",
+				 "Synonyms": ["highball"],
+				 "Hypers": ["mixed_drink", "alcohol", "beverage"],
+				 "Verbs": ["fill"],
+				 "Father": "mixed_drink",
+				 "Children": []
+				},
+				{"Name": "toddy",
+				 "Synonyms": ["hot_toddy", "toddy"],
+				 "Hypers": ["mixed_drink", "alcohol", "beverage"],
+				 "Verbs": ["prepare"],
+				 "Father": "mixed_drink",
+				 "Children": []
+				}
+			]
+			}
+		]
+		},
+		{"Name": "chocolate",
+		 "Synonyms": ["chocolate", "cocoa", "drinking_chocolate", "hot_chocolate"],
+		 "Hypers": ["beverage"],
+		 "Verbs": ["add", "beat", "break", "catch", "chop", "coat", "coat in", "combine", "cover", "create", "cut", "dip", "dip in", "divide", "dot", "drizzle", "dunk in", "dye", "ease", "fix", "fold", "fold in", "freeze", "grate", "grate over", "have", "heat", "incorporate", "keep back", "lay", "layer", "leave", "make", "melt", "melt together", "mix", "mix in", "mix together", "need", "overheat", "overmix", "paint", "place", "poke in", "pop", "pour", "pour in", "pull", "push", "put", "reheat", "remove", "roll", "roll in", "scald", "scatter", "scoop", "scrape", "scrape in", "secure", "set aside", "sieve", "sieve in", "sift", "sift in", "sit", "snap", "spoon", "spoon over", "spray", "spread", "sprinkle", "sprinkle in", "start", "stick", "stick on", "stir", "stir in", "swirl", "take", "tip", "tip in", "transfer", "try", "turn", "unwrap", "use", "warm", "whisk in", "whizz", "work", "wrap"],
+		 "Father": "beverage",
+		 "Children": []
+		},
+		{"Name": "milk",
+		 "Synonyms": ["milk"],
+		 "Hypers": ["beverage"],
+		 "Verbs": ["absorb", "add", "beat", "beat in", "beat together", "break", "bring", "brush", "combine", "discard", "drizzle", "float", "fold in", "heat", "infuse", "leave", "loosen", "make", "measure", "melt", "mix", "mix in", "mix together", "place", "position", "pour", "pour in", "pour on", "pulse in", "put", "reserve", "return", "save", "separate", "set", "simmer", "soak", "splash", "spread", "stir", "stir in", "strain", "tip", "warm", "whisk", "whisk in", "whisk together", "whizz"],
+		 "Father": "beverage",
+		 "Children": [
+			{"Name": "buttermilk",
+			 "Synonyms": ["buttermilk"],
+			 "Hypers": ["milk", "beverage"],
+			 "Verbs": ["squeeze", "work"],
+			 "Father": "milk",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "cider",
+		 "Synonyms": ["cider", "cyder"],
+		 "Hypers": ["beverage"],
+		 "Verbs": ["add", "mix together", "pour", "pour in", "reduce", "splash in"],
+		 "Father": "beverage",
+		 "Children": []
+		},
+		{"Name": "coffee",
+		 "Synonyms": ["coffee", "java"],
+		 "Hypers": ["beverage"],
+		 "Verbs": ["add", "beat", "beat in", "dissolve", "insert", "mix", "mix together", "pour", "put", "spoon over", "sprinkle in", "stick", "stir in", "tip", "use", "whisk in"],
+		 "Father": "beverage",
+		 "Children": [
+			{"Name": "espresso",
+			 "Synonyms": ["espresso"],
+			 "Hypers": ["coffee", "beverage"],
+			 "Verbs": ["freeze", "make", "pour in", "whisk"],
+			 "Father": "coffee",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "mixer",
+		 "Synonyms": ["mixer"],
+		 "Hypers": ["beverage"],
+		 "Verbs": ["start", "use"],
+		 "Father": "beverage",
+		 "Children": []
+		},
+		{"Name": "tea",
+		 "Synonyms": ["tea"],
+		 "Hypers": ["beverage"],
+		 "Verbs": ["arrange", "bring", "discard", "mix", "put", "use"],
+		 "Father": "beverage",
+		 "Children": []
+		},
+		{"Name": "lemonade",
+		 "Synonyms": ["lemonade"],
+		 "Hypers": ["beverage"],
+		 "Verbs": ["add", "pour in", "whisk together"],
+		 "Father": "beverage",
+		 "Children": []
+		},
+		{"Name": "pop",
+		 "Synonyms": ["pop", "soda", "soda_pop", "soda_water", "tonic"],
+		 "Hypers": ["beverage"],
+		 "Verbs": ["add", "fold in", "keep", "mix", "poke", "spin"],
+		 "Father": "beverage",
+		 "Children": []
+		}
+	]
+	},
+	{"Name": "dairy_product",
+	 "Synonyms": ["dairy_product"],
+	 "Hypers": [],
+	 "Verbs": [],
+	 "Father": "object",
+	 "Children": [
+		{"Name": "cheese",
+		 "Synonyms": ["cheese"],
+		 "Hypers": ["dairy_product"],
+		 "Verbs": ["add", "beat", "beat in", "blitz", "break", "combine", "cover", "crisp", "crumble", "crumble in", "cut", "dice", "divide", "encase", "find", "fit", "grate over", "grill", "halve", "heat", "lay", "like", "make", "mash", "mix", "mix in", "mix together", "place", "pop", "pour", "pour in", "press", "pull", "push", "put", "remove", "repeat", "scatter", "seal", "serve", "sit", "slash", "slice", "spoon in", "spread", "sprinkle", "stir", "stir in", "tip", "tip in", "toss", "toss in", "unwrap", "use", "whisk in", "whisk together", "whizz"],
+		 "Father": "dairy_product",
+		 "Children": [
+			{"Name": "parmesan",
+			 "Synonyms": ["Parmesan"],
+			 "Hypers": ["cheese", "dairy_product"],
+			 "Verbs": ["rub", "spoon", "turn"],
+			 "Father": "cheese",
+			 "Children": []
+			},
+			{"Name": "brie",
+			 "Synonyms": ["Brie"],
+			 "Hypers": ["cheese", "dairy_product"],
+			 "Verbs": ["have", "whip", "wrap"],
+			 "Father": "cheese",
+			 "Children": []
+			},
+			{"Name": "camembert",
+			 "Synonyms": ["Camembert"],
+			 "Hypers": ["cheese", "dairy_product"],
+			 "Verbs": [],
+			 "Father": "cheese",
+			 "Children": []
+			},
+			{"Name": "mozzarella",
+			 "Synonyms": ["mozzarella"],
+			 "Hypers": ["cheese", "dairy_product"],
+			 "Verbs": ["drain", "tear"],
+			 "Father": "cheese",
+			 "Children": []
+			},
+			{"Name": "ricotta",
+			 "Synonyms": ["ricotta"],
+			 "Hypers": ["cheese", "dairy_product"],
+			 "Verbs": [],
+			 "Father": "cheese",
+			 "Children": []
+			},
+			{"Name": "mascarpone",
+			 "Synonyms": ["mascarpone"],
+			 "Hypers": ["cheese", "dairy_product"],
+			 "Verbs": ["beat together", "layer", "spoon", "whip together", "whisk"],
+			 "Father": "cheese",
+			 "Children": []
+			},
+			{"Name": "stilton",
+			 "Synonyms": ["Stilton"],
+			 "Hypers": ["cheese", "dairy_product"],
+			 "Verbs": ["grate", "rub together"],
+			 "Father": "cheese",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "butter",
+		 "Synonyms": ["butter"],
+		 "Hypers": ["dairy_product"],
+		 "Verbs": ["add", "beat", "beat in", "beat together", "blend", "bring", "brush", "bubble", "chop", "coat", "coat in", "combine", "cook", "cool", "cream", "cream together", "crush", "cut", "divide", "do", "dot", "drizzle", "drop", "ease", "fold", "form", "freeze", "fry", "grate", "grate in", "have", "heat", "hold", "lay", "leave", "make", "mash", "melt", "melt in", "mix", "mix in", "mix together", "pipe", "place", "pour", "pour in", "pour over", "pulse", "pulse in", "pulse together", "push", "put", "put in", "reheat", "remove", "roll", "rub", "rub in", "rub together", "seal", "simmer", "slice", "smear", "smooth", "soak", "spoon over", "spread", "squeeze", "squish", "stir", "stir in", "stir together", "stuff", "swirl in", "take", "throw in", "tip", "tip in", "use", "warm", "wash", "whisk", "whisk in", "whisk together", "whizz", "whizz together", "work", "wrap", "xx"],
+		 "Father": "dairy_product",
+		 "Children": []
+		},
+		{"Name": "cream",
+		 "Synonyms": ["cream"],
+		 "Hypers": ["dairy_product"],
+		 "Verbs": ["add", "beat", "beat in", "beat together", "boil", "bring", "cling", "combine", "contain", "divide", "do", "dollop", "dribble", "drop", "dust", "float", "fold", "fold in", "heat", "layer", "make", "mash", "melt", "melt together", "mix", "mix in", "mix together", "pipe", "pipe on", "place", "pour", "pour in", "pulse", "put", "remove", "repeat", "rinse", "ripple", "scoop", "scrape in", "season", "shake", "speed", "spoon", "spoon over", "spread", "stir", "stir in", "strain", "strain in", "take", "tip", "tip in", "top", "toss", "turn", "warm", "whip", "whisk", "whisk in", "whisk together", "whizz"],
+		 "Father": "dairy_product",
+		 "Children": []
+		},
+		{"Name": "curd",
+		 "Synonyms": ["curd"],
+		 "Hypers": ["dairy_product"],
+		 "Verbs": ["spoon", "whisk"],
+		 "Father": "dairy_product",
+		 "Children": []
+		},
+		{"Name": "yogurt",
+		 "Synonyms": ["yoghourt", "yoghurt", "yogurt"],
+		 "Hypers": ["dairy_product"],
+		 "Verbs": ["add", "beat", "beat in", "beat together", "blend", "combine", "heat", "mix", "mix together", "overlap", "stir in", "swirl in", "whip", "whisk", "whisk together", "whizz"],
+		 "Father": "dairy_product",
+		 "Children": []
+		}
+	]
+	},
+	{"Name": "dish",
+	 "Synonyms": ["dish", "dish_aerial", "dish_antenna", "dishful", "saucer"],
+	 "Hypers": [],
+	 "Verbs": [],
+	 "Father": "object",
+	 "Children": [
+		{"Name": "soup",
+		 "Synonyms": ["soup"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["add", "blend", "blitz", "defrost", "freeze", "ladle", "leave", "make", "pour", "purée", "reheat", "return", "serve", "thin", "top", "transfer"],
+		 "Father": "dish",
+		 "Children": [
+			{"Name": "marmite",
+			 "Synonyms": ["marmite"],
+			 "Hypers": ["soup", "dish"],
+			 "Verbs": ["beat", "form"],
+			 "Father": "soup",
+			 "Children": []
+			},
+			{"Name": "broth",
+			 "Synonyms": ["broth", "stock"],
+			 "Hypers": ["soup", "dish"],
+			 "Verbs": ["boil", "bring", "burn", "combine", "crumble", "drain", "heat", "keep", "measure", "melt", "mix", "mix in", "need", "pour in", "prevent", "put", "reserve", "simmer", "sprinkle in", "stir", "stir in", "stir together", "strain", "tip in", "use", "warm", "whisk in"],
+			 "Father": "soup",
+			 "Children": [
+				{"Name": "bouillon",
+				 "Synonyms": ["bouillon"],
+				 "Hypers": ["broth", "soup", "dish"],
+				 "Verbs": [],
+				 "Father": "broth",
+				 "Children": []
+				}
+			]
+			}
+		]
+		},
+		{"Name": "barbecue",
+		 "Synonyms": ["barbecue", "barbeque"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["make"],
+		 "Father": "dish",
+		 "Children": []
+		},
+		{"Name": "bowl",
+		 "Synonyms": ["bowl"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["butter", "clean", "cover", "cross", "fill", "grab", "grease", "hold", "keep", "leave", "line", "melt", "move", "oil", "place", "prepare", "put", "remove", "rinse", "rub", "set", "shake", "sit", "stand", "take", "top", "turn", "uncover", "use", "wrap", "xx"],
+		 "Father": "dish",
+		 "Children": []
+		},
+		{"Name": "snack_food",
+		 "Synonyms": ["snack_food"],
+		 "Hypers": ["dish"],
+		 "Verbs": [],
+		 "Father": "dish",
+		 "Children": [
+			{"Name": "sandwich",
+			 "Synonyms": ["sandwich"],
+			 "Hypers": ["snack_food", "dish"],
+			 "Verbs": ["create", "fry", "make", "slice", "use"],
+			 "Father": "snack_food",
+			 "Children": [
+				{"Name": "burger",
+				 "Synonyms": ["beefburger", "burger", "hamburger"],
+				 "Hypers": ["sandwich", "snack_food", "dish"],
+				 "Verbs": ["cook", "toast"],
+				 "Father": "sandwich",
+				 "Children": []
+				},
+				{"Name": "wedge",
+				 "Synonyms": ["Cuban_sandwich", "Italian_sandwich", "bomber", "grinder", "hero", "hero_sandwich", "hoagie", "hoagy", "poor_boy", "sub", "submarine", "submarine_sandwich", "torpedo", "wedge", "zep"],
+				 "Hypers": ["sandwich", "snack_food", "dish"],
+				 "Verbs": ["add", "arrange", "halve", "have", "place", "put", "skewer", "toss"],
+				 "Father": "sandwich",
+				 "Children": []
+				},
+				{"Name": "wrap",
+				 "Synonyms": ["wrap"],
+				 "Hypers": ["sandwich", "snack_food", "dish"],
+				 "Verbs": ["neaten", "roll"],
+				 "Father": "sandwich",
+				 "Children": []
+				}
+			]
+			},
+			{"Name": "chip",
+			 "Synonyms": ["Saratoga_chip", "chip", "crisp", "potato_chip"],
+			 "Hypers": ["snack_food", "dish"],
+			 "Verbs": ["brush", "have", "tip", "toss"],
+			 "Father": "snack_food",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "cake",
+		 "Synonyms": ["cake", "patty"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["add", "affect", "assemble", "bake", "balance", "bang", "beat", "bring", "brush", "butter", "buy", "check", "chill", "choose", "coat", "cook", "cool", "cover", "crumble", "crumble in", "cut", "decorate", "dip", "distribute", "divide", "do", "dollop", "drape", "drizzle", "dust", "ease", "eat", "feed", "fill", "finish", "fit", "flip", "freeze", "frost", "fry", "get", "glaze", "glue", "grease", "halve", "have", "hold", "ice", "insert", "invert", "keep", "layer", "leave", "level", "lift", "lift over", "line", "make", "overcook", "pepper", "pile", "place", "poke", "pop", "press", "prod", "push", "put", "reassemble", "reheat", "remove", "return", "roll", "sandwich", "scatter", "scoop", "scrape", "seal", "serve", "show", "sit", "skewer", "slice", "slide", "slip", "smooth", "split", "spoon", "sprinkle", "stack", "stand", "stir together", "store", "swap", "take", "test", "tip", "top", "touch", "transfer", "trim", "turn", "unravel", "unroll", "unwrap", "use", "whizz", "wrap", "xx"],
+		 "Father": "dish",
+		 "Children": []
+		},
+		{"Name": "casserole",
+		 "Synonyms": ["casserole"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["grease", "place", "put", "remove"],
+		 "Father": "dish",
+		 "Children": []
+		},
+		{"Name": "couscous",
+		 "Synonyms": ["couscous"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["put", "spoon", "stir in", "top"],
+		 "Father": "dish",
+		 "Children": []
+		},
+		{"Name": "croquette",
+		 "Synonyms": ["croquette"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["coat", "fry", "lift", "roll"],
+		 "Father": "dish",
+		 "Children": []
+		},
+		{"Name": "curry",
+		 "Synonyms": ["curry"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["add", "combine", "fry", "heat", "make", "mix together", "stir in", "stir together"],
+		 "Father": "dish",
+		 "Children": []
+		},
+		{"Name": "custard",
+		 "Synonyms": ["custard"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["add", "blitz together", "bring", "create", "divide", "fold", "fold in", "have", "make", "measure", "mix", "pour", "pour in", "prepare", "put", "remove", "spoon", "spoon over", "spread", "stir", "stir in", "stir together", "strain", "transfer", "trickle", "whip together"],
+		 "Father": "dish",
+		 "Children": []
+		},
+		{"Name": "falafel",
+		 "Synonyms": ["falafel", "felafel"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["cool"],
+		 "Father": "dish",
+		 "Children": []
+		},
+		{"Name": "fondue",
+		 "Synonyms": ["fondu", "fondue"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["cook", "serve"],
+		 "Father": "dish",
+		 "Children": []
+		},
+		{"Name": "hash",
+		 "Synonyms": ["hash"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["divide", "push", "serve", "stack"],
+		 "Father": "dish",
+		 "Children": []
+		},
+		{"Name": "stew",
+		 "Synonyms": ["stew"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["return"],
+		 "Father": "dish",
+		 "Children": [
+			{"Name": "hotpot",
+			 "Synonyms": ["hot_pot", "hotpot"],
+			 "Hypers": ["stew", "dish"],
+			 "Verbs": ["cover"],
+			 "Father": "stew",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "meatball",
+		 "Synonyms": ["meatball"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["form", "space", "squash"],
+		 "Father": "dish",
+		 "Children": []
+		},
+		{"Name": "mould",
+		 "Synonyms": ["mold", "mould"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["butter", "chill", "cover", "fill", "grease", "line", "need", "place", "smooth"],
+		 "Father": "dish",
+		 "Children": []
+		},
+		{"Name": "mousse",
+		 "Synonyms": ["mousse"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["decorate", "invert", "make", "serve", "slice", "top"],
+		 "Father": "dish",
+		 "Children": []
+		},
+		{"Name": "porridge",
+		 "Synonyms": ["porridge"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["divide"],
+		 "Father": "dish",
+		 "Children": [
+			{"Name": "oatmeal",
+			 "Synonyms": ["burgoo", "oatmeal"],
+			 "Hypers": ["porridge", "dish"],
+			 "Verbs": ["put"],
+			 "Father": "porridge",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "pizza",
+		 "Synonyms": ["pizza", "pizza_pie"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["cut", "make", "prepare", "prick", "put", "use"],
+		 "Father": "dish",
+		 "Children": []
+		},
+		{"Name": "pudding",
+		 "Synonyms": ["pudding"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["add", "blitz together", "boil", "brush", "build", "cook", "cool", "cover", "crumble", "crumble in", "cut", "do", "drizzle", "feed", "fill", "fit", "fry", "give", "grease", "hold", "keep", "leave", "lift", "line", "loosen", "lower", "make", "mix", "need", "pack in", "place", "pleat", "prepare", "put", "reheat", "remove", "return", "scrunch", "secure", "serve", "simmer", "sit", "spoon in", "spoon over", "stand", "steam", "store", "tailor", "take", "tie", "tip", "turn", "upturn", "warm"],
+		 "Father": "dish",
+		 "Children": []
+		},
+		{"Name": "ramekin",
+		 "Synonyms": ["ramekin", "ramequin"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["butter", "cover", "flour", "grease", "leave", "line", "oil", "place", "put", "serve", "set", "stand", "use", "weigh"],
+		 "Father": "dish",
+		 "Children": []
+		},
+		{"Name": "rarebit",
+		 "Synonyms": ["Welsh_rabbit", "Welsh_rarebit", "rarebit"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["pile"],
+		 "Father": "dish",
+		 "Children": []
+		},
+		{"Name": "risotto",
+		 "Synonyms": ["Italian_rice", "risotto"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["chill", "divide", "put", "spoon"],
+		 "Father": "dish",
+		 "Children": []
+		},
+		{"Name": "roulade",
+		 "Synonyms": ["roulade"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["bake", "cover", "place", "roll", "serve", "turn", "unroll"],
+		 "Father": "dish",
+		 "Children": []
+		},
+		{"Name": "salad",
+		 "Synonyms": ["salad"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["arrange", "combine", "divide", "dress", "drizzle", "finish", "fry", "lift", "make", "mix", "offer", "place", "pour", "serve", "spoon", "throw together", "toss", "toss together"],
+		 "Father": "dish",
+		 "Children": [
+			{"Name": "slaw",
+			 "Synonyms": ["coleslaw", "slaw"],
+			 "Hypers": ["salad", "dish"],
+			 "Verbs": [],
+			 "Father": "salad",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "turnover",
+		 "Synonyms": ["turnover"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["brush", "make", "place"],
+		 "Father": "dish",
+		 "Children": [
+			{"Name": "samosa",
+			 "Synonyms": ["samosa"],
+			 "Hypers": ["turnover", "dish"],
+			 "Verbs": ["lay"],
+			 "Father": "turnover",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "teriyaki",
+		 "Synonyms": ["teriyaki"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["add"],
+		 "Father": "dish",
+		 "Children": []
+		},
+		{"Name": "terrine",
+		 "Synonyms": ["terrine"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["assemble", "cover", "drizzle", "fit", "grease", "lay", "lift", "line", "make", "place", "pour", "press", "remove", "serve", "set", "slice", "tap", "turn", "wrap"],
+		 "Father": "dish",
+		 "Children": []
+		},
+		{"Name": "raita",
+		 "Synonyms": ["raita"],
+		 "Hypers": ["dish"],
+		 "Verbs": ["season"],
+		 "Father": "dish",
+		 "Children": []
+		}
+	]
+	},
+	{"Name": "fish",
+	 "Synonyms": ["fish"],
+	 "Hypers": [],
+	 "Verbs": [],
+	 "Father": "object",
+	 "Children": [
+		{"Name": "anchovy",
+		 "Synonyms": ["anchovy"],
+		 "Hypers": ["fish"],
+		 "Verbs": ["add", "cook", "grind", "put", "tip"],
+		 "Father": "fish",
+		 "Children": []
+		},
+		{"Name": "food_fish",
+		 "Synonyms": [],
+		 "Hypers": ["fish"],
+		 "Verbs": [],
+		 "Father": "fish",
+		 "Children": [
+			{"Name": "sea_bass",
+			 "Synonyms": [],
+			 "Hypers": ["food_fish", "fish"],
+			 "Verbs": [],
+			 "Father": "food_fish",
+			 "Children": [
+				{"Name": "rockfish",
+				 "Synonyms": [],
+				 "Hypers": ["sea_bass", "food_fish", "fish"],
+				 "Verbs": [],
+				 "Father": "sea_bass",
+				 "Children": [
+					{"Name": "rasher",
+					 "Synonyms": ["Sebastodes_miniatus", "rasher", "vermillion_rockfish"],
+					 "Hypers": ["rockfish", "sea_bass", "food_fish", "fish"],
+					 "Verbs": ["add", "arrange", "bring", "cross", "fry", "lay", "lift", "need", "overlap", "place", "press", "remove", "reserve", "seal", "stretch", "weave"],
+					 "Father": "rockfish",
+					 "Children": []
+					}
+				]
+				}
+			]
+			},
+			{"Name": "tuna",
+			 "Synonyms": ["Anguilla_sucklandii", "tuna", "tunny"],
+			 "Hypers": ["food_fish", "fish"],
+			 "Verbs": ["mix", "put"],
+			 "Father": "food_fish",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "salmon",
+		 "Synonyms": ["salmon"],
+		 "Hypers": ["fish"],
+		 "Verbs": ["add", "arrange", "blitz", "brush", "chop", "cover", "cut", "divide", "dollop", "fold in", "fold over", "invert", "lay", "leave", "lift", "mix in", "pack", "place", "press", "pulse", "put", "release", "remove", "rinse", "season", "serve", "skin", "slice", "stir in", "stir though", "tear", "tip", "turn", "unwrap", "use", "weigh", "wipe", "wrap"],
+		 "Father": "fish",
+		 "Children": []
+		},
+		{"Name": "trout",
+		 "Synonyms": ["trout"],
+		 "Hypers": ["fish"],
+		 "Verbs": ["bring", "flake", "put"],
+		 "Father": "fish",
+		 "Children": []
+		},
+		{"Name": "goujon",
+		 "Synonyms": ["Pylodictus_olivaris", "flathead_catfish", "goujon", "mudcat", "shovelnose_catfish", "spoonbill_catfish"],
+		 "Hypers": ["fish"],
+		 "Verbs": ["bake"],
+		 "Father": "fish",
+		 "Children": []
+		}
+	]
+	},
+	{"Name": "food",
+	 "Synonyms": ["food", "food_for_thought", "intellectual_nourishment", "nutrient", "solid_food"],
+	 "Hypers": [],
+	 "Verbs": [],
+	 "Father": "object",
+	 "Children": [
+		{"Name": "nutriment",
+		 "Synonyms": ["aliment", "alimentation", "nourishment", "nutriment", "nutrition", "sustenance", "victuals"],
+		 "Hypers": ["food"],
+		 "Verbs": [],
+		 "Father": "food",
+		 "Children": [
+			{"Name": "course",
+			 "Synonyms": ["course"],
+			 "Hypers": ["nutriment", "food"],
+			 "Verbs": [],
+			 "Father": "nutriment",
+			 "Children": [
+				{"Name": "dessert",
+				 "Synonyms": ["afters", "dessert", "sweet"],
+				 "Hypers": ["course", "nutriment", "food"],
+				 "Verbs": ["put", "remove", "serve", "transfer", "use"],
+				 "Father": "course",
+				 "Children": [
+					{"Name": "pavlova",
+					 "Synonyms": ["pavlova"],
+					 "Hypers": ["dessert", "course", "nutriment", "food"],
+					 "Verbs": ["assemble"],
+					 "Father": "dessert",
+					 "Children": []
+					},
+					{"Name": "compote",
+					 "Synonyms": ["compote", "fruit_compote"],
+					 "Hypers": ["dessert", "course", "nutriment", "food"],
+					 "Verbs": ["make", "whizz"],
+					 "Father": "dessert",
+					 "Children": []
+					},
+					{"Name": "flan",
+					 "Synonyms": ["flan"],
+					 "Hypers": ["dessert", "course", "nutriment", "food"],
+					 "Verbs": ["line"],
+					 "Father": "dessert",
+					 "Children": []
+					},
+					{"Name": "frozen_dessert",
+					 "Synonyms": ["frozen_dessert"],
+					 "Hypers": ["dessert", "course", "nutriment", "food"],
+					 "Verbs": [],
+					 "Father": "dessert",
+					 "Children": [
+						{"Name": "ice",
+						 "Synonyms": ["frappe", "ice"],
+						 "Hypers": ["frozen_dessert", "dessert", "course", "nutriment", "food"],
+						 "Verbs": ["add", "break", "catch", "churn", "churn in", "combine", "cover", "divide", "enclose", "garnish", "have", "infuse", "leave", "lift", "make", "mix", "oil", "pack", "place", "pop", "ripple", "save", "scoop", "scrape", "sit", "speckle", "spoon", "take", "turn", "unwrap", "whisk", "whizz"],
+						 "Father": "frozen_dessert",
+						 "Children": [
+							{"Name": "sorbet",
+							 "Synonyms": ["sorbet", "water_ice"],
+							 "Hypers": ["ice", "frozen_dessert", "dessert", "course", "nutriment", "food"],
+							 "Verbs": [],
+							 "Father": "ice",
+							 "Children": []
+							}
+						]
+						},
+						{"Name": "lollipop",
+						 "Synonyms": ["all-day_sucker", "ice_lolly", "lollipop", "lolly", "popsicle", "sucker"],
+						 "Hypers": ["frozen_dessert", "dessert", "course", "nutriment", "food"],
+						 "Verbs": ["dip", "insert", "push"],
+						 "Father": "frozen_dessert",
+						 "Children": []
+						},
+						{"Name": "parfait",
+						 "Synonyms": ["parfait"],
+						 "Hypers": ["frozen_dessert", "dessert", "course", "nutriment", "food"],
+						 "Verbs": ["spread", "take", "top", "turn"],
+						 "Father": "frozen_dessert",
+						 "Children": []
+						},
+						{"Name": "snowball",
+						 "Synonyms": ["snowball"],
+						 "Hypers": ["frozen_dessert", "dessert", "course", "nutriment", "food"],
+						 "Verbs": ["make", "sit"],
+						 "Father": "frozen_dessert",
+						 "Children": []
+						},
+						{"Name": "sundae",
+						 "Synonyms": ["ice-cream_sundae", "sundae"],
+						 "Hypers": ["frozen_dessert", "dessert", "course", "nutriment", "food"],
+						 "Verbs": ["top"],
+						 "Father": "frozen_dessert",
+						 "Children": []
+						}
+					]
+					},
+					{"Name": "pud",
+					 "Synonyms": ["pud", "pudding"],
+					 "Hypers": ["dessert", "course", "nutriment", "food"],
+					 "Verbs": ["boil", "cover", "keep", "leave", "lower", "see", "simmer", "sit", "steam"],
+					 "Father": "dessert",
+					 "Children": []
+					},
+					{"Name": "zabaglione",
+					 "Synonyms": ["sabayon", "zabaglione"],
+					 "Hypers": ["dessert", "course", "nutriment", "food"],
+					 "Verbs": ["pour"],
+					 "Father": "dessert",
+					 "Children": []
+					}
+				]
+				},
+				{"Name": "sweet",
+				 "Synonyms": ["afters", "confection", "dessert", "sweet"],
+				 "Hypers": ["course", "nutriment", "food"],
+				 "Verbs": ["add", "crush", "dunk in", "mix in", "put", "scatter", "stick", "stick on", "stir", "toss", "use"],
+				 "Father": "course",
+				 "Children": [
+					{"Name": "candy",
+					 "Synonyms": ["candy", "confect"],
+					 "Hypers": ["sweet", "course", "nutriment", "food"],
+					 "Verbs": ["arrange", "cut", "give", "hang", "make", "roll", "spread", "tie"],
+					 "Father": "sweet",
+					 "Children": [
+						{"Name": "butterscotch",
+						 "Synonyms": ["butterscotch"],
+						 "Hypers": ["candy", "sweet", "course", "nutriment", "food"],
+						 "Verbs": ["reheat", "warm"],
+						 "Father": "candy",
+						 "Children": []
+						},
+						{"Name": "fondant",
+						 "Synonyms": ["fondant"],
+						 "Hypers": ["candy", "sweet", "course", "nutriment", "food"],
+						 "Verbs": ["break", "divide", "drape", "knead", "mix", "pull"],
+						 "Father": "candy",
+						 "Children": []
+						},
+						{"Name": "fudge",
+						 "Synonyms": ["fudge"],
+						 "Hypers": ["candy", "sweet", "course", "nutriment", "food"],
+						 "Verbs": ["leave", "pour", "see"],
+						 "Father": "candy",
+						 "Children": []
+						},
+						{"Name": "marshmallow",
+						 "Synonyms": ["marshmallow"],
+						 "Hypers": ["candy", "sweet", "course", "nutriment", "food"],
+						 "Verbs": ["attach", "coat", "cover", "dip", "dunk", "enjoy", "form", "hold", "leave", "lift", "line", "melt", "pick", "skewer", "snip", "thread", "wrap"],
+						 "Father": "candy",
+						 "Children": []
+						},
+						{"Name": "marzipan",
+						 "Synonyms": ["marchpane", "marzipan"],
+						 "Hypers": ["candy", "sweet", "course", "nutriment", "food"],
+						 "Verbs": ["break", "brush", "colour", "cover", "divide", "do", "drape", "encase", "expose", "flatten", "freeze", "grate", "knead", "lay", "lift", "lower", "mix", "overdo", "place", "position", "press", "punch", "roll out", "set", "shape", "sit", "smooth", "spray", "sprinkle", "squash", "stir in", "trim", "trim away", "turn", "unravel", "unwrap"],
+						 "Father": "candy",
+						 "Children": []
+						},
+						{"Name": "nougat",
+						 "Synonyms": ["nougat"],
+						 "Hypers": ["candy", "sweet", "course", "nutriment", "food"],
+						 "Verbs": ["break", "dip", "leave"],
+						 "Father": "candy",
+						 "Children": []
+						},
+						{"Name": "praline",
+						 "Synonyms": ["praline"],
+						 "Hypers": ["candy", "sweet", "course", "nutriment", "food"],
+						 "Verbs": ["break"],
+						 "Father": "candy",
+						 "Children": []
+						},
+						{"Name": "rock",
+						 "Synonyms": ["rock", "rock_candy"],
+						 "Hypers": ["candy", "sweet", "course", "nutriment", "food"],
+						 "Verbs": ["mix"],
+						 "Father": "candy",
+						 "Children": []
+						},
+						{"Name": "toffee",
+						 "Synonyms": ["brittle", "toffee", "toffy"],
+						 "Hypers": ["candy", "sweet", "course", "nutriment", "food"],
+						 "Verbs": ["get", "push"],
+						 "Father": "candy",
+						 "Children": []
+						}
+					]
+					},
+					{"Name": "centre",
+					 "Synonyms": ["center", "centre"],
+					 "Hypers": ["sweet", "course", "nutriment", "food"],
+					 "Verbs": ["catch", "create", "cut", "cut away", "fill", "press down", "prick", "remove", "sprinkle", "stud", "wrap"],
+					 "Father": "sweet",
+					 "Children": []
+					},
+					{"Name": "conserve",
+					 "Synonyms": ["conserve", "conserves", "preserve", "preserves"],
+					 "Hypers": ["sweet", "course", "nutriment", "food"],
+					 "Verbs": ["brush", "melt", "mix", "mix together"],
+					 "Father": "sweet",
+					 "Children": [
+						{"Name": "jam",
+						 "Synonyms": ["jam"],
+						 "Hypers": ["conserve", "confiture", "sweet", "course", "nutriment", "food"],
+						 "Verbs": ["beat", "bring", "bubble", "ensure", "leave", "spoon", "spread", "start", "warm"],
+						 "Father": "conserve",
+						 "Children": []
+						},
+						{"Name": "marmalade",
+						 "Synonyms": ["marmalade"],
+						 "Hypers": ["conserve", "confiture", "sweet", "course", "nutriment", "food"],
+						 "Verbs": ["push"],
+						 "Father": "conserve",
+						 "Children": []
+						}
+					]
+					}
+				]
+				},
+				{"Name": "starter",
+				 "Synonyms": ["appetiser", "appetizer", "starter"],
+				 "Hypers": ["course", "nutriment", "food"],
+				 "Verbs": ["feed"],
+				 "Father": "course",
+				 "Children": []
+				}
+			]
+			},
+			{"Name": "vitamin",
+			 "Synonyms": ["vitamin"],
+			 "Hypers": ["nutriment", "food"],
+			 "Verbs": [],
+			 "Father": "nutriment",
+			 "Children": [
+				{"Name": "fat-soluble_vitamin",
+				 "Synonyms": ["fat-soluble_vitamin"],
+				 "Hypers": ["vitamin", "nutriment", "food"],
+				 "Verbs": [],
+				 "Father": "vitamin",
+				 "Children": [
+					{"Name": "a",
+					 "Synonyms": ["A", "antiophthalmic_factor", "axerophthol", "vitamin_A"],
+					 "Hypers": ["fat-soluble_vitamin", "vitamin", "nutriment", "food"],
+					 "Verbs": ["cue", "need"],
+					 "Father": "fat-soluble_vitamin",
+					 "Children": []
+					},
+					{"Name": "as",
+					 "Synonyms": ["A", "antiophthalmic_factor", "axerophthol", "vitamin_A"],
+					 "Hypers": ["fat-soluble_vitamin", "vitamin", "nutriment", "food"],
+					 "Verbs": ["brush", "make", "put"],
+					 "Father": "fat-soluble_vitamin",
+					 "Children": []
+					}
+				]
+				},
+				{"Name": "water-soluble_vitamin",
+				 "Synonyms": ["water-soluble_vitamin"],
+				 "Hypers": ["vitamin", "nutriment", "food"],
+				 "Verbs": ["need"],
+				 "Father": "vitamin",
+				 "Children": [
+					{"Name": "b",
+					 "Synonyms": ["B", "B-complex_vitamin", "B_complex", "B_vitamin", "vitamin_B", "vitamin_B_complex"],
+					 "Hypers": ["water-soluble_vitamin", "vitamin", "nutriment", "food"],
+					 "Verbs": [],
+					 "Father": "water-soluble_vitamin",
+					 "Children": []
+					},
+					{"Name": "c",
+					 "Synonyms": ["C", "ascorbic_acid", "vitamin_C"],
+					 "Hypers": ["water-soluble_vitamin", "vitamin", "nutriment", "food"],
+					 "Verbs": [],
+					 "Father": "water-soluble_vitamin",
+					 "Children": []
+					}
+				]
+				}
+			]
+			},
+			{"Name": "meal",
+			 "Synonyms": ["meal", "repast"],
+			 "Hypers": ["nutriment", "food"],
+			 "Verbs": ["take"],
+			 "Father": "nutriment",
+			 "Children": [
+				{"Name": "dinner",
+				 "Synonyms": ["dinner"],
+				 "Hypers": ["meal", "nutriment", "food"],
+				 "Verbs": ["cover"],
+				 "Father": "meal",
+				 "Children": []
+				},
+				{"Name": "supper",
+				 "Synonyms": ["supper"],
+				 "Hypers": ["meal", "nutriment", "food"],
+				 "Verbs": ["unwrap"],
+				 "Father": "meal",
+				 "Children": []
+				},
+				{"Name": "tiffin",
+				 "Synonyms": ["dejeuner", "lunch", "luncheon", "tiffin"],
+				 "Hypers": ["meal", "nutriment", "food"],
+				 "Verbs": ["spoon"],
+				 "Father": "meal",
+				 "Children": []
+				}
+			]
+			},
+			{"Name": "dish",
+			 "Synonyms": ["dish"],
+			 "Hypers": ["nutriment", "food"],
+			 "Verbs": ["assemble", "bang", "brush", "butter", "chill", "complete", "cover", "fill", "find", "finish", "flour", "grease", "layer", "leave", "line", "overwrap", "place", "put", "remove", "return", "roll", "rub", "set", "sit", "slide", "take", "tilt", "turn", "uncover", "use", "wrap"],
+			 "Father": "nutriment",
+			 "Children": [
+				{"Name": "trifle",
+				 "Synonyms": ["trifle"],
+				 "Hypers": ["dish", "nutriment", "food"],
+				 "Verbs": ["cling", "do", "make"],
+				 "Father": "dish",
+				 "Children": []
+				}
+			]
+			},
+			{"Name": "mince",
+			 "Synonyms": ["mince"],
+			 "Hypers": ["nutriment", "food"],
+			 "Verbs": ["add", "bake", "bring", "ease", "form", "leave", "make", "mix", "release", "remove", "stir in", "transfer"],
+			 "Father": "nutriment",
+			 "Children": []
+			},
+			{"Name": "jelly",
+			 "Synonyms": ["gelatin", "jelly"],
+			 "Hypers": ["nutriment", "food"],
+			 "Verbs": ["add", "attach", "catch", "cover", "eat", "hang", "have", "leave", "make", "melt", "mix in", "pass", "pour", "put", "scatter", "sit", "spoon", "spread", "stir in", "turn", "whisk", "wipe"],
+			 "Father": "nutriment",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "baked_goods",
+		 "Synonyms": ["baked_goods"],
+		 "Hypers": ["food"],
+		 "Verbs": [],
+		 "Father": "food",
+		 "Children": [
+			{"Name": "cake",
+			 "Synonyms": ["cake", "patty"],
+			 "Hypers": ["baked_goods", "food"],
+			 "Verbs": [],
+			 "Father": "baked_goods",
+			 "Children": [
+				{"Name": "baba",
+				 "Synonyms": ["baba"],
+				 "Hypers": ["cake", "baked_goods", "food"],
+				 "Verbs": ["drizzle over", "leave", "stir together"],
+				 "Father": "cake",
+				 "Children": []
+				},
+				{"Name": "biscuit",
+				 "Synonyms": ["biscuit", "cookie", "cooky"],
+				 "Hypers": ["cake", "baked_goods", "food"],
+				 "Verbs": ["add", "arrange", "bake", "bash", "blitz", "break", "brush", "combine", "cook", "cover", "create", "crumble", "crush", "cut", "decorate", "dip", "divide", "drape", "dust", "eat", "enclose", "fill", "form", "freeze", "get", "hang", "have", "hold", "ice", "layer", "leave", "lift", "make", "mark", "mix", "pack", "paint", "place", "pop", "push", "put", "remove", "roll", "scatter", "shape", "snap", "space", "stamp", "stick", "tip", "top", "transfer", "turn", "use", "whizz", "wrap"],
+				 "Father": "cake",
+				 "Children": [
+					{"Name": "brownie",
+					 "Synonyms": ["brownie"],
+					 "Hypers": ["biscuit", "cake", "baked_goods", "food", "cookie"],
+					 "Verbs": ["drizzle", "pour", "reveal"],
+					 "Father": "biscuit",
+					 "Children": []
+					},
+					{"Name": "shortbread",
+					 "Synonyms": ["shortbread", "shortbread_cookie"],
+					 "Hypers": ["biscuit", "cake", "baked_goods", "food"],
+					 "Verbs": [],
+					 "Father": "biscuit",
+					 "Children": []
+					}
+				]
+				},
+				{"Name": "pancake",
+				 "Synonyms": ["battercake", "flannel-cake", "flannel_cake", "flapcake", "flapjack", "griddlecake", "hot_cake", "hotcake", "pancake"],
+				 "Hypers": ["cake", "baked_goods", "food"],
+				 "Verbs": ["arrange", "cook", "flip", "fold", "fry", "have", "ladle in", "lay", "make", "pour", "serve", "stack", "transfer", "trim"],
+				 "Father": "cake",
+				 "Children": [
+					{"Name": "blini",
+					 "Synonyms": ["blini", "bliny"],
+					 "Hypers": ["pancake", "cake", "baked_goods", "food"],
+					 "Verbs": ["add in", "freeze", "leave", "place", "shake", "spread", "warm"],
+					 "Father": "pancake",
+					 "Children": []
+					},
+					{"Name": "latke",
+					 "Synonyms": ["latke", "potato_pancake"],
+					 "Hypers": ["pancake", "cake", "baked_goods", "food"],
+					 "Verbs": ["do"],
+					 "Father": "pancake",
+					 "Children": []
+					},
+					{"Name": "tortilla",
+					 "Synonyms": ["tortilla"],
+					 "Hypers": ["pancake", "cake", "baked_goods", "food"],
+					 "Verbs": ["cut", "heat", "slide", "warm"],
+					 "Father": "pancake",
+					 "Children": []
+					}
+				]
+				},
+				{"Name": "cheesecake",
+				 "Synonyms": ["cheesecake"],
+				 "Hypers": ["cake", "baked_goods", "food"],
+				 "Verbs": ["bake", "chill", "decorate", "ease", "leave", "pour", "put", "release", "remove", "serve", "slide", "top", "turn", "unmould", "unwrap"],
+				 "Father": "cake",
+				 "Children": []
+				},
+				{"Name": "crumpet",
+				 "Synonyms": ["crumpet"],
+				 "Hypers": ["cake", "baked_goods", "food"],
+				 "Verbs": ["grill", "make"],
+				 "Father": "cake",
+				 "Children": []
+				},
+				{"Name": "cupcake",
+				 "Synonyms": ["cupcake"],
+				 "Hypers": ["cake", "baked_goods", "food"],
+				 "Verbs": ["fill", "ice", "pack in", "remove"],
+				 "Father": "cake",
+				 "Children": []
+				},
+				{"Name": "friedcake",
+				 "Synonyms": ["friedcake"],
+				 "Hypers": ["cake", "baked_goods", "food"],
+				 "Verbs": [],
+				 "Father": "cake",
+				 "Children": [
+					{"Name": "doughnut",
+					 "Synonyms": ["donut", "doughnut", "sinker"],
+					 "Hypers": ["friedcake", "cake", "baked_goods", "food"],
+					 "Verbs": ["bake", "do", "roll", "sit", "stretch"],
+					 "Father": "friedcake",
+					 "Children": []
+					},
+					{"Name": "fritter",
+					 "Synonyms": ["fritter"],
+					 "Hypers": ["friedcake", "cake", "baked_goods", "food"],
+					 "Verbs": ["cook", "fry", "mix together", "put", "reheat"],
+					 "Father": "friedcake",
+					 "Children": []
+					}
+				]
+				},
+				{"Name": "fruitcake",
+				 "Synonyms": ["fruitcake"],
+				 "Hypers": ["cake", "baked_goods", "food"],
+				 "Verbs": ["cut", "see", "slice", "top"],
+				 "Father": "cake",
+				 "Children": []
+				},
+				{"Name": "gateau",
+				 "Synonyms": ["gateau"],
+				 "Hypers": ["cake", "baked_goods", "food"],
+				 "Verbs": ["serve", "turn"],
+				 "Father": "cake",
+				 "Children": []
+				},
+				{"Name": "gingerbread",
+				 "Synonyms": ["gingerbread"],
+				 "Hypers": ["cake", "baked_goods", "food"],
+				 "Verbs": ["bake", "cut", "decorate", "dunk", "fix", "glue", "ice", "lift", "make", "roll", "secure", "slide", "stamp", "top", "use"],
+				 "Father": "cake",
+				 "Children": []
+				},
+				{"Name": "torte",
+				 "Synonyms": ["torte"],
+				 "Hypers": ["cake", "baked_goods", "food"],
+				 "Verbs": ["lift", "remove", "set", "turn"],
+				 "Father": "cake",
+				 "Children": []
+				}
+			]
+			},
+			{"Name": "bread",
+			 "Synonyms": ["bread", "breadstuff", "staff_of_life"],
+			 "Hypers": ["baked_goods", "food"],
+			 "Verbs": ["add", "arrange", "blitz", "break", "butter", "cut", "finish", "leave", "make", "place", "pour", "push", "put", "scatter", "slice", "soak", "split", "spread", "squeeze", "tear", "tear in", "tip", "toast", "toss in", "uncover", "use", "whizz"],
+			 "Father": "baked_goods",
+			 "Children": [
+				{"Name": "bun",
+				 "Synonyms": ["bun", "roll"],
+				 "Hypers": ["bread", "baked_goods", "food"],
+				 "Verbs": ["allow", "assemble", "bake", "brush", "cook", "firm", "flatten", "form", "freeze", "get", "give", "have", "lay", "lift", "line", "plump", "position", "rotate", "serve", "slide", "top", "transfer", "turn", "wrap"],
+				 "Father": "bread",
+				 "Children": [
+					{"Name": "bagel",
+					 "Synonyms": ["bagel", "beigel"],
+					 "Hypers": ["bun", "bread", "baked_goods", "food"],
+					 "Verbs": [],
+					 "Father": "bun",
+					 "Children": []
+					},
+					{"Name": "brioche",
+					 "Synonyms": ["brioche"],
+					 "Hypers": ["bun", "bread", "baked_goods", "food"],
+					 "Verbs": ["check", "do", "remove", "tip in"],
+					 "Father": "bun",
+					 "Children": []
+					}
+				]
+				},
+				{"Name": "breadstick",
+				 "Synonyms": ["bread-stick", "breadstick"],
+				 "Hypers": ["bread", "baked_goods", "food"],
+				 "Verbs": ["remove"],
+				 "Father": "bread",
+				 "Children": []
+				},
+				{"Name": "flatbread",
+				 "Synonyms": ["flatbread"],
+				 "Hypers": ["bread", "baked_goods", "food"],
+				 "Verbs": ["lay"],
+				 "Father": "bread",
+				 "Children": [
+					{"Name": "chapatti",
+					 "Synonyms": ["chapati", "chapatti"],
+					 "Hypers": ["flatbread", "bread", "baked_goods", "food"],
+					 "Verbs": [],
+					 "Father": "flatbread",
+					 "Children": []
+					}
+				]
+				},
+				{"Name": "quick_bread",
+				 "Synonyms": ["quick_bread"],
+				 "Hypers": ["bread", "baked_goods", "food"],
+				 "Verbs": [],
+				 "Father": "bread",
+				 "Children": [
+					{"Name": "cornbread",
+					 "Synonyms": ["cornbread"],
+					 "Hypers": ["quick_bread", "bread", "baked_goods", "food"],
+					 "Verbs": [],
+					 "Father": "quick_bread",
+					 "Children": []
+					},
+					{"Name": "gem",
+					 "Synonyms": ["gem", "muffin"],
+					 "Hypers": ["quick_bread", "bread", "baked_goods", "food"],
+					 "Verbs": ["cook", "drop", "fill", "grease", "halve", "have", "line", "peel", "remove", "transfer"],
+					 "Father": "quick_bread",
+					 "Children": []
+					},
+					{"Name": "scone",
+					 "Synonyms": ["scone"],
+					 "Hypers": ["quick_bread", "bread", "baked_goods", "food"],
+					 "Verbs": ["knock", "sandwich", "stamp", "xx"],
+					 "Father": "quick_bread",
+					 "Children": []
+					}
+				]
+				},
+				{"Name": "cracker",
+				 "Synonyms": ["cracker"],
+				 "Hypers": ["bread", "baked_goods", "food"],
+				 "Verbs": ["flip", "take"],
+				 "Father": "bread",
+				 "Children": [
+					{"Name": "pretzel",
+					 "Synonyms": ["pretzel"],
+					 "Hypers": ["cracker", "bread", "baked_goods", "food"],
+					 "Verbs": ["poke", "snap", "stick"],
+					 "Father": "cracker",
+					 "Children": []
+					}
+				]
+				},
+				{"Name": "naan",
+				 "Synonyms": ["naan", "nan"],
+				 "Hypers": ["bread", "baked_goods", "food"],
+				 "Verbs": ["brush", "heat"],
+				 "Father": "bread",
+				 "Children": []
+				},
+				{"Name": "toast",
+				 "Synonyms": ["toast"],
+				 "Hypers": ["bread", "baked_goods", "food"],
+				 "Verbs": ["drizzle", "serve", "top"],
+				 "Father": "bread",
+				 "Children": []
+				},
+				{"Name": "baguette",
+				 "Synonyms": ["baguet", "baguette"],
+				 "Hypers": ["bread", "baked_goods", "food"],
+				 "Verbs": ["halve", "top"],
+				 "Father": "bread",
+				 "Children": []
+				}
+			]
+			},
+			{"Name": "pastry",
+			 "Synonyms": ["pastry", "pastry_dough"],
+			 "Hypers": ["baked_goods", "food"],
+			 "Verbs": ["add", "arrange", "bake", "bring", "brush", "colour", "combine", "cover", "create", "cut", "cut away", "dampen", "dip", "divide", "dredge", "dust", "extend", "face", "fill", "fold", "form", "gather", "glaze", "halve", "have", "heat", "help", "keep", "knead", "lay", "layer", "leave", "lift", "line", "make", "mark", "place", "position", "pour", "prepare", "press", "press together", "prick", "push", "put", "remove", "roll", "save", "score", "scrunch", "seal", "serve", "shape", "sit", "slice", "smooth", "sprinkle", "squeeze", "stamp", "stick", "take", "tip", "top", "touch", "transfer", "trim", "trim away", "tuck", "turn", "twist", "unfold", "unravel", "unroll", "unwrap", "use", "wrap", "xx"],
+			 "Father": "baked_goods",
+			 "Children": [
+				{"Name": "pie",
+				 "Synonyms": ["pie"],
+				 "Hypers": ["pastry", "baked_goods", "food"],
+				 "Verbs": ["assemble", "blast", "build", "chill", "decorate", "defrost", "flip", "pull", "return", "scatter", "slip", "squash"],
+				 "Father": "pastry",
+				 "Children": []
+				},
+				{"Name": "profiterole",
+				 "Synonyms": ["profiterole"],
+				 "Hypers": ["pastry", "baked_goods", "food"],
+				 "Verbs": ["stack"],
+				 "Father": "pastry",
+				 "Children": []
+				},
+				{"Name": "puff",
+				 "Synonyms": ["puff"],
+				 "Hypers": ["pastry", "baked_goods", "food"],
+				 "Verbs": ["peel away"],
+				 "Father": "pastry",
+				 "Children": []
+				},
+				{"Name": "tart",
+				 "Synonyms": ["tart"],
+				 "Hypers": ["pastry", "baked_goods", "food"],
+				 "Verbs": ["assemble", "burn", "chill", "cool", "need", "pop", "rest", "return", "slide", "work"],
+				 "Father": "pastry",
+				 "Children": [
+					{"Name": "quiche",
+					 "Synonyms": ["quiche"],
+					 "Hypers": ["tart", "pastry", "baked_goods", "food"],
+					 "Verbs": [],
+					 "Father": "tart",
+					 "Children": []
+					}
+				]
+				},
+				{"Name": "strudel",
+				 "Synonyms": ["strudel"],
+				 "Hypers": ["pastry", "baked_goods", "food"],
+				 "Verbs": [],
+				 "Father": "pastry",
+				 "Children": []
+				}
+			]
+			}
+		]
+		},
+		{"Name": "foodstuff",
+		 "Synonyms": ["food_product", "foodstuff"],
+		 "Hypers": ["food"],
+		 "Verbs": [],
+		 "Father": "food",
+		 "Children": [
+			{"Name": "concoction",
+			 "Synonyms": ["concoction", "intermixture", "mixture"],
+			 "Hypers": ["foodstuff", "food"],
+			 "Verbs": ["make"],
+			 "Father": "foodstuff",
+			 "Children": [
+				{"Name": "batter",
+				 "Synonyms": ["batter"],
+				 "Hypers": ["concoction", "foodstuff", "food"],
+				 "Verbs": ["burn", "divide", "drop", "encourage", "fold", "form", "have", "ladle", "pour", "pour in", "remove", "scoop", "spoon", "spoon in", "squeeze", "take", "turn", "use"],
+				 "Father": "concoction",
+				 "Children": []
+				},
+				{"Name": "dough",
+				 "Synonyms": ["dough"],
+				 "Hypers": ["concoction", "foodstuff", "food"],
+				 "Verbs": ["allow", "arrange", "bring", "brush", "coat", "contain", "cover", "curl", "cut", "divide", "drop", "dunk", "dust", "face", "flip", "flute", "form", "gather", "halve", "have", "keep", "knead", "knock", "lay", "leave", "lift", "move", "overwork", "pack", "peel away", "pick", "pinch", "place", "plait", "pop", "press", "process", "punch", "put", "remove", "reposition", "resemble", "return", "rise", "roll", "scrape", "shape", "sit", "slice", "snip", "spread", "stop", "swing", "take", "tip", "transfer", "turn", "unroll", "use", "weigh", "wet", "work", "wrap", "xx"],
+				 "Father": "concoction",
+				 "Children": []
+				},
+				{"Name": "dressing",
+				 "Synonyms": ["dressing", "salad_dressing", "stuffing"],
+				 "Hypers": ["concoction", "foodstuff", "food"],
+				 "Verbs": ["add", "bake", "bind", "bring", "combine", "cook", "cover", "cut", "dilute", "do", "dollop", "drizzle", "form", "halve", "have", "help", "hold", "keep", "mix", "mix in", "pack", "pat", "pipe", "place", "pop", "pour", "pour in", "pour over", "prepare", "press", "press in", "push", "put", "roast", "roll", "scatter", "scoop in", "score", "season", "secure", "serve", "shape", "spoon", "spoon in", "spoon over", "spread", "stir in", "stuff", "take", "top", "toss", "transfer", "unwrap", "use", "whisk", "wipe"],
+				 "Father": "concoction",
+				 "Children": []
+				},
+				{"Name": "filling",
+				 "Synonyms": ["filling"],
+				 "Hypers": ["concoction", "foodstuff", "food"],
+				 "Verbs": ["add", "cover", "divide", "encase", "enclose", "finish", "get", "mix", "mix together", "need", "pack", "pile", "pinch", "pipe", "place", "pour", "prepare", "put", "release", "roll", "seal", "spoon", "spoon in", "spread", "stand", "tip", "top", "transfer", "use"],
+				 "Father": "concoction",
+				 "Children": []
+				},
+				{"Name": "mincemeat",
+				 "Synonyms": ["mincemeat"],
+				 "Hypers": ["concoction", "foodstuff", "food"],
+				 "Verbs": ["add", "combine", "cover", "encase", "fill", "fold", "mix", "muddle", "pack", "put", "scent", "seal", "spoon", "spoon over", "spread", "stack", "stir in", "tip", "top", "weigh"],
+				 "Father": "concoction",
+				 "Children": []
+				},
+				{"Name": "mix",
+				 "Synonyms": ["mix", "premix"],
+				 "Hypers": ["concoction", "foodstuff", "food"],
+				 "Verbs": ["boil", "bring", "divide", "do", "freeze", "give", "have", "knead", "mash", "pass", "pat", "pour", "press in", "put", "return", "roll", "ruffle", "scatter", "scrape", "split", "spoon", "squash", "stir", "test", "tip", "transfer", "warm"],
+				 "Father": "concoction",
+				 "Children": []
+				}
+			]
+			},
+			{"Name": "cereal",
+			 "Synonyms": ["cereal", "food_grain", "grain"],
+			 "Hypers": ["foodstuff", "food"],
+			 "Verbs": ["drain", "line", "loosen", "tip"],
+			 "Father": "foodstuff",
+			 "Children": [
+				{"Name": "hot_cereal",
+				 "Synonyms": [],
+				 "Hypers": ["cereal", "foodstuff", "food"],
+				 "Verbs": [],
+				 "Father": "cereal",
+				 "Children": [
+					{"Name": "mush",
+					 "Synonyms": [],
+					 "Hypers": ["hot_cereal", "cereal", "foodstuff", "food"],
+					 "Verbs": [],
+					 "Father": "hot_cereal",
+					 "Children": [
+						{"Name": "polenta",
+						 "Synonyms": ["polenta"],
+						 "Hypers": ["mush", "hot_cereal", "cereal", "foodstuff", "food"],
+						 "Verbs": ["add", "combine", "cut", "make", "mix", "mix together", "put", "rub together", "scatter", "sit", "sprinkle", "stir in", "whisk in"],
+						 "Father": "mush",
+						 "Children": []
+						}
+					]
+					}
+				]
+				},
+				{"Name": "granola",
+				 "Synonyms": ["granola"],
+				 "Hypers": ["cereal", "foodstuff", "food"],
+				 "Verbs": ["break", "leave", "put"],
+				 "Father": "cereal",
+				 "Children": []
+				}
+			]
+			},
+			{"Name": "colouring",
+			 "Synonyms": ["coloring", "colouring", "food_color", "food_coloring", "food_colour", "food_colouring"],
+			 "Hypers": ["foodstuff", "food"],
+			 "Verbs": ["add", "knead", "stir"],
+			 "Father": "foodstuff",
+			 "Children": []
+			},
+			{"Name": "egg",
+			 "Synonyms": ["egg", "eggs"],
+			 "Hypers": ["foodstuff", "food"],
+			 "Verbs": ["add", "beat", "beat in", "beat together", "beaten", "boil", "break", "brush", "combine", "contain", "cook", "crack", "crack in", "cream", "dip", "divide", "do", "dribble", "drop", "fold", "fold in", "froth", "fry", "halve", "incorporate", "knead", "lay", "leave", "lighten", "like", "line", "lower", "make", "mix", "mix in", "mix together", "pipe", "place", "poach", "pour", "pour in", "pulse in", "push", "put", "scrape", "season", "separate", "serve", "slide in", "spoon", "sprinkle", "stir", "stir in", "stir together", "tip", "tip in", "toss", "trim", "turn", "use", "whisk", "whisk in", "whisk together", "whizz", "whizz together", "xx"],
+			 "Father": "foodstuff",
+			 "Children": []
+			},
+			{"Name": "flour",
+			 "Synonyms": ["flour"],
+			 "Hypers": ["foodstuff", "food"],
+			 "Verbs": ["add", "beat", "beat in", "blend", "combine", "cook", "dump", "feed", "fold", "fold in", "grill", "knead", "measure", "mix", "mix in", "mix together", "overmix", "place", "pop", "pour", "pour in", "pulse", "pulse together", "put", "rub", "rub together", "scatter", "season", "set aside", "shake", "sieve", "sieve in", "sieve together", "sift", "sift in", "sift over", "sift together", "sizzle", "snap", "sprinkle", "sprinkle in", "stir", "stir in", "stir together", "tip", "tip in", "toss in", "use", "whisk", "whisk in", "whizz", "whizz together"],
+			 "Father": "foodstuff",
+			 "Children": []
+			},
+			{"Name": "juice",
+			 "Synonyms": ["juice"],
+			 "Hypers": ["foodstuff", "food"],
+			 "Verbs": ["add", "beat", "boil together", "bring", "catch", "collect", "contain", "do", "drain", "drizzle", "extract", "fold", "get", "give", "keep", "leave", "lift", "measure", "mix", "mix in", "mix together", "ooze", "place", "pour", "pour in", "press", "put", "release", "remove", "reserve", "return", "roll", "save", "scoop", "scrape", "splash in", "spoon in", "squeeze", "squeeze in", "stir", "stir in", "stir together", "strain", "tip", "tip in", "toss", "toss in", "transfer", "try", "whisk", "whisk in", "whisk together", "whizz", "xx"],
+			 "Father": "foodstuff",
+			 "Children": [
+				{"Name": "gravy",
+				 "Synonyms": ["gravy", "pan_gravy"],
+				 "Hypers": ["juice", "foodstuff", "food"],
+				 "Verbs": ["finish", "hand", "have", "heat", "make", "offer", "reduce", "reheat", "serve", "sieve", "simmer", "taste", "thicken"],
+				 "Father": "juice",
+				 "Children": []
+				}
+			]
+			},
+			{"Name": "ingredient",
+			 "Synonyms": ["fixings", "ingredient"],
+			 "Hypers": ["foodstuff", "food"],
+			 "Verbs": ["add", "arrange", "beat", "beat in", "blend", "bring", "bubble together", "combine", "cover", "cut", "do", "draw", "fold", "heat", "layer", "layer in", "make", "mash", "measure", "melt", "microwave", "mix", "mix together", "move", "place", "pour", "pour in", "pour over", "pulse", "pulse in", "put", "rub", "seal", "shake", "sieve", "sift", "squeeze", "stir", "stir in", "tip", "toss", "use", "weigh", "whisk", "whisk together", "work"],
+			 "Father": "foodstuff",
+			 "Children": []
+			},
+			{"Name": "mixture",
+			 "Synonyms": ["concoction", "intermixture", "mixture"],
+			 "Hypers": ["foodstuff", "food"],
+			 "Verbs": ["add", "beat", "bind", "blend", "blitz", "bring", "brush", "chill", "cool", "cover", "distribute", "divide", "dot", "drop", "ease", "fill", "flatten", "have", "heap", "heat", "keep", "leave", "lift", "loosen", "make", "pack", "pile", "place", "pot", "pour", "pour in", "press", "prevent", "push", "put", "return", "roll", "rub", "scoop", "scrape", "seal", "set", "shape", "share", "sieve", "smooth", "spoon", "spoon in", "spread", "stir", "strain", "swirl", "taste", "thicken", "tip", "transfer", "turn", "use", "weigh", "whisk", "wipe", "work"],
+			 "Father": "foodstuff",
+			 "Children": []
+			},
+			{"Name": "tofu",
+			 "Synonyms": ["bean_curd", "tofu"],
+			 "Hypers": ["foodstuff", "food"],
+			 "Verbs": ["stir in", "thread", "toss"],
+			 "Father": "foodstuff",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "cheese",
+		 "Synonyms": [],
+		 "Hypers": ["food"],
+		 "Verbs": [],
+		 "Father": "food",
+		 "Children": [
+			{"Name": "cheddar",
+			 "Synonyms": ["American_cheese", "Armerican_cheddar", "cheddar", "cheddar_cheese"],
+			 "Hypers": ["cheese", "food"],
+			 "Verbs": ["grate in", "mix in", "scatter", "spoon", "stir in"],
+			 "Father": "cheese",
+			 "Children": []
+			},
+			{"Name": "quark",
+			 "Synonyms": ["quark", "quark_cheese"],
+			 "Hypers": ["cheese", "food"],
+			 "Verbs": ["beat"],
+			 "Father": "cheese",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "coconut",
+		 "Synonyms": ["coconut", "coconut_meat"],
+		 "Hypers": ["food"],
+		 "Verbs": ["add", "arrange", "chill", "coat", "fold in", "heat", "melt", "mix", "open", "pour", "pour in", "press", "put", "roll in", "rub in", "scatter", "scoop", "serve", "split", "sprinkle", "stick", "stir in", "tip", "tip in", "toast", "try", "use", "whisk in", "whisk together", "work"],
+		 "Father": "food",
+		 "Children": []
+		},
+		{"Name": "drink",
+		 "Synonyms": ["beverage", "drink", "drinkable", "potable"],
+		 "Hypers": ["food"],
+		 "Verbs": ["serve", "spoon"],
+		 "Father": "food",
+		 "Children": []
+		},
+		{"Name": "fish",
+		 "Synonyms": ["fish"],
+		 "Hypers": ["food"],
+		 "Verbs": ["add", "break", "check", "coat", "cover", "drain", "fit", "flip", "lay", "lift", "make", "place", "press", "put", "remove", "rinse", "roll", "scatter", "slice", "spray", "stir in", "tip", "toss", "turn", "use", "whisk together", "wrap"],
+		 "Father": "food",
+		 "Children": []
+		},
+		{"Name": "pasta",
+		 "Synonyms": ["alimentary_paste", "pasta"],
+		 "Hypers": ["food"],
+		 "Verbs": ["add", "boil", "cook", "drain", "fold in", "lift", "push", "tip", "tip in", "toss", "twist"],
+		 "Father": "food",
+		 "Children": [
+			{"Name": "lasagne",
+			 "Synonyms": ["lasagna", "lasagne"],
+			 "Hypers": ["pasta", "food"],
+			 "Verbs": ["drop", "open", "plunge"],
+			 "Father": "pasta",
+			 "Children": []
+			},
+			{"Name": "macaroni",
+			 "Synonyms": ["macaroni"],
+			 "Hypers": ["pasta", "food"],
+			 "Verbs": ["slice"],
+			 "Father": "pasta",
+			 "Children": []
+			},
+			{"Name": "noodle",
+			 "Synonyms": ["noodle"],
+			 "Hypers": ["pasta", "food"],
+			 "Verbs": ["coat", "divide", "put"],
+			 "Father": "pasta",
+			 "Children": []
+			},
+			{"Name": "orzo",
+			 "Synonyms": ["orzo"],
+			 "Hypers": ["pasta", "food"],
+			 "Verbs": [],
+			 "Father": "pasta",
+			 "Children": []
+			},
+			{"Name": "spaghetti",
+			 "Synonyms": ["spaghetti"],
+			 "Hypers": ["pasta", "food"],
+			 "Verbs": [],
+			 "Father": "pasta",
+			 "Children": []
+			},
+			{"Name": "tagliatelle",
+			 "Synonyms": ["tagliatelle"],
+			 "Hypers": ["pasta", "food"],
+			 "Verbs": ["make"],
+			 "Father": "pasta",
+			 "Children": []
+			},
+			{"Name": "gnocchi",
+			 "Synonyms": ["gnocchi"],
+			 "Hypers": ["pasta", "food"],
+			 "Verbs": ["thread", "transfer"],
+			 "Father": "pasta",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "loaf",
+		 "Synonyms": ["loaf", "loaf_of_bread"],
+		 "Hypers": ["food"],
+		 "Verbs": ["cool", "cut", "ease", "fit", "grease", "grill", "help", "leave", "lift", "line", "pull", "put", "remove", "resemble", "serve", "sit", "slice", "take", "tip", "transfer", "turn"],
+		 "Father": "food",
+		 "Children": []
+		},
+		{"Name": "meat",
+		 "Synonyms": ["meat"],
+		 "Hypers": ["food"],
+		 "Verbs": ["add", "arrange", "bash", "baste", "break", "brown", "chill", "cover", "cut", "do", "drain", "enclose", "fold", "form", "have", "keep", "leave", "lift", "like", "make", "mix", "mix in", "pack", "pat", "pick", "place", "press", "protect", "pull", "push", "put", "reheat", "remove", "return", "reveal", "rub", "seal", "sear", "season", "separate", "set", "shred", "slice", "soak", "split", "stir in", "strip", "take", "tip", "turn", "use", "wrap"],
+		 "Father": "food",
+		 "Children": []
+		},
+		{"Name": "medium",
+		 "Synonyms": ["culture_medium", "medium"],
+		 "Hypers": ["food"],
+		 "Verbs": ["leave", "rub", "tip in"],
+		 "Father": "food",
+		 "Children": []
+		},
+		{"Name": "seafood",
+		 "Synonyms": ["seafood"],
+		 "Hypers": ["food"],
+		 "Verbs": ["help", "lay"],
+		 "Father": "food",
+		 "Children": []
+		},
+		{"Name": "produce",
+		 "Synonyms": [],
+		 "Hypers": ["food"],
+		 "Verbs": [],
+		 "Father": "food",
+		 "Children": [
+			{"Name": "veg",
+			 "Synonyms": ["veg", "vegetable", "veggie"],
+			 "Hypers": ["produce", "food"],
+			 "Verbs": ["add", "caramelise", "coat", "cook", "cover", "discard", "drain", "drizzle", "keep", "leave", "mash", "pile", "place", "pour", "put", "remove", "rest", "roast", "scatter", "spoon", "stir in", "tip", "toss", "toss in", "transfer", "turn", "use"],
+			 "Father": "produce",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "water",
+		 "Synonyms": ["water"],
+		 "Hypers": ["food"],
+		 "Verbs": ["absorb", "add", "beat", "bring", "brush", "change", "check", "combine", "cover", "do", "drain", "dribble", "dribble in", "ensure", "feed", "fold in", "heat", "keep", "leave", "measure", "melt", "mix", "mix together", "pour", "pour away", "pour in", "pour over", "press", "pulse in", "put", "remove", "spin", "splash", "splash in", "spoon in", "sprinkle", "sprinkle in", "squeeze", "squeeze out", "steam", "stick", "stir", "stir in", "strain", "tip", "tip in", "top", "touch", "use", "warm", "whisk", "whisk together", "whizz"],
+		 "Father": "food",
+		 "Children": []
+		},
+		{"Name": "yolk",
+		 "Synonyms": ["egg_yolk", "vitellus", "yolk"],
+		 "Hypers": ["food"],
+		 "Verbs": ["add", "beat", "beat in", "beat together", "contain", "loosen", "mix", "mix in", "need", "put", "separate", "sit", "stir", "stir in", "whisk", "whisk in", "whisk together"],
+		 "Father": "food",
+		 "Children": []
+		},
+		{"Name": "board",
+		 "Synonyms": ["board", "table"],
+		 "Hypers": ["food"],
+		 "Verbs": ["dust", "invert", "line", "meet", "use"],
+		 "Father": "food",
+		 "Children": []
+		},
+		{"Name": "mash",
+		 "Synonyms": ["mash"],
+		 "Hypers": ["food"],
+		 "Verbs": ["ruffle", "spoon", "spread", "transfer"],
+		 "Father": "food",
+		 "Children": []
+		},
+		{"Name": "stick",
+		 "Synonyms": ["stick"],
+		 "Hypers": ["food"],
+		 "Verbs": ["add", "arrange", "brush", "cook", "cut", "halve", "put", "take", "tie", "use"],
+		 "Father": "food",
+		 "Children": []
+		}
+	]
+	},
+	{"Name": "fruit",
+	 "Synonyms": ["fruit"],
+	 "Hypers": [],
+	 "Verbs": [],
+	 "Father": "object",
+	 "Children": [
+		{"Name": "edible_fruit",
+		 "Synonyms": ["edible_fruit"],
+		 "Hypers": ["fruit"],
+		 "Verbs": [],
+		 "Father": "fruit",
+		 "Children": [
+			{"Name": "apricot",
+			 "Synonyms": ["apricot"],
+			 "Hypers": ["edible_fruit", "fruit"],
+			 "Verbs": ["add", "bake", "brush", "chop", "drain", "heat", "melt", "mix", "mix in", "paint", "put", "see", "snip", "soak", "sprinkle", "stir", "stir in", "tip", "tip in", "turn", "use", "warm", "wrap"],
+			 "Father": "edible_fruit",
+			 "Children": []
+			},
+			{"Name": "citrus",
+			 "Synonyms": ["citrous_fruit", "citrus", "citrus_fruit"],
+			 "Hypers": ["edible_fruit", "fruit"],
+			 "Verbs": ["mix", "rub", "see", "segment", "soak", "sprinkle", "tip in"],
+			 "Father": "edible_fruit",
+			 "Children": [
+				{"Name": "orange",
+				 "Synonyms": ["orange"],
+				 "Hypers": ["citrus", "edible_fruit", "fruit"],
+				 "Verbs": ["add", "arrange", "beat", "beat in", "bring", "brush", "bubble", "combine", "cook", "cover", "cut", "discard", "divide", "do", "drizzle", "find", "flip", "fold", "fold in", "grate", "grate in", "halve", "have", "heat", "hold", "juice", "keep", "lift", "make", "mix in", "mix together", "mould", "omit", "peel", "pile in", "place", "pour", "pour in", "press", "put", "quarter", "remove", "roast", "roll", "scatter", "scatter over", "scoop", "shake", "simmer", "snip", "spoon", "stir", "stir in", "stir through", "stuff", "take", "tip", "trim", "try", "turn", "use", "wash", "watch", "whisk", "whisk in", "work", "wrap", "xx", "zest"],
+				 "Father": "citrus",
+				 "Children": []
+				},
+				{"Name": "mandarin",
+				 "Synonyms": ["mandarin", "mandarin_orange"],
+				 "Hypers": ["citrus", "edible_fruit", "fruit"],
+				 "Verbs": ["nestle", "prepare", "put", "remove", "set aside", "turn", "use"],
+				 "Father": "citrus",
+				 "Children": [
+					{"Name": "clementine",
+					 "Synonyms": ["clementine"],
+					 "Hypers": ["mandarin", "citrus", "edible_fruit", "fruit"],
+					 "Verbs": ["add", "arrange", "candy", "cut", "divide", "drain", "halve", "heat", "keep", "lay", "lift", "make", "peel", "place", "pour", "scrub", "slice", "snuggle in", "squeeze", "stir", "stir in", "stud", "tear", "tip", "tuck", "whisk", "whisk in", "whisk together", "whizz"],
+					 "Father": "mandarin",
+					 "Children": []
+					},
+					{"Name": "satsuma",
+					 "Synonyms": ["satsuma"],
+					 "Hypers": ["mandarin", "citrus", "edible_fruit", "fruit"],
+					 "Verbs": ["add", "lay", "serve", "stir in"],
+					 "Father": "mandarin",
+					 "Children": []
+					},
+					{"Name": "tangerine",
+					 "Synonyms": ["tangerine"],
+					 "Hypers": ["mandarin", "citrus", "edible_fruit", "fruit"],
+					 "Verbs": ["boil together", "chop", "fold in", "make", "place", "pour", "toss"],
+					 "Father": "mandarin",
+					 "Children": []
+					}
+				]
+				},
+				{"Name": "grapefruit",
+				 "Synonyms": ["grapefruit"],
+				 "Hypers": ["citrus", "edible_fruit", "fruit"],
+				 "Verbs": ["pour", "whisk together"],
+				 "Father": "citrus",
+				 "Children": []
+				},
+				{"Name": "kumquat",
+				 "Synonyms": ["kumquat"],
+				 "Hypers": ["citrus", "edible_fruit", "fruit"],
+				 "Verbs": ["add", "halve", "put", "reserve"],
+				 "Father": "citrus",
+				 "Children": []
+				},
+				{"Name": "lemon",
+				 "Synonyms": ["lemon"],
+				 "Hypers": ["citrus", "edible_fruit", "fruit"],
+				 "Verbs": ["add", "baste", "beat", "beat in", "beat together", "blitz", "bring", "combine", "cut", "discard", "drizzle", "fold", "fold in", "grate", "halve", "make", "measure", "mix in", "mix together", "pack", "place", "pop in", "pour", "pour in", "press", "put", "quarter", "remove", "scatter", "serve", "slice", "sprinkle over", "squeeze", "squeeze in", "stir in", "stir together", "stuff", "tip", "toss", "toss in", "tuck", "whisk", "whisk in", "whisk together", "whizz"],
+				 "Father": "citrus",
+				 "Children": []
+				},
+				{"Name": "lime",
+				 "Synonyms": ["lime"],
+				 "Hypers": ["citrus", "edible_fruit", "fruit"],
+				 "Verbs": ["add", "bash", "beat", "beat together", "combine", "grate", "heat", "make", "mix in", "mix together", "muddle", "paint", "put", "serve", "spoon", "squeeze", "stir in", "tip", "toss", "whisk", "whisk together"],
+				 "Father": "citrus",
+				 "Children": []
+				}
+			]
+			},
+			{"Name": "apple",
+			 "Synonyms": ["apple"],
+			 "Hypers": ["edible_fruit", "fruit"],
+			 "Verbs": ["add", "arrange", "bake", "check", "chop", "combine", "cook", "core", "cut", "dice", "divide", "ease", "fill", "fit", "flip", "fold in", "fry", "grate", "grate in", "halve", "hand", "heat", "keep", "knead", "layer", "lower", "make", "mash", "mix", "mix together", "move", "peel", "place", "poke in", "pour", "pour in", "prepare", "prevent", "pulse", "push", "put", "quarter", "remove", "score", "set", "simmer", "sit", "slice", "spoon", "stand", "stir", "stir in", "stuff", "tip", "tip in", "toss", "toss in", "turn", "warm"],
+			 "Father": "edible_fruit",
+			 "Children": []
+			},
+			{"Name": "avocado",
+			 "Synonyms": ["aguacate", "alligator_pear", "avocado", "avocado_pear"],
+			 "Hypers": ["edible_fruit", "fruit"],
+			 "Verbs": ["add", "chop", "coat", "cut", "dice", "halve", "layer", "mix", "mix together", "pile", "put", "slice", "stir in"],
+			 "Father": "edible_fruit",
+			 "Children": []
+			},
+			{"Name": "cling",
+			 "Synonyms": ["cling", "clingstone"],
+			 "Hypers": ["edible_fruit", "fruit"],
+			 "Verbs": ["bring", "draw", "ease", "get", "keep", "lay", "oil", "peel", "peel away", "place", "prepare", "put", "remove", "roll", "serve", "stretch", "strip", "tie", "tighten", "turn", "twist", "unravel", "unwrap", "use", "wrap", "wrap in"],
+			 "Father": "edible_fruit",
+			 "Children": []
+			},
+			{"Name": "date",
+			 "Synonyms": ["date"],
+			 "Hypers": ["edible_fruit", "fruit"],
+			 "Verbs": ["add", "blitz", "chop", "combine", "cover", "cut", "divide", "include", "mix", "mix together", "preppe", "press", "put", "soak", "spoon", "stir", "stir in", "tip", "tip in", "whizz"],
+			 "Father": "edible_fruit",
+			 "Children": []
+			},
+			{"Name": "fig",
+			 "Synonyms": ["fig"],
+			 "Hypers": ["edible_fruit", "fruit"],
+			 "Verbs": ["add", "beat in", "chop", "halve", "have", "melt", "mix", "mix together", "place", "put", "sit", "soak", "stir", "tip in", "top", "whizz", "wrap"],
+			 "Father": "edible_fruit",
+			 "Children": []
+			},
+			{"Name": "grape",
+			 "Synonyms": ["grape"],
+			 "Hypers": ["edible_fruit", "fruit"],
+			 "Verbs": ["add", "dip", "slice", "thread"],
+			 "Father": "edible_fruit",
+			 "Children": [
+				{"Name": "sultana",
+				 "Synonyms": ["seedless_raisin", "sultana"],
+				 "Hypers": ["grape", "edible_fruit", "fruit"],
+				 "Verbs": ["combine", "heat", "knead in", "mix", "place", "pulse", "put", "soak", "stir", "stir in", "tip", "tip in"],
+				 "Father": "grape",
+				 "Children": []
+				}
+			]
+			},
+			{"Name": "jackfruit",
+			 "Synonyms": ["jack", "jackfruit", "jak"],
+			 "Hypers": ["edible_fruit", "fruit"],
+			 "Verbs": ["drain"],
+			 "Father": "edible_fruit",
+			 "Children": []
+			},
+			{"Name": "mango",
+			 "Synonyms": ["mango"],
+			 "Hypers": ["edible_fruit", "fruit"],
+			 "Verbs": ["add", "combine", "cut", "divide", "fold", "mix", "purée", "slice", "stir in", "swirl", "take", "thread"],
+			 "Father": "edible_fruit",
+			 "Children": []
+			},
+			{"Name": "melon",
+			 "Synonyms": ["melon"],
+			 "Hypers": ["edible_fruit", "fruit"],
+			 "Verbs": ["dip", "halve", "mix", "use"],
+			 "Father": "edible_fruit",
+			 "Children": []
+			},
+			{"Name": "papaya",
+			 "Synonyms": ["papaya"],
+			 "Hypers": ["edible_fruit", "fruit"],
+			 "Verbs": ["halve", "peel", "put"],
+			 "Father": "edible_fruit",
+			 "Children": []
+			},
+			{"Name": "pear",
+			 "Synonyms": ["pear"],
+			 "Hypers": ["edible_fruit", "fruit"],
+			 "Verbs": ["add", "arrange", "bring", "brush", "chop", "combine", "cook", "core", "cut", "divide", "drop in", "fit", "fold in", "grate", "halve", "help", "lift", "lower", "make", "mix", "nestle", "peel", "poach", "poke", "pour", "purée", "put", "remove", "scatter", "serve", "slice", "stain", "stir in", "take", "test", "toss", "tuck", "turn", "weigh"],
+			 "Father": "edible_fruit",
+			 "Children": []
+			},
+			{"Name": "pomegranate",
+			 "Synonyms": ["pomegranate"],
+			 "Hypers": ["edible_fruit", "fruit"],
+			 "Verbs": ["add", "divide", "juice", "mix", "pour", "push", "put", "scatter", "stir"],
+			 "Father": "edible_fruit",
+			 "Children": []
+			},
+			{"Name": "dried_fruit",
+			 "Synonyms": ["dried_fruit"],
+			 "Hypers": ["edible_fruit", "fruit"],
+			 "Verbs": ["mix", "soak", "stir in"],
+			 "Father": "edible_fruit",
+			 "Children": [
+				{"Name": "prune",
+				 "Synonyms": ["prune"],
+				 "Hypers": ["dried_fruit", "edible_fruit", "fruit"],
+				 "Verbs": ["fry"],
+				 "Father": "dried_fruit",
+				 "Children": []
+				},
+				{"Name": "raisin",
+				 "Synonyms": ["raisin"],
+				 "Hypers": ["dried_fruit", "edible_fruit", "fruit"],
+				 "Verbs": ["add", "combine", "divide", "drain", "knead in", "mix in", "mix together", "place", "pulse", "put", "spoon", "stir", "tip", "tip in"],
+				 "Father": "dried_fruit",
+				 "Children": []
+				}
+			]
+			},
+			{"Name": "quince",
+			 "Synonyms": ["quince"],
+			 "Hypers": ["edible_fruit", "fruit"],
+			 "Verbs": ["cut", "put"],
+			 "Father": "edible_fruit",
+			 "Children": []
+			},
+			{"Name": "tamarind",
+			 "Synonyms": ["tamarind", "tamarindo"],
+			 "Hypers": ["edible_fruit", "fruit"],
+			 "Verbs": ["mix"],
+			 "Father": "edible_fruit",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "seed",
+		 "Synonyms": ["seed"],
+		 "Hypers": ["fruit"],
+		 "Verbs": ["add", "chop", "combine", "crush", "crush together", "discard", "fry", "grind", "keep", "leave behind", "mix", "press", "put", "remove", "reserve", "scoop", "scoop out", "scrape", "see", "separate", "sieve", "tip"],
+		 "Father": "fruit",
+		 "Children": [
+			{"Name": "nut",
+			 "Synonyms": ["nut"],
+			 "Hypers": ["seed", "fruit"],
+			 "Verbs": ["arrange", "bake", "bash", "break", "coat", "disperse", "divide", "ease", "empty", "face", "fold in", "halve", "make", "mix together", "pile", "pile in", "poke in", "pour", "pour in", "roll in", "scatter", "seal", "spoon over", "spread", "sprinkle", "stir", "stir in", "take", "tip in", "toast", "toss", "transfer", "whizz", "work"],
+			 "Father": "seed",
+			 "Children": [
+				{"Name": "edible_nut",
+				 "Synonyms": ["edible_nut"],
+				 "Hypers": ["nut", "seed", "fruit"],
+				 "Verbs": [],
+				 "Father": "nut",
+				 "Children": [
+					{"Name": "brazil",
+					 "Synonyms": ["brazil", "brazil_nut"],
+					 "Hypers": ["edible_nut", "nut", "seed", "fruit"],
+					 "Verbs": [],
+					 "Father": "edible_nut",
+					 "Children": []
+					},
+					{"Name": "butternut",
+					 "Synonyms": ["butternut"],
+					 "Hypers": ["edible_nut", "nut", "seed", "fruit"],
+					 "Verbs": ["blend", "cut", "layer", "peel", "roast"],
+					 "Father": "edible_nut",
+					 "Children": []
+					},
+					{"Name": "cashew",
+					 "Synonyms": ["cashew", "cashew_nut"],
+					 "Hypers": ["edible_nut", "nut", "seed", "fruit"],
+					 "Verbs": ["drain", "scatter over", "soak"],
+					 "Father": "edible_nut",
+					 "Children": []
+					},
+					{"Name": "chestnut",
+					 "Synonyms": ["chestnut"],
+					 "Hypers": ["edible_nut", "nut", "seed", "fruit"],
+					 "Verbs": ["beat", "blitz", "drain", "fold", "mix in", "pack", "peel", "pipe", "place", "pulse", "roast", "throw in", "toss in", "use", "whisk"],
+					 "Father": "edible_nut",
+					 "Children": []
+					},
+					{"Name": "hazelnut",
+					 "Synonyms": ["cob", "cobnut", "filbert", "hazelnut"],
+					 "Hypers": ["edible_nut", "nut", "seed", "fruit"],
+					 "Verbs": ["place", "spoon"],
+					 "Father": "edible_nut",
+					 "Children": []
+					},
+					{"Name": "pecan",
+					 "Synonyms": ["pecan"],
+					 "Hypers": ["edible_nut", "nut", "seed", "fruit"],
+					 "Verbs": [],
+					 "Father": "edible_nut",
+					 "Children": []
+					},
+					{"Name": "pistachio",
+					 "Synonyms": ["pistachio", "pistachio_nut"],
+					 "Hypers": ["edible_nut", "nut", "seed", "fruit"],
+					 "Verbs": ["dollop", "scatter over", "spray", "try", "whizz together"],
+					 "Father": "edible_nut",
+					 "Children": []
+					},
+					{"Name": "walnut",
+					 "Synonyms": ["walnut"],
+					 "Hypers": ["edible_nut", "nut", "seed", "fruit"],
+					 "Verbs": ["knead in", "mix in", "place", "roll", "shake", "snap", "soak", "stick", "swirl in", "toss in", "warm"],
+					 "Father": "edible_nut",
+					 "Children": []
+					}
+				]
+				}
+			]
+			},
+			{"Name": "oilseed",
+			 "Synonyms": ["oil-rich_seed", "oilseed"],
+			 "Hypers": ["seed", "fruit"],
+			 "Verbs": [],
+			 "Father": "seed",
+			 "Children": [
+				{"Name": "linseed",
+				 "Synonyms": ["flaxseed", "linseed"],
+				 "Hypers": ["oilseed", "seed", "fruit"],
+				 "Verbs": [],
+				 "Father": "oilseed",
+				 "Children": []
+				},
+				{"Name": "rapeseed",
+				 "Synonyms": ["rapeseed"],
+				 "Hypers": ["oilseed", "seed", "fruit"],
+				 "Verbs": ["drizzle", "heat", "need"],
+				 "Father": "oilseed",
+				 "Children": []
+				}
+			]
+			},
+			{"Name": "pip",
+			 "Synonyms": ["pip"],
+			 "Hypers": ["seed", "fruit"],
+			 "Verbs": ["cut", "mash"],
+			 "Father": "seed",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "drupe",
+		 "Synonyms": ["drupe", "stone_fruit"],
+		 "Hypers": ["fruit"],
+		 "Verbs": ["put"],
+		 "Father": "fruit",
+		 "Children": [
+			{"Name": "almond",
+			 "Synonyms": ["almond"],
+			 "Hypers": ["drupe", "fruit"],
+			 "Verbs": ["add", "arrange", "bake", "beat", "chop", "combine", "fold in", "keep", "layer", "mix", "mix in", "mix together", "move", "pick", "place", "poke", "press", "pulse", "return", "roast", "scatter", "sift", "sift over", "spray", "spread", "sprinkle", "stir", "stir in", "tip", "tip in", "toast", "toss in", "whisk together", "whizz"],
+			 "Father": "drupe",
+			 "Children": []
+			},
+			{"Name": "cherry",
+			 "Synonyms": ["cherry"],
+			 "Hypers": ["drupe", "fruit"],
+			 "Verbs": ["add", "combine", "cut", "distribute", "divide", "drain", "drizzle", "leave", "make", "mix", "mix together", "nestle", "pile in", "pour", "pulse", "push", "scatter", "share", "simmer", "slice", "soak", "spoon", "sprinkle", "stick", "stir in", "thread", "tip", "tip in", "use", "work", "xx"],
+			 "Father": "drupe",
+			 "Children": []
+			},
+			{"Name": "plum",
+			 "Synonyms": ["plum"],
+			 "Hypers": ["drupe", "fruit"],
+			 "Verbs": ["simmer"],
+			 "Father": "drupe",
+			 "Children": [
+				{"Name": "damson",
+				 "Synonyms": ["damson", "damson_plum"],
+				 "Hypers": ["plum", "drupe", "fruit"],
+				 "Verbs": ["pick", "strain"],
+				 "Father": "plum",
+				 "Children": []
+				},
+				{"Name": "sloe",
+				 "Synonyms": ["sloe"],
+				 "Hypers": ["plum", "drupe", "fruit"],
+				 "Verbs": ["mix", "pour", "stir in"],
+				 "Father": "plum",
+				 "Children": []
+				}
+			]
+			},
+			{"Name": "peach",
+			 "Synonyms": ["peach"],
+			 "Hypers": ["drupe", "fruit"],
+			 "Verbs": [],
+			 "Father": "drupe",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "berry",
+		 "Synonyms": ["berry"],
+		 "Hypers": ["fruit"],
+		 "Verbs": ["add", "coat", "combine", "cut", "discard", "heat", "make", "mix", "place", "poke in", "pour", "put", "ripple", "tip"],
+		 "Father": "fruit",
+		 "Children": [
+			{"Name": "blackberry",
+			 "Synonyms": ["blackberry"],
+			 "Hypers": ["berry", "fruit"],
+			 "Verbs": [],
+			 "Father": "berry",
+			 "Children": []
+			},
+			{"Name": "blueberry",
+			 "Synonyms": ["blueberry"],
+			 "Hypers": ["berry", "fruit"],
+			 "Verbs": [],
+			 "Father": "berry",
+			 "Children": []
+			},
+			{"Name": "cranberry",
+			 "Synonyms": ["cranberry"],
+			 "Hypers": ["berry", "fruit"],
+			 "Verbs": ["arrange", "brush", "cook", "create", "dip", "divide", "drain", "drizzle", "fix", "fold in", "keep", "mix in", "mix together", "overlap", "pat", "pile", "prick", "reheat", "remove", "scatter", "scatter over", "serve", "simmer", "sizzle", "soak", "spoon", "spread", "stir", "stir in", "stir together", "take", "thread", "throw", "tip in", "toss in", "use", "warm", "whisk", "work"],
+			 "Father": "berry",
+			 "Children": []
+			},
+			{"Name": "currant",
+			 "Synonyms": ["currant"],
+			 "Hypers": ["berry", "fruit"],
+			 "Verbs": ["press", "pulse", "soak"],
+			 "Father": "berry",
+			 "Children": []
+			},
+			{"Name": "lingonberry",
+			 "Synonyms": ["cowberry", "lingonberry", "lowbush_cranberry", "mountain_cranberry"],
+			 "Hypers": ["berry", "fruit"],
+			 "Verbs": ["stir", "stir in"],
+			 "Father": "berry",
+			 "Children": []
+			},
+			{"Name": "persimmon",
+			 "Synonyms": ["persimmon"],
+			 "Hypers": ["berry", "fruit"],
+			 "Verbs": ["layer", "prepare", "slice"],
+			 "Father": "berry",
+			 "Children": []
+			},
+			{"Name": "raspberry",
+			 "Synonyms": ["raspberry"],
+			 "Hypers": ["berry", "fruit"],
+			 "Verbs": ["divide", "drop", "enclose", "fold in", "mash", "pour in", "press", "scatter", "spoon", "spread", "whizz"],
+			 "Father": "berry",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "ear",
+		 "Synonyms": ["capitulum", "ear", "spike"],
+		 "Hypers": ["fruit"],
+		 "Verbs": ["add", "attach", "form", "make", "press", "push", "shape"],
+		 "Father": "fruit",
+		 "Children": []
+		},
+		{"Name": "olive",
+		 "Synonyms": ["olive"],
+		 "Hypers": ["fruit"],
+		 "Verbs": ["add", "combine", "drizzle", "fry", "heat", "mix in", "mix together", "move", "pour in", "put", "rub", "spread", "stir in", "thread", "toss", "turn", "use", "warm", "whisk together", "xx"],
+		 "Father": "fruit",
+		 "Children": []
+		},
+		{"Name": "pod",
+		 "Synonyms": ["pod", "seedpod"],
+		 "Hypers": ["fruit"],
+		 "Verbs": ["add", "bash", "discard", "put"],
+		 "Father": "fruit",
+		 "Children": [
+			{"Name": "peanut",
+			 "Synonyms": ["earthnut", "goober", "goober_pea", "groundnut", "monkey_nut", "peanut"],
+			 "Hypers": ["pod", "fruit"],
+			 "Verbs": ["roll in", "stick", "stir", "warm"],
+			 "Father": "pod",
+			 "Children": []
+			}
+		]
+		}
+	]
+	},
+	{"Name": "grain",
+	 "Synonyms": ["caryopsis", "cereal", "food_grain", "grain", "metric_grain"],
+	 "Hypers": [],
+	 "Verbs": [],
+	 "Father": "object",
+	 "Children": [
+		{"Name": "rice",
+		 "Synonyms": ["rice"],
+		 "Hypers": ["grain"],
+		 "Verbs": ["add", "coat", "combine", "cook", "cover", "fluff", "fry", "mix", "mix together", "peel away", "pour", "put", "reheat", "rinse", "scrape", "sit", "soak", "spoon", "stir", "stir in", "tip", "tip in", "toss", "whisk"],
+		 "Father": "grain",
+		 "Children": []
+		},
+		{"Name": "barley",
+		 "Synonyms": ["barley", "barleycorn"],
+		 "Hypers": ["grain"],
+		 "Verbs": ["tip in"],
+		 "Father": "grain",
+		 "Children": []
+		},
+		{"Name": "corn",
+		 "Synonyms": ["corn", "edible_corn"],
+		 "Hypers": ["grain"],
+		 "Verbs": ["boil", "fill"],
+		 "Father": "grain",
+		 "Children": []
+		},
+		{"Name": "kernel",
+		 "Synonyms": ["kernel"],
+		 "Hypers": ["grain"],
+		 "Verbs": ["cut"],
+		 "Father": "grain",
+		 "Children": []
+		},
+		{"Name": "malt",
+		 "Synonyms": ["malt"],
+		 "Hypers": ["grain"],
+		 "Verbs": ["add", "drop in"],
+		 "Father": "grain",
+		 "Children": []
+		},
+		{"Name": "oat",
+		 "Synonyms": ["oat"],
+		 "Hypers": ["grain"],
+		 "Verbs": ["add", "mix together", "set aside", "tip", "tip in"],
+		 "Father": "grain",
+		 "Children": []
+		},
+		{"Name": "oats",
+		 "Synonyms": ["oat"],
+		 "Hypers": ["grain"],
+		 "Verbs": ["combine", "make", "mix", "mix in", "put", "stir", "tip"],
+		 "Father": "grain",
+		 "Children": []
+		},
+		{"Name": "rye",
+		 "Synonyms": ["rye"],
+		 "Hypers": ["grain"],
+		 "Verbs": ["cut", "serve", "top"],
+		 "Father": "grain",
+		 "Children": []
+		},
+		{"Name": "bulgur",
+		 "Synonyms": ["bulghur", "bulgur", "bulgur_wheat"],
+		 "Hypers": ["grain"],
+		 "Verbs": ["combine", "put"],
+		 "Father": "grain",
+		 "Children": []
+		}
+	]
+	},
+	{"Name": "herb",
+	 "Synonyms": ["herb", "herbaceous_plant"],
+	 "Hypers": [],
+	 "Verbs": [],
+	 "Father": "object",
+	 "Children": [
+		{"Name": "liquorice",
+		 "Synonyms": ["Glycyrrhiza_glabra", "licorice", "liquorice"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "chop", "keep", "stick", "use"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "anise",
+		 "Synonyms": ["Pimpinella_anisum", "anise", "anise_plant"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "reserve"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "aubergine",
+		 "Synonyms": ["Solanum_melongena", "aubergine", "brinjal", "eggplant", "eggplant_bush", "garden_egg", "mad_apple"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "chop", "do", "fry", "place", "put", "scoop", "spray"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "banana",
+		 "Synonyms": ["banana", "banana_tree"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "serve", "spoon over", "stir in", "toss"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "basil",
+		 "Synonyms": ["basil", "sweet_basil"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["drizzle", "make", "mix in", "scatter", "stir in", "toss"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "crucifer",
+		 "Synonyms": ["crucifer", "cruciferous_plant"],
+		 "Hypers": ["herb"],
+		 "Verbs": [],
+		 "Father": "herb",
+		 "Children": [
+			{"Name": "broccoli",
+			 "Synonyms": ["Brassica_oleracea_italica", "broccoli"],
+			 "Hypers": ["crucifer", "herb"],
+			 "Verbs": ["add", "fry", "plunge in", "simmer", "throw in", "trim"],
+			 "Father": "crucifer",
+			 "Children": []
+			},
+			{"Name": "cauliflower",
+			 "Synonyms": ["Brassica_oleracea_botrytis", "cauliflower"],
+			 "Hypers": ["crucifer", "herb"],
+			 "Verbs": ["add", "boil", "break", "chop", "cover", "discard", "drain", "drop in", "fold in", "make", "mix", "mix in", "pour", "put", "scatter", "separate", "shake", "stir in", "submerge", "tip", "tip in", "transfer", "turn"],
+			 "Father": "crucifer",
+			 "Children": []
+			},
+			{"Name": "kale",
+			 "Synonyms": ["Brassica_oleracea_acephala", "borecole", "cole", "colewort", "kail", "kale"],
+			 "Hypers": ["crucifer", "herb"],
+			 "Verbs": ["add", "coat", "divide", "fold", "put", "remove", "return", "scatter", "stir in", "tip", "tip in"],
+			 "Father": "crucifer",
+			 "Children": []
+			},
+			{"Name": "mustard",
+			 "Synonyms": ["mustard"],
+			 "Hypers": ["crucifer", "herb"],
+			 "Verbs": ["add", "beat", "beat in", "beat together", "combine", "cover", "drizzle", "fry", "grind", "leave", "make", "mix", "mix together", "overlap", "pour in", "put", "rub together", "stir", "stir in", "stir together", "tip", "tip in", "toast", "toss in", "transfer", "warm", "whisk", "whisk in", "whisk together"],
+			 "Father": "crucifer",
+			 "Children": []
+			},
+			{"Name": "cress",
+			 "Synonyms": [],
+			 "Hypers": ["crucifer", "herb"],
+			 "Verbs": [],
+			 "Father": "crucifer",
+			 "Children": [
+				{"Name": "watercress",
+				 "Synonyms": ["watercress"],
+				 "Hypers": ["cress", "crucifer", "herb"],
+				 "Verbs": ["arrange", "divide", "mix", "pile", "place", "put", "toss"],
+				 "Father": "cress",
+				 "Children": []
+				}
+			]
+			},
+			{"Name": "swede",
+			 "Synonyms": ["Brassica_napus_napobrassica", "Swedish_turnip", "rutabaga", "rutabaga_plant", "swede", "turnip_cabbage"],
+			 "Hypers": ["crucifer", "herb"],
+			 "Verbs": ["add", "drain"],
+			 "Father": "crucifer",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "buckwheat",
+		 "Synonyms": ["Fagopyrum_esculentum", "Polygonum_fagopyrum", "buckwheat"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["sift"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "caraway",
+		 "Synonyms": ["Carum_carvi", "caraway"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["stir in", "tip in"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "cardamom",
+		 "Synonyms": ["Elettaria_cardamomum", "cardamom", "cardamon"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "bruise", "fry", "put", "remove", "sift", "slit", "split", "stir", "stir in", "tip"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "carrot",
+		 "Synonyms": ["Daucus_carota_sativa", "carrot", "cultivated_carrot"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "arrange", "blanch", "blitz", "boil", "chill", "coat", "cook", "create", "cut", "discard", "do", "drain", "dress", "find", "finish", "fit", "fry", "grate", "halve", "keep", "lay", "make", "mix", "mix in", "peel", "pipe", "place", "plant", "pop", "pour", "push", "put", "return", "scatter", "scrub", "serve", "shred", "sizzle", "spread", "steam", "stir", "strain", "throw", "throw in", "tip", "tip in", "toss", "trim", "turn", "whisk"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "celeriac",
+		 "Synonyms": ["Apium_graveolens_rapaceum", "celeriac", "celery_root", "knob_celery", "root_celery", "turnip-rooted_celery"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "arrange", "cook", "cut", "grate", "peel", "put", "quarter", "repeat", "sauté", "slice", "spiralize", "spoon", "throw", "tip", "tip in", "toss", "transfer"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "celery",
+		 "Synonyms": ["Apium_graveolens_dulce", "celery", "cultivated_celery"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "colour", "cut", "fry", "mix together", "put", "slice", "soften", "stir in", "tip", "tip in"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "chamomile",
+		 "Synonyms": ["Anthemis_nobilis", "Chamaemelum_nobilis", "camomile", "chamomile"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "chervil",
+		 "Synonyms": ["Anthriscus_cereifolium", "beaked_parsley", "chervil"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["stir in"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "legume",
+		 "Synonyms": ["legume", "leguminous_plant"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "put", "stir in", "tip", "tip in"],
+		 "Father": "herb",
+		 "Children": [
+			{"Name": "chickpea",
+			 "Synonyms": ["Cicer_arietinum", "Egyptian_pea", "chickpea", "chickpea_plant"],
+			 "Hypers": ["legume", "herb"],
+			 "Verbs": ["crush", "whizz"],
+			 "Father": "legume",
+			 "Children": []
+			},
+			{"Name": "soy",
+			 "Synonyms": ["Glycine_max", "soja", "soja_bean", "soy", "soya", "soya_bean", "soybean", "soybean_plant"],
+			 "Hypers": ["legume", "herb"],
+			 "Verbs": ["cook", "mix", "mix in", "place", "pour", "pour in", "splash in", "stir", "throw in", "toss"],
+			 "Father": "legume",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "chicory",
+		 "Synonyms": ["Cichorium_intybus", "chicory", "chicory_plant", "succory"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["arrange", "drizzle", "have", "put", "rub", "separate", "slice", "toss"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "coriander",
+		 "Synonyms": ["Chinese_parsley", "Coriandrum_sativum", "cilantro", "coriander", "coriander_plant"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "chop", "fold in", "grind", "mix", "mix together", "place", "put", "scatter", "scatter over", "sprinkle", "stir in", "stir through", "tip", "toast", "toss", "toss in", "whizz"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "cumin",
+		 "Synonyms": ["Cuminum_cyminum", "cumin"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "fry", "grind", "mix", "put", "scatter", "stir", "stir in", "toast"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "dill",
+		 "Synonyms": ["Anethum_graveolens", "dill", "dill_weed"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "arrange", "beat together", "chop", "combine", "fold in", "mix", "pour", "put", "scatter", "stir", "stir in", "swoosh", "tip", "whisk", "whisk together"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "fennel",
+		 "Synonyms": ["common_fennel", "fennel"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "chop", "combine", "core", "drain", "fry", "layer", "place", "put", "quarter", "scatter over", "shred", "slice", "stir in", "toast", "toss"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "fenugreek",
+		 "Synonyms": ["Greek_clover", "Trigonella_foenumgraecum", "fenugreek"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "flax",
+		 "Synonyms": ["flax"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["mix"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "ginger",
+		 "Synonyms": ["ginger"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "arrange", "beat", "break", "bring", "brush", "coat", "combine", "cut", "discard", "fold", "fold in", "fry", "make", "mix", "mix in", "mix together", "pipe", "place", "pour", "pulse", "put", "remove", "rub", "scatter", "scrape", "sieve", "sift in", "sift together", "spoon over", "stick", "stir", "stir in", "tip", "tip in", "turn", "use", "warm", "whizz"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "horseradish",
+		 "Synonyms": ["Armoracia_rusticana", "horse_radish", "horseradish", "red_cole"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "make", "mix", "mix together", "put", "shape", "spoon", "spread", "stir", "stir in"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "lettuce",
+		 "Synonyms": ["lettuce"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["break", "layer", "pile", "put", "spread", "toss"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "marjoram",
+		 "Synonyms": ["Origanum_vulgare", "marjoram", "oregano", "pot_marjoram", "wild_marjoram", "winter_sweet"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "stir in"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "mint",
+		 "Synonyms": ["mint"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "bash", "chop", "crush", "mix", "mix together", "muddle", "put", "reserve", "scatter", "whizz"],
+		 "Father": "herb",
+		 "Children": [
+			{"Name": "peppermint",
+			 "Synonyms": ["Mentha_piperita", "peppermint"],
+			 "Hypers": ["mint", "herb"],
+			 "Verbs": ["dip", "ease", "knead", "lay", "make", "use"],
+			 "Father": "mint",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "parsley",
+		 "Synonyms": ["Petroselinum_crispum", "parsley"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "beat in", "dress", "mix", "mix in", "mix together", "place", "put", "scatter", "sprinkle", "stir", "stir in", "swirl in", "thread", "tip", "top"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "parsnip",
+		 "Synonyms": ["Pastinaca_sativa", "parsnip"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "boil", "chop", "cook", "cut", "do", "drain", "drop in", "fit", "grate", "halve", "layer", "mash", "mix", "pack", "peel", "pile", "press", "put", "remove", "scoop", "serve", "slice", "stir in", "tail", "throw in", "tip", "tip in", "toss", "turn"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "pineapple",
+		 "Synonyms": ["Ananas_comosus", "pineapple", "pineapple_plant"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "brush", "chop", "combine", "cook", "dice", "drain", "fold in", "leave", "mix together", "pour", "pulse", "put", "scatter", "tip", "top", "tuck", "whizz"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "rocket",
+		 "Synonyms": ["Eruca_sativa", "Eruca_vesicaria_sativa", "arugula", "garden_rocket", "rocket", "rocket_salad", "roquette"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "combine", "put", "spread", "toss"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "rosemary",
+		 "Synonyms": ["Rosmarinus_officinalis", "rosemary"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "arrange", "break", "brush", "dip", "discard", "drain", "drizzle", "fry", "heat", "hold", "insert", "make", "mix", "poke", "poke in", "pound", "press", "put", "remove", "sauté", "serve", "spoon", "sprinkle", "stir in", "throw in", "tip", "tuck"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "sage",
+		 "Synonyms": ["sage", "salvia"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "arrange", "brush", "combine", "dip", "do", "drop in", "insert", "make", "mix", "place", "pour", "press", "put", "scatter", "simmer", "sizzle", "spoon", "stir", "stir in", "stuff", "tip", "toss", "toss in"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "sesame",
+		 "Synonyms": ["Sesamum_indicum", "benne", "benni", "benny", "sesame"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "scatter", "sprinkle", "stir in", "tip", "tip in", "toast"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "strawberry",
+		 "Synonyms": ["strawberry"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["knot", "prepare", "put", "tip", "wash", "wipe"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "tarragon",
+		 "Synonyms": ["estragon", "tarragon"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "drizzle", "make", "put", "stir in", "whisk"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "thyme",
+		 "Synonyms": ["thyme"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "cook", "discard", "float", "fry", "get", "grind", "heat", "leave", "mix", "mix in", "mix together", "pack", "place", "poke in", "press in", "put", "remove", "scatter", "scatter over", "see", "serve", "sprinkle", "stir in", "stuff", "throw in", "tie", "tip", "tip in", "toss in", "whisk together", "xx"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "tomato",
+		 "Synonyms": ["Lycopersicon_esculentum", "love_apple", "tomato", "tomato_plant"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "break", "chop", "cut", "grill", "make", "measure", "mix", "mix in", "peel", "pile", "pour", "pour in", "prick", "put", "quarter", "reheat", "scatter", "serve", "spread", "squeeze in", "stir", "stir in", "tip", "tip in", "toss", "transfer"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "turmeric",
+		 "Synonyms": ["Curcuma_domestica", "Curcuma_longa", "turmeric"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "mix", "put", "sprinkle", "stir in"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "vegetable",
+		 "Synonyms": ["vegetable"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["add", "arrange", "brown", "coat", "cook", "dice", "discard", "do", "drain", "fan", "finish", "fry", "heat", "keep", "lay", "layer", "mix", "nestle", "pour", "prepare", "press", "push", "put", "remove", "return", "roast", "roll", "scoop", "set", "slice", "spoon over", "spread", "stir in", "throw in", "tip", "tip in", "turn", "use"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "arrowroot",
+		 "Synonyms": ["American_arrowroot", "Canna_edulis", "Canna_indica", "Maranta_arundinaceae", "achira", "arrowroot", "indian_shot", "obedience_plant"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["mix", "stir in"],
+		 "Father": "herb",
+		 "Children": []
+		},
+		{"Name": "grass",
+		 "Synonyms": ["grass"],
+		 "Hypers": ["herb"],
+		 "Verbs": [],
+		 "Father": "herb",
+		 "Children": [
+			{"Name": "lemongrass",
+			 "Synonyms": ["lemon_grass", "lemongrass"],
+			 "Hypers": ["grass", "gramineous_plant", "herb"],
+			 "Verbs": ["add", "put", "remove"],
+			 "Father": "grass",
+			 "Children": []
+			},
+			{"Name": "spelt",
+			 "Synonyms": ["Triticum_aestivum_spelta", "Triticum_spelta", "spelt"],
+			 "Hypers": ["grass", "gramineous_plant", "herb"],
+			 "Verbs": ["sift"],
+			 "Father": "grass",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "mignonette",
+		 "Synonyms": ["Reseda_odorata", "mignonette", "sweet_reseda"],
+		 "Hypers": ["herb"],
+		 "Verbs": ["work"],
+		 "Father": "herb",
+		 "Children": []
+		}
+	]
+	},
+	{"Name": "ingredient",
+	 "Synonyms": ["fixings", "ingredient"],
+	 "Hypers": [],
+	 "Verbs": [],
+	 "Father": "object",
+	 "Children": [
+		{"Name": "flavorer",
+		 "Synonyms": ["flavorer", "flavoring", "flavourer", "flavouring", "seasoner", "seasoning"],
+		 "Hypers": ["ingredient"],
+		 "Verbs": [],
+		 "Father": "ingredient",
+		 "Children": [
+			{"Name": "condiment",
+			 "Synonyms": ["condiment"],
+			 "Hypers": ["flavorer", "ingredient"],
+			 "Verbs": [],
+			 "Father": "flavorer",
+			 "Children": [
+				{"Name": "sauce",
+				 "Synonyms": ["sauce"],
+				 "Hypers": ["condiment", "flavorer", "ingredient"],
+				 "Verbs": ["absorb", "add", "boil", "bring", "bubble", "combine", "cook", "cool", "cover", "create", "defrost", "drizzle", "finish", "form", "freeze", "give", "have", "heat", "hold", "keep", "leave", "like", "make", "mix together", "pass", "pour", "pour in", "put", "reduce", "reheat", "return", "ripple", "serve", "simmer", "spoon", "spread", "start", "strain", "thicken", "tip", "toss", "use", "warm"],
+				 "Father": "condiment",
+				 "Children": [
+					{"Name": "hollandaise",
+					 "Synonyms": ["hollandaise"],
+					 "Hypers": ["sauce", "condiment", "flavorer", "ingredient"],
+					 "Verbs": [],
+					 "Father": "sauce",
+					 "Children": []
+					},
+					{"Name": "worcestershire",
+					 "Synonyms": ["Worcester_sauce", "Worcestershire", "Worcestershire_sauce"],
+					 "Hypers": ["sauce", "condiment", "flavorer", "ingredient"],
+					 "Verbs": ["beat together", "drizzle over", "mix", "splash in"],
+					 "Father": "sauce",
+					 "Children": []
+					},
+					{"Name": "dressing",
+					 "Synonyms": ["dressing", "salad_dressing"],
+					 "Hypers": ["sauce", "condiment", "flavorer", "ingredient"],
+					 "Verbs": [],
+					 "Father": "sauce",
+					 "Children": [
+						{"Name": "mayo",
+						 "Synonyms": ["mayo", "mayonnaise"],
+						 "Hypers": ["dressing", "sauce", "condiment", "flavorer", "ingredient"],
+						 "Verbs": ["beat together", "mix", "whisk in"],
+						 "Father": "dressing",
+						 "Children": []
+						},
+						{"Name": "vinaigrette",
+						 "Synonyms": ["French_dressing", "sauce_vinaigrette", "vinaigrette"],
+						 "Hypers": ["dressing", "sauce", "condiment", "flavorer", "ingredient"],
+						 "Verbs": [],
+						 "Father": "dressing",
+						 "Children": []
+						}
+					]
+					},
+					{"Name": "pesto",
+					 "Synonyms": ["pesto"],
+					 "Hypers": ["sauce", "condiment", "flavorer", "ingredient"],
+					 "Verbs": ["top"],
+					 "Father": "sauce",
+					 "Children": []
+					}
+				]
+				},
+				{"Name": "relish",
+				 "Synonyms": ["relish"],
+				 "Hypers": ["condiment", "flavorer", "ingredient"],
+				 "Verbs": ["make", "spoon"],
+				 "Father": "condiment",
+				 "Children": [
+					{"Name": "caper",
+					 "Synonyms": ["caper"],
+					 "Hypers": ["relish", "condiment", "flavorer", "ingredient"],
+					 "Verbs": ["add", "mix", "mix in", "scatter", "serve", "stir in"],
+					 "Father": "relish",
+					 "Children": []
+					}
+				]
+				},
+				{"Name": "chutney",
+				 "Synonyms": ["Indian_relish", "chutney"],
+				 "Hypers": ["condiment", "flavorer", "ingredient"],
+				 "Verbs": ["achieve", "boil", "bring", "cover", "divide", "ladle", "mix", "pour", "spoon", "spread", "stir in", "store", "tip", "transfer"],
+				 "Father": "condiment",
+				 "Children": []
+				},
+				{"Name": "dip",
+				 "Synonyms": ["dip"],
+				 "Hypers": ["condiment", "flavorer", "ingredient"],
+				 "Verbs": ["create", "leave", "make", "press", "reheat", "scoop", "spoon", "top"],
+				 "Father": "condiment",
+				 "Children": [
+					{"Name": "guacamole",
+					 "Synonyms": ["guacamole"],
+					 "Hypers": ["dip", "condiment", "flavorer", "ingredient"],
+					 "Verbs": ["divide", "push", "put"],
+					 "Father": "dip",
+					 "Children": []
+					}
+				]
+				},
+				{"Name": "ketchup",
+				 "Synonyms": ["catsup", "cetchup", "ketchup", "tomato_ketchup"],
+				 "Hypers": ["condiment", "flavorer", "ingredient"],
+				 "Verbs": ["mix", "stir in", "tip", "whizz"],
+				 "Father": "condiment",
+				 "Children": []
+				},
+				{"Name": "spread",
+				 "Synonyms": ["paste", "spread"],
+				 "Hypers": ["condiment", "flavorer", "ingredient"],
+				 "Verbs": [],
+				 "Father": "condiment",
+				 "Children": [
+					{"Name": "margarine",
+					 "Synonyms": ["margarin", "margarine", "marge", "oleo", "oleomargarine"],
+					 "Hypers": ["spread", "condiment", "flavorer", "ingredient"],
+					 "Verbs": ["put"],
+					 "Father": "spread",
+					 "Children": []
+					},
+					{"Name": "tapenade",
+					 "Synonyms": ["tapenade"],
+					 "Hypers": ["spread", "condiment", "flavorer", "ingredient"],
+					 "Verbs": ["spread"],
+					 "Father": "spread",
+					 "Children": []
+					}
+				]
+				},
+				{"Name": "marinade",
+				 "Synonyms": ["marinade"],
+				 "Hypers": ["condiment", "flavorer", "ingredient"],
+				 "Verbs": ["add", "brush", "drain", "make", "massage", "mix", "mix together", "pour", "reserve", "rub", "toss in"],
+				 "Father": "condiment",
+				 "Children": []
+				},
+				{"Name": "paste",
+				 "Synonyms": ["paste", "spread"],
+				 "Hypers": ["condiment", "flavorer", "ingredient"],
+				 "Verbs": ["add", "cook", "create", "form", "get", "give", "have", "make", "pinch", "pour", "prevent", "return", "roll", "scoop", "smooth", "stir", "tip", "use", "weigh", "whisk", "wrap"],
+				 "Father": "condiment",
+				 "Children": []
+				},
+				{"Name": "salsa",
+				 "Synonyms": ["salsa"],
+				 "Hypers": ["condiment", "flavorer", "ingredient"],
+				 "Verbs": ["combine", "leave", "make", "mix"],
+				 "Father": "condiment",
+				 "Children": []
+				},
+				{"Name": "vinegar",
+				 "Synonyms": ["acetum", "vinegar"],
+				 "Hypers": ["condiment", "flavorer", "ingredient"],
+				 "Verbs": ["add", "beat in", "beat together", "boil", "combine", "fold in", "give", "heat", "infuse", "leave", "mix", "mix together", "place", "pour", "pour in", "put", "splash", "splash in", "spoon over", "squish", "stir", "stir in", "stir together", "strain", "tip", "whisk", "whisk in", "whisk together"],
+				 "Father": "condiment",
+				 "Children": []
+				}
+			]
+			},
+			{"Name": "sweetening",
+			 "Synonyms": ["sweetener", "sweetening"],
+			 "Hypers": ["flavorer", "ingredient"],
+			 "Verbs": ["add", "brush", "dissolve", "heat", "make", "melt", "mix", "mix in", "pour", "put", "spoon", "stir", "stir in", "tip", "whisk together"],
+			 "Father": "flavorer",
+			 "Children": [
+				{"Name": "sugar",
+				 "Synonyms": ["refined_sugar", "sugar"],
+				 "Hypers": ["sweetening", "flavorer", "ingredient"],
+				 "Verbs": ["beat", "beat in", "beat together", "bring", "bubble", "coat in", "combine", "cook", "cream", "cream together", "create", "crush", "dip in", "disturb", "do", "have", "jiggle", "keep", "leave", "mash", "measure", "mix together", "muddle", "need", "pack", "paint", "pinch", "place", "pour in", "press", "pulse in", "rub", "scatter", "scatter in", "scatter over", "scrape", "serve", "sift", "simmer", "sit", "spoon in", "sprinkle", "sprinkle in", "stir together", "stop", "tip in", "toss in", "trickle in", "use", "warm", "wash", "whip", "whisk", "whisk in", "whizz together", "xx"],
+				 "Father": "sweetening",
+				 "Children": [
+					{"Name": "caramel",
+					 "Synonyms": ["caramel", "caramelized_sugar"],
+					 "Hypers": ["sugar", "sweetening", "flavorer", "ingredient"],
+					 "Verbs": ["dot", "drizzle", "form", "give", "pat", "peel", "poke in", "reach", "remove", "save", "scoop", "seal", "shatter", "spoon over", "spread", "swirl", "turn"],
+					 "Father": "sugar",
+					 "Children": []
+					}
+				]
+				},
+				{"Name": "honey",
+				 "Synonyms": ["honey"],
+				 "Hypers": ["sweetening", "flavorer", "ingredient"],
+				 "Verbs": ["boil", "burn", "crush", "drizzle", "fold in", "give", "mix together", "place", "sprinkle", "throw in", "toss", "toss in", "turn", "warm", "whisk", "whizz", "xx"],
+				 "Father": "sweetening",
+				 "Children": []
+				},
+				{"Name": "syrup",
+				 "Synonyms": ["sirup", "syrup"],
+				 "Hypers": ["sweetening", "flavorer", "ingredient"],
+				 "Verbs": ["absorb", "bring", "bubble together", "choose", "discard", "dribble in", "drizzle", "drizzle over", "find", "have", "measure", "pour in", "reheat", "remove", "reserve", "return", "rewarm", "spoon in", "spoon over", "strain", "thaw"],
+				 "Father": "sweetening",
+				 "Children": [
+					{"Name": "treacle",
+					 "Synonyms": ["golden_syrup", "treacle"],
+					 "Hypers": ["syrup", "sweetening", "flavorer", "ingredient"],
+					 "Verbs": ["beat in", "combine", "place", "tip in", "whizz"],
+					 "Father": "syrup",
+					 "Children": []
+					}
+				]
+				}
+			]
+			},
+			{"Name": "cayenne",
+			 "Synonyms": ["cayenne", "cayenne_pepper", "red_pepper"],
+			 "Hypers": ["flavorer", "ingredient"],
+			 "Verbs": ["add", "mix", "mix together", "put", "rub together", "sprinkle", "tip", "whisk in"],
+			 "Father": "flavorer",
+			 "Children": []
+			},
+			{"Name": "garlic",
+			 "Synonyms": ["ail", "garlic"],
+			 "Hypers": ["flavorer", "ingredient"],
+			 "Verbs": ["add", "baste", "beat", "blend", "blitz", "break", "bring", "combine", "cook", "crush", "cut", "discard", "fry", "grind", "leave", "make", "mash", "mix", "mix together", "peel", "place", "poke in", "pound", "pour", "push", "put", "remove", "reserve", "return", "roast", "rub", "sauté", "scrape", "simmer", "slice", "soften", "spoon over", "spot", "squeeze", "stir", "stir in", "stir together", "strain", "throw in", "tip", "tip in", "toss", "toss in", "transfer", "turn", "warm", "whizz"],
+			 "Father": "flavorer",
+			 "Children": []
+			},
+			{"Name": "herb",
+			 "Synonyms": ["herb"],
+			 "Hypers": ["flavorer", "ingredient"],
+			 "Verbs": ["add", "blend", "bring", "brush", "combine", "discard", "divide", "dot", "fry", "grind", "knead", "mix", "place", "poke in", "put", "remove", "reserve", "scatter", "simmer", "singe", "spread", "stir", "stir in", "swap", "throw in", "tip", "tip in", "toss", "transfer", "whisk in"],
+			 "Father": "flavorer",
+			 "Children": []
+			},
+			{"Name": "paprika",
+			 "Synonyms": ["paprika"],
+			 "Hypers": ["flavorer", "ingredient"],
+			 "Verbs": ["add", "combine", "mix", "mix in", "mix together", "sprinkle", "stir in", "tip", "toss"],
+			 "Father": "flavorer",
+			 "Children": []
+			},
+			{"Name": "pepper",
+			 "Synonyms": ["pepper", "peppercorn"],
+			 "Hypers": ["flavorer", "ingredient"],
+			 "Verbs": ["add", "beat together", "bring", "brush", "chop", "combine", "cook", "crush", "crush together", "discard", "drain", "drop", "fish", "fry", "give", "grind", "keep", "mix", "mix in", "mix together", "need", "nestle", "pop", "pour in", "press", "press in", "put", "roll in", "shake", "simmer", "sprinkle", "sprinkle over", "stir", "stir in", "strain", "thread", "throw in", "tip", "tip in", "toss"],
+			 "Father": "flavorer",
+			 "Children": []
+			},
+			{"Name": "saffron",
+			 "Synonyms": ["saffron"],
+			 "Hypers": ["flavorer", "ingredient"],
+			 "Verbs": ["add", "grind", "mix together", "stir in", "stir together"],
+			 "Father": "flavorer",
+			 "Children": []
+			},
+			{"Name": "salt",
+			 "Synonyms": ["common_salt", "salt", "table_salt"],
+			 "Hypers": ["flavorer", "ingredient"],
+			 "Verbs": ["add", "beat", "beat together", "combine", "crush", "cut", "grind", "heat", "leave", "make", "melt", "mix", "mix in", "mix together", "need", "pat", "place", "prepare", "press in", "pulse together", "put", "remove", "rinse", "roll", "rub", "rub in", "scatter", "scrape", "serve", "shake", "sift", "sift in", "sift over", "sprinkle", "sprinkle in", "stir", "stir in", "throw in", "tip", "tip in", "use", "wash", "wash away", "whisk in"],
+			 "Father": "flavorer",
+			 "Children": []
+			},
+			{"Name": "spice",
+			 "Synonyms": ["spice"],
+			 "Hypers": ["flavorer", "ingredient"],
+			 "Verbs": ["add", "beat", "chuck", "combine", "contain", "dip in", "discard", "distribute", "drop", "fish", "fold in", "grind", "have", "infuse", "make", "measure", "microwave", "mix", "mix in", "mix together", "pour", "put", "remove", "rub", "rub in", "scatter", "scrape", "sift", "sift in", "sift over", "soak", "sprinkle", "sprinkle in", "stir", "stir in", "take", "tip", "tip in", "toast", "toss in", "turn", "use", "whizz"],
+			 "Father": "flavorer",
+			 "Children": []
+			},
+			{"Name": "vanilla",
+			 "Synonyms": ["vanilla", "vanilla_extract"],
+			 "Hypers": ["flavorer", "ingredient"],
+			 "Verbs": ["add", "beat", "beat in", "bring", "cut", "discard", "divide", "fold", "halve", "heat", "mix", "mix in", "mix together", "place", "put", "remove", "ripple", "rub in", "scrape", "scrape in", "slice", "split", "squeeze", "stir", "stir in", "stir together", "tip", "tip in", "whip", "whisk", "whisk in"],
+			 "Father": "flavorer",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "base",
+		 "Synonyms": ["base"],
+		 "Hypers": ["ingredient"],
+		 "Verbs": ["brush", "chill", "coat", "cover", "cut", "discard", "drape", "drizzle", "fit", "flatten", "form", "give", "grease", "leave", "lift", "lighten", "line", "make", "mix together", "oil", "pour", "prick", "provide", "return", "sit", "slice", "slot", "sprinkle", "tap", "tip", "touch", "trim", "turn", "twizzle", "wrap"],
+		 "Father": "ingredient",
+		 "Children": []
+		},
+		{"Name": "flavouring",
+		 "Synonyms": ["flavorer", "flavoring", "flavourer", "flavouring", "seasoner", "seasoning"],
+		 "Hypers": ["ingredient"],
+		 "Verbs": ["add", "adjust", "beat together", "blend", "bring", "check", "correct", "discard", "fold", "knead", "make", "mix", "mix in", "mix together", "need", "put", "sprinkle", "stir", "stir in", "throw in", "tip", "tip in", "toss", "whisk", "whisk in", "whizz"],
+		 "Father": "ingredient",
+		 "Children": []
+		},
+		{"Name": "white",
+		 "Synonyms": ["albumen", "egg_white", "ovalbumin", "white"],
+		 "Hypers": ["ingredient"],
+		 "Verbs": ["add", "chop", "fold", "fold in", "melt", "put", "roll", "separate", "use", "whisk"],
+		 "Father": "ingredient",
+		 "Children": []
+		}
+	]
+	},
+	{"Name": "meat",
+	 "Synonyms": ["meat"],
+	 "Hypers": [],
+	 "Verbs": [],
+	 "Father": "object",
+	 "Children": [
+		{"Name": "cut",
+		 "Synonyms": ["cut", "cut_of_meat"],
+		 "Hypers": ["meat"],
+		 "Verbs": ["add", "follow", "make", "snip", "use"],
+		 "Father": "meat",
+		 "Children": [
+			{"Name": "cut_of_pork",
+			 "Synonyms": ["cut_of_pork"],
+			 "Hypers": ["cut", "meat"],
+			 "Verbs": ["brush", "cook", "cover", "leave", "lift", "mix", "place", "put", "remove", "roll", "stir in", "tip"],
+			 "Father": "cut",
+			 "Children": [
+				{"Name": "bacon",
+				 "Synonyms": ["bacon"],
+				 "Hypers": ["cut_of_pork", "cut", "meat"],
+				 "Verbs": ["arrange", "blend", "bring", "brown", "chop", "crisp", "cross", "cut", "discard", "fill", "fold", "fold in", "fry", "grill", "lay", "pour in", "reheat", "reserve", "roll down", "save", "scoop", "scrape", "simmer", "spread", "sprinkle", "stretch", "tip in", "warm", "wind", "wrap"],
+				 "Father": "cut_of_pork",
+				 "Children": []
+				},
+				{"Name": "gammon",
+				 "Synonyms": ["gammon", "ham", "jambon"],
+				 "Hypers": ["cut_of_pork", "cut", "meat"],
+				 "Verbs": ["baste", "carve", "chill", "decorate", "do", "fit", "keep", "layer", "mix together", "need", "paint", "pat", "pour", "pour over", "press", "protect", "push", "rest", "return", "roast", "rotate", "score", "scrunch", "shred", "sit", "slice", "slide in", "soak", "stud", "take", "transfer", "turn", "unwrap", "weigh"],
+				 "Father": "cut_of_pork",
+				 "Children": [
+					{"Name": "prosciutto",
+					 "Synonyms": ["prosciutto"],
+					 "Hypers": ["gammon", "cut_of_pork", "cut", "meat", "ham"],
+					 "Verbs": ["arrange", "chop", "cut", "draw", "encase", "fold", "lay", "overlap", "tear", "wrap"],
+					 "Father": "gammon",
+					 "Children": []
+					}
+				]
+				}
+			]
+			},
+			{"Name": "cut_of_beef",
+			 "Synonyms": ["cut_of_beef"],
+			 "Hypers": ["cut", "meat"],
+			 "Verbs": [],
+			 "Father": "cut",
+			 "Children": [
+				{"Name": "blade",
+				 "Synonyms": ["blade"],
+				 "Hypers": ["cut_of_beef", "cut", "meat"],
+				 "Verbs": ["ease", "keep", "remove", "take", "turn"],
+				 "Father": "cut_of_beef",
+				 "Children": []
+				},
+				{"Name": "plate",
+				 "Synonyms": ["plate"],
+				 "Hypers": ["cut_of_beef", "cut", "meat"],
+				 "Verbs": ["choose", "cover", "do", "dot", "drizzle", "dust", "flip", "get", "line", "place", "put", "rest", "roll", "shake", "take", "weigh"],
+				 "Father": "cut_of_beef",
+				 "Children": []
+				},
+				{"Name": "round",
+				 "Synonyms": ["round"],
+				 "Hypers": ["cut_of_beef", "cut", "meat"],
+				 "Verbs": ["cut", "cut out", "do", "have", "ladle", "lay", "line", "pipe", "push", "shape", "stamp"],
+				 "Father": "cut_of_beef",
+				 "Children": []
+				}
+			]
+			},
+			{"Name": "confit",
+			 "Synonyms": ["confit"],
+			 "Hypers": ["cut", "meat"],
+			 "Verbs": ["reheat", "take"],
+			 "Father": "cut",
+			 "Children": []
+			},
+			{"Name": "steak",
+			 "Synonyms": ["steak"],
+			 "Hypers": ["cut", "meat"],
+			 "Verbs": ["cut", "put", "rub"],
+			 "Father": "cut",
+			 "Children": [
+				{"Name": "fillet",
+				 "Synonyms": ["filet", "fillet"],
+				 "Hypers": ["steak", "cut", "meat"],
+				 "Verbs": ["baste", "brown", "chill", "flip", "fry", "hold", "lay", "lift", "place", "remove", "roll", "sit", "slide in", "turn", "unravel", "wrap"],
+				 "Father": "steak",
+				 "Children": []
+				}
+			]
+			},
+			{"Name": "joint",
+			 "Synonyms": ["joint", "roast"],
+			 "Hypers": ["cut", "meat"],
+			 "Verbs": ["assemble", "cover", "do", "give", "have", "lift", "place", "pop", "prop", "put", "remove", "sever", "sit", "stir in", "stuff", "take", "toss in", "turn", "weigh"],
+			 "Father": "cut",
+			 "Children": []
+			},
+			{"Name": "leg",
+			 "Synonyms": ["leg"],
+			 "Hypers": ["cut", "meat"],
+			 "Verbs": ["break", "bring", "carve", "cover", "cut", "detach", "divide", "lay", "pack", "pull", "put", "remove", "rub", "score", "separate", "sit", "sprinkle", "tidy", "tie", "top", "transfer", "turn", "wiggle", "wipe"],
+			 "Father": "cut",
+			 "Children": []
+			},
+			{"Name": "loin",
+			 "Synonyms": ["loin"],
+			 "Hypers": ["cut", "meat"],
+			 "Verbs": ["brown", "cook", "fold", "keep", "place", "poke in", "tie", "turn"],
+			 "Father": "cut",
+			 "Children": []
+			},
+			{"Name": "neck",
+			 "Synonyms": ["neck"],
+			 "Hypers": ["cut", "meat"],
+			 "Verbs": ["cover", "discard", "lift", "pull", "push", "put", "secure", "snap away", "stuff"],
+			 "Father": "cut",
+			 "Children": []
+			},
+			{"Name": "rack",
+			 "Synonyms": ["rack"],
+			 "Hypers": ["cut", "meat"],
+			 "Verbs": ["lift", "put"],
+			 "Father": "cut",
+			 "Children": []
+			},
+			{"Name": "rib",
+			 "Synonyms": ["rib"],
+			 "Hypers": ["cut", "meat"],
+			 "Verbs": ["trim"],
+			 "Father": "cut",
+			 "Children": []
+			},
+			{"Name": "side",
+			 "Synonyms": ["side", "side_of_meat"],
+			 "Hypers": ["cut", "meat"],
+			 "Verbs": ["arrange", "bake", "beat", "bring", "brush", "butter", "coat", "cook", "cover", "create", "crush", "cut", "cut down", "decorate", "dip", "drape", "ease", "fill", "fold", "fold in", "grease", "hold", "lay", "leave", "lift", "line", "loosen", "meet", "move", "need", "overhang", "pat", "patch", "pinch", "place", "protect", "pull", "push", "put", "release", "remove", "roast", "roll", "rough", "rub", "scrape", "slash", "smooth", "spread", "sprinkle", "stick", "support", "sweep", "swirl", "top", "transfer", "trim", "turn", "wrap"],
+			 "Father": "cut",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "beef",
+		 "Synonyms": ["beef", "boeuf"],
+		 "Hypers": ["meat"],
+		 "Verbs": ["add", "brown", "brush", "carve", "colour", "cook", "cut", "dry", "encase", "fold", "fry", "give", "hold", "keep", "leave", "lift", "mark", "pat", "place", "pour", "put", "remove", "return", "roast", "roll", "sear", "season", "serve", "set", "sit", "slice", "spoon", "stir in", "take", "tip", "tip in", "transfer", "try", "turn"],
+		 "Father": "meat",
+		 "Children": []
+		},
+		{"Name": "bird",
+		 "Synonyms": ["bird", "fowl"],
+		 "Hypers": ["meat"],
+		 "Verbs": ["add", "baste", "bring", "brown", "cover", "form", "hold", "lay", "leave", "lift", "make", "nestle", "open", "permeate", "place", "pour", "prepare", "remove", "return", "scrunch", "season", "serve", "sit", "touch", "transfer", "turn", "weigh"],
+		 "Father": "meat",
+		 "Children": [
+			{"Name": "poultry",
+			 "Synonyms": ["poultry"],
+			 "Hypers": ["bird", "meat"],
+			 "Verbs": ["carve", "cook", "keep", "put", "use"],
+			 "Father": "bird",
+			 "Children": [
+				{"Name": "chicken",
+				 "Synonyms": ["chicken", "poulet", "volaille"],
+				 "Hypers": ["poultry", "bird", "meat"],
+				 "Verbs": ["arrange", "blend", "boil", "brush", "chop", "crumble in", "cut", "do", "fan", "fry", "have", "joint", "pat", "pour in", "put in", "reserve", "roast", "shred", "simmer", "slice", "spoon", "stuff", "test", "tie", "tip", "tip in", "toss", "toss in", "whisk in", "whizz"],
+				 "Father": "poultry",
+				 "Children": []
+				},
+				{"Name": "duck",
+				 "Synonyms": ["duck"],
+				 "Hypers": ["poultry", "bird", "meat"],
+				 "Verbs": ["arrange", "blend", "chop", "cut", "do", "dry", "grill", "have", "heat", "leave behind", "melt", "pat", "push", "reserve", "roast", "score", "slice", "spread", "take", "thread", "tip", "wash"],
+				 "Father": "poultry",
+				 "Children": []
+				},
+				{"Name": "goose",
+				 "Synonyms": ["goose"],
+				 "Hypers": ["poultry", "bird", "meat"],
+				 "Verbs": ["brush", "do", "fry", "heat", "ladle", "melt", "prick", "reassemble", "rub", "sauté", "spoon", "stuff", "take", "try"],
+				 "Father": "poultry",
+				 "Children": []
+				},
+				{"Name": "turkey",
+				 "Synonyms": ["turkey"],
+				 "Hypers": ["poultry", "bird", "meat"],
+				 "Verbs": ["arrange", "brush", "butterfly", "chop", "cut", "divide", "drizzle", "dry", "fold in", "garnish", "layer", "leave behind", "mix", "mix together", "move", "pat", "pierce", "pour away", "preheat", "rest", "rinse", "roast", "roll", "rub", "salt", "set", "set aside", "slice", "spoon", "spoon away", "spread", "stir in", "stuff", "surround", "take", "throw in", "tie", "tip", "trim", "wash", "whisk in", "wipe", "wrap", "write"],
+				 "Father": "poultry",
+				 "Children": []
+				}
+			]
+			},
+			{"Name": "wildfowl",
+			 "Synonyms": ["wildfowl"],
+			 "Hypers": ["bird", "meat"],
+			 "Verbs": [],
+			 "Father": "bird",
+			 "Children": [
+				{"Name": "partridge",
+				 "Synonyms": ["partridge"],
+				 "Hypers": ["wildfowl", "bird", "meat"],
+				 "Verbs": ["dust"],
+				 "Father": "wildfowl",
+				 "Children": []
+				},
+				{"Name": "pheasant",
+				 "Synonyms": ["pheasant"],
+				 "Hypers": ["wildfowl", "bird", "meat"],
+				 "Verbs": ["have", "put", "take", "tie", "wrap"],
+				 "Father": "wildfowl",
+				 "Children": []
+				}
+			]
+			}
+		]
+		},
+		{"Name": "sausage",
+		 "Synonyms": ["sausage"],
+		 "Hypers": ["meat"],
+		 "Verbs": ["add", "arrange", "break", "brown", "brush", "coat", "create", "cut", "divide", "encase", "form", "fry", "have", "lay", "maintain", "make", "pat", "pile", "place", "pour", "press in", "put", "remove", "roll", "sit", "squeeze", "swap", "thread", "toss", "toss in", "transfer", "twist", "use", "wrap"],
+		 "Father": "meat",
+		 "Children": [
+			{"Name": "chipolata",
+			 "Synonyms": ["chipolata"],
+			 "Hypers": ["sausage", "meat"],
+			 "Verbs": ["wind"],
+			 "Father": "sausage",
+			 "Children": []
+			},
+			{"Name": "chorizo",
+			 "Synonyms": ["chorizo"],
+			 "Hypers": ["sausage", "meat"],
+			 "Verbs": ["chop", "cook", "fold", "stir in", "turn"],
+			 "Father": "sausage",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "game",
+		 "Synonyms": ["game"],
+		 "Hypers": ["meat"],
+		 "Verbs": ["reserve", "use"],
+		 "Father": "meat",
+		 "Children": [
+			{"Name": "venison",
+			 "Synonyms": ["venison"],
+			 "Hypers": ["game", "meat"],
+			 "Verbs": ["add", "brush", "dry", "flip", "lay", "like", "make", "marinate", "put", "roast", "seal"],
+			 "Father": "game",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "variety_meat",
+		 "Synonyms": ["organs", "variety_meat"],
+		 "Hypers": ["meat"],
+		 "Verbs": [],
+		 "Father": "meat",
+		 "Children": [
+			{"Name": "giblet",
+			 "Synonyms": ["giblet", "giblets"],
+			 "Hypers": ["variety_meat", "meat"],
+			 "Verbs": ["add", "discard", "pull", "put", "remove", "wash"],
+			 "Father": "variety_meat",
+			 "Children": []
+			},
+			{"Name": "heart",
+			 "Synonyms": ["heart"],
+			 "Hypers": ["variety_meat", "meat"],
+			 "Verbs": ["cut", "fill", "make", "put", "stick", "use"],
+			 "Father": "variety_meat",
+			 "Children": []
+			},
+			{"Name": "liver",
+			 "Synonyms": ["liver"],
+			 "Hypers": ["variety_meat", "meat"],
+			 "Verbs": ["add", "chop", "fry", "pat", "season", "set", "tip"],
+			 "Father": "variety_meat",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "lamb",
+		 "Synonyms": ["lamb"],
+		 "Hypers": ["meat"],
+		 "Verbs": ["add", "blitz", "brown", "carve", "cook", "face", "freeze", "keep", "lay", "lift", "mix", "mix in", "overcook", "put", "rest", "return", "season", "squish", "tip", "toss", "use"],
+		 "Father": "meat",
+		 "Children": []
+		},
+		{"Name": "pork",
+		 "Synonyms": ["porc", "pork"],
+		 "Hypers": ["meat"],
+		 "Verbs": ["add", "arrange", "blend", "brown", "carve", "chill", "cook", "cut", "dice", "dust", "fry", "leave", "lie", "lift", "lower", "make", "overwork", "place", "pour", "pour over", "put", "remove", "return", "roll", "salt", "score", "scrape", "season", "set", "shred", "sit", "slice", "sprinkle", "take", "tip", "transfer", "turn", "unfold", "untie"],
+		 "Father": "meat",
+		 "Children": []
+		},
+		{"Name": "veal",
+		 "Synonyms": ["veal", "veau"],
+		 "Hypers": ["meat"],
+		 "Verbs": ["trim"],
+		 "Father": "meat",
+		 "Children": []
+		}
+	]
+	},
+	{"Name": "seafood",
+	 "Synonyms": ["seafood"],
+	 "Hypers": [],
+	 "Verbs": [],
+	 "Father": "object",
+	 "Children": [
+		{"Name": "roe",
+		 "Synonyms": ["hard_roe", "roe"],
+		 "Hypers": ["seafood"],
+		 "Verbs": ["include", "remove", "set"],
+		 "Father": "seafood",
+		 "Children": [
+			{"Name": "coral",
+			 "Synonyms": ["coral"],
+			 "Hypers": ["roe", "seafood"],
+			 "Verbs": ["add", "spoon"],
+			 "Father": "roe",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "shellfish",
+		 "Synonyms": ["shellfish"],
+		 "Hypers": ["seafood"],
+		 "Verbs": [],
+		 "Father": "seafood",
+		 "Children": [
+			{"Name": "crab",
+			 "Synonyms": ["crab", "crabmeat"],
+			 "Hypers": ["shellfish", "seafood"],
+			 "Verbs": ["add", "fold", "layer", "mix", "pile", "remove"],
+			 "Father": "shellfish",
+			 "Children": []
+			},
+			{"Name": "crayfish",
+			 "Synonyms": ["crawdad", "crawfish", "crayfish", "ecrevisse", "langouste", "rock_lobster", "spiny_lobster"],
+			 "Hypers": ["shellfish", "seafood"],
+			 "Verbs": ["lay"],
+			 "Father": "shellfish",
+			 "Children": []
+			},
+			{"Name": "lobster",
+			 "Synonyms": ["lobster"],
+			 "Hypers": ["shellfish", "seafood"],
+			 "Verbs": ["add", "arrange", "cut", "lay", "prepare", "put", "stir in"],
+			 "Father": "shellfish",
+			 "Children": []
+			},
+			{"Name": "mussel",
+			 "Synonyms": ["mussel"],
+			 "Hypers": ["shellfish", "seafood"],
+			 "Verbs": ["fold in"],
+			 "Father": "shellfish",
+			 "Children": []
+			},
+			{"Name": "oyster",
+			 "Synonyms": ["huitre", "oyster"],
+			 "Hypers": ["shellfish", "seafood"],
+			 "Verbs": ["attach", "cut", "do", "grip", "have", "keep", "leave", "open", "place", "pour in", "rinse", "shuck", "transfer", "watch"],
+			 "Father": "shellfish",
+			 "Children": []
+			},
+			{"Name": "scallop",
+			 "Synonyms": ["escallop", "scallop", "scollop"],
+			 "Hypers": ["shellfish", "seafood"],
+			 "Verbs": ["add", "arrange", "cook", "dry", "pour", "rinse", "roll", "sautée", "scrub", "season", "shell", "sit", "spoon", "thread", "turn"],
+			 "Father": "shellfish",
+			 "Children": []
+			},
+			{"Name": "steamer",
+			 "Synonyms": ["long-neck_clam", "soft-shell_clam", "steamer", "steamer_clam"],
+			 "Hypers": ["shellfish", "seafood"],
+			 "Verbs": ["do", "heat", "prepare", "set", "use"],
+			 "Father": "shellfish",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "saltwater_fish",
+		 "Synonyms": ["saltwater_fish"],
+		 "Hypers": ["seafood"],
+		 "Verbs": [],
+		 "Father": "seafood",
+		 "Children": [
+			{"Name": "mackerel",
+			 "Synonyms": ["mackerel"],
+			 "Hypers": ["saltwater_fish", "seafood"],
+			 "Verbs": ["arrange", "break", "brush", "coat", "dip", "divide", "lay", "mix"],
+			 "Father": "saltwater_fish",
+			 "Children": []
+			},
+			{"Name": "kipper",
+			 "Synonyms": ["kipper", "kippered_herring"],
+			 "Hypers": ["saltwater_fish", "seafood"],
+			 "Verbs": ["add", "put"],
+			 "Father": "saltwater_fish",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "prawn",
+		 "Synonyms": ["prawn", "shrimp"],
+		 "Hypers": ["seafood"],
+		 "Verbs": ["add", "arrange", "brush", "butterfly", "chill", "chop", "cook", "dip", "dry", "freeze", "fry", "lay", "lift", "make", "marinate", "mix", "mix in", "mix together", "open", "pat", "pile", "put", "shell", "sprinkle", "stand", "tip in", "toss"],
+		 "Father": "seafood",
+		 "Children": []
+		}
+	]
+	},
+	{"Name": "spice",
+	 "Synonyms": ["spice"],
+	 "Hypers": [],
+	 "Verbs": ["add", "mix", "put"],
+	 "Father": "object",
+	 "Children": [
+		{"Name": "nutmeg",
+		 "Synonyms": ["nutmeg"],
+		 "Hypers": ["spice"],
+		 "Verbs": ["combine", "grate", "grate in", "grate over", "mix together", "pour", "sift in", "spoon", "sprinkle", "stir", "stir in", "tip", "xx"],
+		 "Father": "spice",
+		 "Children": []
+		},
+		{"Name": "allspice",
+		 "Synonyms": ["allspice"],
+		 "Hypers": ["spice"],
+		 "Verbs": ["bring", "give", "stir", "tip in", "whizz"],
+		 "Father": "spice",
+		 "Children": []
+		},
+		{"Name": "cinnamon",
+		 "Synonyms": ["cinnamon"],
+		 "Hypers": ["spice"],
+		 "Verbs": ["attach", "beat in", "cook", "discard", "drop", "fold in", "fry", "heat", "hold", "make", "mash", "mix in", "place", "pour", "push", "remove", "scatter", "sift", "sift in", "sift together", "sprinkle", "stir", "stir in", "tie", "tip", "whisk", "whisk in"],
+		 "Father": "spice",
+		 "Children": []
+		},
+		{"Name": "clove",
+		 "Synonyms": ["clove"],
+		 "Hypers": ["spice"],
+		 "Verbs": ["combine", "crush", "grind", "heat", "melt", "place", "poke", "pour", "push", "remove", "reserve", "scatter", "simmer", "stick", "stir in", "stud", "take", "tip", "use"],
+		 "Father": "spice",
+		 "Children": []
+		},
+		{"Name": "mace",
+		 "Synonyms": ["mace"],
+		 "Hypers": ["spice"],
+		 "Verbs": ["combine", "crush", "stir in"],
+		 "Father": "spice",
+		 "Children": []
+		}
+	]
+	},
+	{"Name": "vegetable",
+	 "Synonyms": ["veg", "vegetable", "veggie"],
+	 "Hypers": [],
+	 "Verbs": [],
+	 "Father": "object",
+	 "Children": [
+		{"Name": "artichoke",
+		 "Synonyms": ["Cynara_scolymus", "artichoke", "artichoke_plant", "globe_artichoke"],
+		 "Hypers": ["vegetable"],
+		 "Verbs": ["add", "chop", "fry", "halve", "mix", "pile", "put", "quarter", "slice", "spread", "stir in", "toss"],
+		 "Father": "vegetable",
+		 "Children": []
+		},
+		{"Name": "legume",
+		 "Synonyms": ["legume"],
+		 "Hypers": ["vegetable"],
+		 "Verbs": [],
+		 "Father": "vegetable",
+		 "Children": [
+			{"Name": "bean",
+			 "Synonyms": ["bean", "edible_bean"],
+			 "Hypers": ["legume", "vegetable"],
+			 "Verbs": ["add", "arrange", "coat", "cook", "drain", "drop", "mix", "patch", "press", "put", "remove", "stick", "stir in", "take", "throw in", "tip", "tip in"],
+			 "Father": "legume",
+			 "Children": []
+			},
+			{"Name": "lentil",
+			 "Synonyms": ["lentil"],
+			 "Hypers": ["legume", "vegetable"],
+			 "Verbs": ["add", "cook", "put", "rinse", "soak", "stir", "stir in", "tip", "warm"],
+			 "Father": "legume",
+			 "Children": []
+			},
+			{"Name": "pea",
+			 "Synonyms": ["pea"],
+			 "Hypers": ["legume", "vegetable"],
+			 "Verbs": ["add", "cook", "fold in", "mix", "pour in", "prepare", "put", "shell", "stir in", "tip in", "toss"],
+			 "Father": "legume",
+			 "Children": []
+			},
+			{"Name": "pulse",
+			 "Synonyms": ["pulse"],
+			 "Hypers": ["legume", "vegetable"],
+			 "Verbs": ["give", "tap", "use"],
+			 "Father": "legume",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "beet",
+		 "Synonyms": ["Beta_vulgaris", "beet", "beetroot", "common_beet"],
+		 "Hypers": ["vegetable"],
+		 "Verbs": ["absorb", "add", "cut", "put", "toss", "wiggle"],
+		 "Father": "vegetable",
+		 "Children": [
+			{"Name": "beetroot",
+			 "Synonyms": ["Beta_vulgaris_rubra", "beet", "beetroot"],
+			 "Hypers": ["beet", "vegetable"],
+			 "Verbs": ["arrange", "blend", "cover", "dice", "fry", "grate", "keep", "layer", "make", "mix", "peel", "pour", "press in", "scatter", "spoon in", "spread", "stir", "stir in", "tip"],
+			 "Father": "beet",
+			 "Children": []
+			},
+			{"Name": "chard",
+			 "Synonyms": ["Beta_vulgaris_cicla", "Swiss_chard", "chard", "chard_plant", "leaf_beet", "spinach_beet"],
+			 "Hypers": ["beet", "vegetable"],
+			 "Verbs": ["cook"],
+			 "Father": "beet",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "cruciferous_vegetable",
+		 "Synonyms": ["cruciferous_vegetable"],
+		 "Hypers": ["vegetable"],
+		 "Verbs": [],
+		 "Father": "vegetable",
+		 "Children": [
+			{"Name": "cabbage",
+			 "Synonyms": ["cabbage", "chou"],
+			 "Hypers": ["cruciferous_vegetable", "vegetable"],
+			 "Verbs": ["add", "blanch", "do", "fry", "glaze", "keep", "make", "microwave", "nestle", "place", "pour", "put", "quarter", "reheat", "roast", "shred", "slice", "spoon", "stir", "stir in", "take", "tip", "tip in", "toss", "toss in", "transfer", "wilt", "wrap"],
+			 "Father": "cruciferous_vegetable",
+			 "Children": []
+			},
+			{"Name": "choux",
+			 "Synonyms": ["cabbage", "chou"],
+			 "Hypers": ["cruciferous_vegetable", "vegetable"],
+			 "Verbs": ["fill", "split"],
+			 "Father": "cruciferous_vegetable",
+			 "Children": []
+			},
+			{"Name": "radish",
+			 "Synonyms": ["radish"],
+			 "Hypers": ["cruciferous_vegetable", "vegetable"],
+			 "Verbs": ["arrange", "pickle", "put"],
+			 "Father": "cruciferous_vegetable",
+			 "Children": []
+			},
+			{"Name": "turnip",
+			 "Synonyms": ["turnip"],
+			 "Hypers": ["cruciferous_vegetable", "vegetable"],
+			 "Verbs": ["add", "boil", "layer", "push", "shave", "slice", "toss"],
+			 "Father": "cruciferous_vegetable",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "squash",
+		 "Synonyms": ["squash"],
+		 "Hypers": ["vegetable"],
+		 "Verbs": ["add", "arrange", "break", "cover", "cut", "dome", "fold in", "fry", "layer", "leave", "pile", "press", "put", "reheat", "stir", "stir in", "stuff", "tip", "tip in", "toss", "toss together", "turn"],
+		 "Father": "vegetable",
+		 "Children": [
+			{"Name": "courgette",
+			 "Synonyms": ["courgette", "zucchini"],
+			 "Hypers": ["squash", "vegetable"],
+			 "Verbs": ["slice", "thread"],
+			 "Father": "squash",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "cucumber",
+		 "Synonyms": ["cucumber", "cuke"],
+		 "Hypers": ["vegetable"],
+		 "Verbs": ["add", "bruise", "cut", "dice", "grate", "halve", "make", "mix", "squeeze", "stir in", "toss"],
+		 "Father": "vegetable",
+		 "Children": [
+			{"Name": "gherkin",
+			 "Synonyms": ["gherkin"],
+			 "Hypers": ["cucumber", "vegetable"],
+			 "Verbs": ["roll"],
+			 "Father": "cucumber",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "green",
+		 "Synonyms": ["green", "greens", "leafy_vegetable"],
+		 "Hypers": ["vegetable"],
+		 "Verbs": ["add", "colour", "separate", "tip in", "use"],
+		 "Father": "vegetable",
+		 "Children": [
+			{"Name": "sprout",
+			 "Synonyms": ["sprout"],
+			 "Hypers": ["green", "vegetable", "greens"],
+			 "Verbs": ["blanch", "boil", "chop", "chuck", "coat", "cook", "disturb", "divide", "drain", "dress", "drop in", "dunk", "fry", "halve", "heat", "keep", "leave", "mix", "place", "push", "put", "remove", "sauté", "scrunch", "season", "slice", "stir", "stir in", "take", "tenderise", "tip", "toss", "toss in", "trim", "turn"],
+			 "Father": "green",
+			 "Children": []
+			},
+			{"Name": "radicchio",
+			 "Synonyms": ["radicchio"],
+			 "Hypers": ["green", "vegetable"],
+			 "Verbs": ["arrange", "rub"],
+			 "Father": "green",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "leek",
+		 "Synonyms": ["leek"],
+		 "Hypers": ["vegetable"],
+		 "Verbs": ["add", "arrange", "blanch", "boil", "cook", "cut", "fry", "line", "mash", "mix", "pour", "pour in", "put", "reheat", "return", "soften", "spoon", "sweat", "tip", "tip in", "toss"],
+		 "Father": "vegetable",
+		 "Children": []
+		},
+		{"Name": "mushroom",
+		 "Synonyms": ["mushroom"],
+		 "Hypers": ["vegetable"],
+		 "Verbs": ["add", "arrange", "chop", "contain", "cook", "crumble in", "discard", "divide", "drain", "draw", "fry", "have", "lay", "make", "mince", "mix", "pat", "pile", "place", "pour", "press", "put", "remove", "roll", "scoop", "season", "set", "soak", "soften", "spoon", "spread", "sprinkle", "stir", "stir in", "tip", "tip in", "transfer", "whizz"],
+		 "Father": "vegetable",
+		 "Children": []
+		},
+		{"Name": "onion",
+		 "Synonyms": ["onion"],
+		 "Hypers": ["vegetable"],
+		 "Verbs": ["add", "arrange", "blitz", "bring", "brush", "chop", "combine", "cook", "cut", "discard", "divide", "do", "drain", "dress", "fill", "fold in", "fry", "grate", "halve", "have", "heat", "keep", "lay", "layer", "leave", "mix", "mix together", "pack", "peel", "pile", "place", "pop", "pour", "push", "put", "remove", "return", "rinse", "save", "scatter", "scoop", "simmer", "slice", "soften", "spoon", "spread", "squish", "stir", "stir in", "stud", "sweat", "throw", "tip", "tip in", "toss", "toss together", "transfer", "tuck", "turn", "use", "wash", "weigh", "wiggle"],
+		 "Father": "vegetable",
+		 "Children": [
+			{"Name": "shallot",
+			 "Synonyms": ["shallot"],
+			 "Hypers": ["onion", "vegetable"],
+			 "Verbs": ["boil", "colour", "cover", "make", "melt", "sauté", "sizzle", "thread", "throw in", "whisk in"],
+			 "Father": "onion",
+			 "Children": []
+			}
+		]
+		},
+		{"Name": "pumpkin",
+		 "Synonyms": ["pumpkin"],
+		 "Hypers": ["vegetable"],
+		 "Verbs": ["add", "fry", "mix in", "put", "scatter", "serve", "stir", "tip", "turn"],
+		 "Father": "vegetable",
+		 "Children": []
+		},
+		{"Name": "rhubarb",
+		 "Synonyms": ["pieplant", "rhubarb"],
+		 "Hypers": ["vegetable"],
+		 "Verbs": ["arrange", "divide", "drain", "drizzle", "make", "scoop", "squeeze", "tip in"],
+		 "Father": "vegetable",
+		 "Children": []
+		},
+		{"Name": "spinach",
+		 "Synonyms": ["Spinacia_oleracea", "prickly-seeded_spinach", "spinach", "spinach_plant"],
+		 "Hypers": ["vegetable"],
+		 "Verbs": ["add", "arrange", "chop", "divide", "do", "drain", "dress", "finish", "fry", "heat", "keep", "pack", "place", "put", "return", "spoon", "spoon in", "stir in", "throw in", "tip", "tip in", "toss", "toss in", "toss together", "wash"],
+		 "Father": "vegetable",
+		 "Children": []
+		},
+		{"Name": "truffle",
+		 "Synonyms": ["earthnut", "truffle"],
+		 "Hypers": ["vegetable"],
+		 "Verbs": ["add", "arrange", "coat", "drop", "fold in", "give", "leave", "make", "pick", "place", "put", "roll", "scoop", "seal", "shake", "shape", "slice", "smear", "take", "whisk in"],
+		 "Father": "vegetable",
+		 "Children": []
+		},
+		{"Name": "hot_pepper",
+		 "Synonyms": ["hot_pepper"],
+		 "Hypers": ["vegetable"],
+		 "Verbs": ["add", "mix"],
+		 "Father": "vegetable",
+		 "Children": [
+			{"Name": "tabasco",
+			 "Synonyms": ["red_pepper", "tabasco"],
+			 "Hypers": ["hot_pepper", "pepper", "solanaceous_vegetable", "vegetable"],
+			 "Verbs": ["beat together", "mix together"],
+			 "Father": "hot_pepper",
+			 "Children": []
+			},
+			{"Name": "chilli",
+			 "Synonyms": ["chile", "chili", "chili_pepper", "chilli", "chilly"],
+			 "Hypers": ["hot_pepper", "pepper", "solanaceous_vegetable", "vegetable"],
+			 "Verbs": ["bring", "chop", "discard", "drain", "fry", "halve", "make", "pack", "place", "pop", "put", "remove", "scatter", "slice", "sprinkle", "stir in", "stir together", "strain", "tip", "tip in", "toast", "whizz"],
+			 "Father": "hot_pepper",
+			 "Children": [
+				{"Name": "chipotle",
+				 "Synonyms": ["chipotle"],
+				 "Hypers": ["chilli", "hot_pepper", "pepper", "solanaceous_vegetable", "vegetable"],
+				 "Verbs": [],
+				 "Father": "chilli",
+				 "Children": []
+				}
+			]
+			}
+		]
+		},
+		{"Name": "potato",
+		 "Synonyms": ["Irish_potato", "murphy", "potato", "spud", "tater", "white_potato"],
+		 "Hypers": ["vegetable"],
+		 "Verbs": ["add", "arrange", "baste", "blend", "boil", "break", "bring", "brown", "chunk", "coat", "cook", "cover", "crumble", "crush", "cut", "do", "drain", "drizzle", "drop", "flip", "fold in", "fry", "give", "grate", "halve", "have", "hold", "keep", "lay", "layer", "leave", "lift", "mash", "microwave", "mingle", "mix", "move", "mush", "need", "pack", "pass", "pat", "peel", "pile", "place", "pour", "prepare", "press", "prick", "push", "put", "remove", "repeat", "rest", "return", "roast", "roll", "roll in", "rough", "rub", "ruffle", "scatter", "scoop", "scrape", "scrape in", "scrub", "season", "shake", "simmer", "sit", "sizzle", "skip", "slice", "slip", "soak", "spoon", "spread", "sprinkle", "squash", "steam", "stir in", "stop", "swirl", "take", "thread", "throw in", "tip", "tip in", "toss", "transfer", "turn", "use"],
+		 "Father": "vegetable",
+		 "Children": []
+		}
+	]
+	}
+]
+}

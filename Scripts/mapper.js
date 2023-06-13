@@ -27,8 +27,9 @@ function mapper() {
         width: window.innerWidth,
 
         r: 4,
-        fill: "#31A1ED",
-        stroke: "#ED7D31"
+        nodeColor: "#ED7D31",
+        leafColor: "#31A1ED",
+        stroke: "#999"
     })
 
     return document.body.appendChild(tree);

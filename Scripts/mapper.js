@@ -1,7 +1,7 @@
 import {Tree} from "./d3TreeScript.js";
 import data from "../Data/hierarchyData.json" assert {type: "json"};
 
-function mapper() {
+export function mapFunction() {
     let tree = Tree(data, {
         children: d => d.Children,
         label: d => d.Name,
@@ -27,12 +27,10 @@ function mapper() {
         width: window.innerWidth,
 
         r: 4,
-        nodeColor: "#ED7D31",
-        leafColor: "#31A1ED",
+        nodeNormClass: "nodeNorm",
+        nodeLeafClass: "nodeLeaf",
         stroke: "#999"
     })
 
     return document.body.appendChild(tree);
 }
-
-window.mapFunction = mapper()

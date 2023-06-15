@@ -17,14 +17,23 @@
     <!-- Icon next to title -->
     <link rel="icon" type="image/x-icon" href="Img/favicon.ico">
 
-    <!-- Tree Script copy-pasted from Observable -->
-    <script type="module" src="Scripts/mapper.js"></script>
+    <!-- Tree Script copy-pasted from Observable-->
     <script src="https://d3js.org/d3.v7.js"></script>
 
   </head>
   <body>
-    <script>
-      mapFunction()
+    <div id="infoBox">
+      <p class="infoText" id="infoTextName">Selected node: --no node selected--</p>
+      <p class="infoText" id="infoTextSynonyms">Synonyms of the node: --no node selected--</p>
+      <p class="infoText" id="infoTextVerbs">Verbs associated at the node: --no node selected--</p>
+      <p class="infoText" style="text-align: center">Select a node in the graph below to show infos.</p>
+    </div>
+    <script type="module">
+      import { mapFunction } from "./Scripts/mapper.js";
+
+      document.addEventListener("DOMContentLoaded", () => {
+        mapFunction();
+      });
     </script>
   </body>
 </html>

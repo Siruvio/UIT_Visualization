@@ -1,4 +1,33 @@
-p {
-    color: cornflowerblue;
+p.infoText {
+    color: black;
     font-family: "Arial", sans-serif;
+    font-size: 12px;
+    margin: 0;
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+
+div#infoBox {
+    border-style: solid;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+circle#nodeNormLeg, circle.nodeNorm {
+    fill: #ED7D31;
+}
+
+circle#nodeLeafLeg, circle.nodeLeaf {
+    fill: #31A1ED;
+}
+
+circle#activeNode, circle#activeNodeLeg {
+    stroke: darkred;
+    stroke-width: 2px;
+    stroke-linejoin: round;
+}
+
+circle#activeNodeLeg {
+    fill: none;
 }

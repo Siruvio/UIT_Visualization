@@ -11,8 +11,8 @@ export function Tree(data, {        // "data" is hierarchy (nested objects)
     height,                         // Outer height, in pixels
     r = 3,                          // Radius of nodes
     padding = 1,                    // Horizontal padding for first and last column
-    nodeColor = "#999",             // Color for nodes with children
-    leafColor = "#999",             // Color for nodes without children
+    nodeNormClass = "",             // Class for nodes with children
+    nodeLeafClass = "",             // Class for nodes without children
     strokeColor = "#555",           // Stroke color for links
     strokeWidth = 1.5,              // Stroke width for links
     strokeOpacity = 0.4,            // Stroke opacity for links
@@ -32,7 +32,7 @@ export function Tree(data, {        // "data" is hierarchy (nested objects)
     const L = label == null ? null : descendants.map(d => label(d.data, d));
 
     // Compute the layout
-    const dx = 10;
+    const dx = 12;
     const dy = width / (root.height + padding);
     tree().nodeSize([dx, dy])(root);
 
@@ -55,9 +55,12 @@ export function Tree(data, {        // "data" is hierarchy (nested objects)
         .attr("viewBox", [0, -dx, width, height])
         .attr("width", width)
         .attr("height", height)
-        .attr("style", "max-width: 100%; height: auto; height: intrinsic;")
+        .attr("style", "max-width: 100%; height: auto;")
         .attr("font-family", "sans-serif")
         .attr("font-size", 10);
+
+    // --- Adding legend ---
+    addLegend(svg, halo, haloWidth)
 
     // --- Curved strokes of tree ---
     svg.append("g")
@@ -82,9 +85,14 @@ export function Tree(data, {        // "data" is hierarchy (nested objects)
         .join("a")
         .attr("transform", d => `translate(${d.y},${d.x})`);
 
+    // OnClick event: display node infos
+    node.on("click", function(event) {
+       nodeShowInfo(event, this);
+    })
+
     // Node icons
     node.append("circle")
-        .attr("fill", d => d.children ? nodeColor : leafColor)
+        .attr("class", d => d.children ? nodeNormClass : nodeLeafClass)
         .attr("r", r);
 
     // Hover text
@@ -94,30 +102,73 @@ export function Tree(data, {        // "data" is hierarchy (nested objects)
     // Node labels
     if (L) node.append("text")
         .attr("dy", "0.32em")
-        .attr("x", d => d.children ? -6 : 6)
+        .attr("x", d => d.children ? -7 : 7)
         .attr("text-anchor", d => d.children ? "end" : "start")
         .attr("paint-order", "stroke")
         .attr("stroke", halo)
         .attr("stroke-width", haloWidth)
         .text((d, i) => L[i]);
 
-    // --- Adding the legend ---
-    addLegend(svg, nodeColor, leafColor, halo, haloWidth)
-
     return svg.node();
 }
 
-function addLegend(svg, nodeColor, leafColor, halo, haloWidth) {
+function nodeShowInfo(event, node) {
+    // Remove id "activeNode" from the last active node, if any
+    const lastActive = document.getElementById("activeNode");
+    if (lastActive) {lastActive.removeAttribute("id");}
+
+    // Add id "activeNode" at the current node
+    const circleElement = node.querySelector("circle");
+    circleElement.setAttribute("id", "activeNode");
+
+    // Search the text nodes
+    const infoBoxName = document.getElementById("infoTextName");
+    const infoBoxSynonyms = document.getElementById("infoTextSynonyms");
+    const infoBoxVerbs = document.getElementById("infoTextVerbs");
+
+    // Infos in the node
+    const data = node.__data__.data;
+
+    // Overwrite text in the text nodes
+    let oldStrName = infoBoxName.innerHTML.split(/(?<=: )/)[0];
+    infoBoxName.innerHTML = oldStrName + data.Name;
+
+    let oldStrSyn = infoBoxSynonyms.innerHTML.split(/(?<=: )/)[0];
+    let textSyn = "";
+    if (!(data.Synonyms.length === 0)) {
+        let strSyn = data.Synonyms.toString()
+            .replaceAll(",", ", ");
+        textSyn += strSyn;
+    } else {
+        textSyn += "None";
+    }
+    infoBoxSynonyms.innerHTML = oldStrSyn + textSyn;
+
+    let oldStrVer = infoBoxVerbs.innerHTML.split(/(?<=: )/)[0];
+    let textVerbs = "";
+    if (!(data.Verbs.length === 0)) {
+        let strVer = data.Verbs.toString()
+            .replaceAll(",", ", ");
+        textVerbs += strVer;
+    } else {
+        textVerbs += "None";
+    }
+    infoBoxVerbs.innerHTML = oldStrVer + textVerbs;
+}
+
+// Add a graphical legend in the top left corner
+function addLegend(svg, halo, haloWidth) {
     // Legend parameters
     const legendKeys = [
-        {name: "Node", color: nodeColor},
-        {name: "Leaf", color: leafColor}
+        {name: "Node", id: "nodeNormLeg"},
+        {name: "Leaf", id: "nodeLeafLeg"},
+        {name: "Active", id: "activeNodeLeg"}
     ];
     let legendRadius = 6;
-    let legendSpacing = 4;
+    let legendSpacing = 5;
 
     // Legend container
-    const legend = svg.append("svg")
+    const legend = svg.append("g")
         .selectAll(".legendItem")
         .data(legendKeys);
 
@@ -127,19 +178,19 @@ function addLegend(svg, nodeColor, leafColor, halo, haloWidth) {
         .attr("cx", legendRadius + 1)
         .attr("cy", legendRadius + 1)
         .attr("r", legendRadius)
-        .style("fill", d => d.color)
+        .attr("id", d => d.id)
         .attr("transform",
             (d, i) => {
-                let x = 10;
                 let y = ((legendRadius * 2) + legendSpacing) * i;
-                return `translate(${x}, ${y})`;
+                return `translate(0, ${y})`;
             })
 
     // Legend texts
     legend.enter()
         .append("text")
-        .attr('x', (legendRadius * 2) + 15)
-        .attr('y', (d, i) => ((legendRadius * 2) + legendSpacing) * i + 11)
+        .attr("x", (legendRadius * 2) + legendSpacing)      // Diameter + padding between icon and text
+        .attr("y", (d, i) =>
+            ((legendRadius * 2) + legendSpacing) * i + 11)  // 11 is a fixed value for centering the text
         .attr("paint-order", "stroke")
         .attr("stroke", halo)
         .attr("stroke-width", haloWidth)

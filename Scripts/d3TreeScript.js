@@ -13,6 +13,7 @@ export function Tree(data, {        // "data" is hierarchy (nested objects)
     padding = 1,                    // Horizontal padding for first and last column
     nodeNormClass = "",             // Class for nodes with children
     nodeLeafClass = "",             // Class for nodes without children
+    nodeCollClass = "",             // Class for nodes visually collapsed
     strokeColor = "#555",           // Stroke color for links
     strokeWidth = 1.5,              // Stroke width for links
     strokeOpacity = 0.4,            // Stroke opacity for links
@@ -47,23 +48,26 @@ export function Tree(data, {        // "data" is hierarchy (nested objects)
     });
     if (height === undefined) height = x1 - x0 + dx * 2;    // Default height
 
+    // Retrieving top margin offset
+    const topMarginOffset = document.getElementById("infoBox").offsetHeight;
+
     // Use the required curve
     if (typeof curve !== "function") throw new Error(`Unsupported curve`);
 
     // --- Main SVG box ---
     const svg = d3.create("svg")
+        .attr("id", "graph")
         .attr("viewBox", [0, -dx, width, height])
         .attr("width", width)
         .attr("height", height)
-        .attr("style", "max-width: 100%; height: auto;")
-        .attr("font-family", "sans-serif")
-        .attr("font-size", 10);
+        .style("margin-top", topMarginOffset + "px");
 
     // --- Adding legend ---
-    addLegend(svg, halo, haloWidth)
+    addLegend(svg, halo, haloWidth, nodeNormClass, nodeLeafClass, nodeCollClass);
 
     // --- Curved strokes of tree ---
     svg.append("g")
+        .attr("id", "groupStroke")
         .attr("fill", "none")
         .attr("stroke", strokeColor)
         .attr("stroke-opacity", strokeOpacity)
@@ -80,6 +84,7 @@ export function Tree(data, {        // "data" is hierarchy (nested objects)
     // --- Adding tree nodes ---
     // Tree nodes data
     const node = svg.append("g")
+        .attr("id", "groupNode")
         .selectAll("a")
         .data(root.descendants())
         .join("a")
@@ -88,6 +93,11 @@ export function Tree(data, {        // "data" is hierarchy (nested objects)
     // OnClick event: display node infos
     node.on("click", function(event) {
        nodeShowInfo(event, this);
+    })
+
+    // OnDoubleClick event: "collapse" children of node
+    node.on("dblclick", function (event) {
+        nodeVisualCollapse(event, this, nodeLeafClass, nodeNormClass, nodeCollClass);
     })
 
     // Node icons
@@ -112,56 +122,13 @@ export function Tree(data, {        // "data" is hierarchy (nested objects)
     return svg.node();
 }
 
-function nodeShowInfo(event, node) {
-    // Remove id "activeNode" from the last active node, if any
-    const lastActive = document.getElementById("activeNode");
-    if (lastActive) {lastActive.removeAttribute("id");}
-
-    // Add id "activeNode" at the current node
-    const circleElement = node.querySelector("circle");
-    circleElement.setAttribute("id", "activeNode");
-
-    // Search the text nodes
-    const infoBoxName = document.getElementById("infoTextName");
-    const infoBoxSynonyms = document.getElementById("infoTextSynonyms");
-    const infoBoxVerbs = document.getElementById("infoTextVerbs");
-
-    // Infos in the node
-    const data = node.__data__.data;
-
-    // Overwrite text in the text nodes
-    let oldStrName = infoBoxName.innerHTML.split(/(?<=: )/)[0];
-    infoBoxName.innerHTML = oldStrName + data.Name;
-
-    let oldStrSyn = infoBoxSynonyms.innerHTML.split(/(?<=: )/)[0];
-    let textSyn = "";
-    if (!(data.Synonyms.length === 0)) {
-        let strSyn = data.Synonyms.toString()
-            .replaceAll(",", ", ");
-        textSyn += strSyn;
-    } else {
-        textSyn += "None";
-    }
-    infoBoxSynonyms.innerHTML = oldStrSyn + textSyn;
-
-    let oldStrVer = infoBoxVerbs.innerHTML.split(/(?<=: )/)[0];
-    let textVerbs = "";
-    if (!(data.Verbs.length === 0)) {
-        let strVer = data.Verbs.toString()
-            .replaceAll(",", ", ");
-        textVerbs += strVer;
-    } else {
-        textVerbs += "None";
-    }
-    infoBoxVerbs.innerHTML = oldStrVer + textVerbs;
-}
-
 // Add a graphical legend in the top left corner
-function addLegend(svg, halo, haloWidth) {
+function addLegend(svg, halo, haloWidth, nodeNormClass, nodeLeafClass, nodeCollClass) {
     // Legend parameters
     const legendKeys = [
-        {name: "Node", id: "nodeNormLeg"},
-        {name: "Leaf", id: "nodeLeafLeg"},
+        {name: "Node", id: nodeNormClass+"Leg"},
+        {name: "Leaf", id: nodeLeafClass+"Leg"},
+        {name: "Collapsed", id: nodeCollClass+"Leg"},
         {name: "Active", id: "activeNodeLeg"}
     ];
     let legendRadius = 6;
@@ -195,4 +162,139 @@ function addLegend(svg, halo, haloWidth) {
         .attr("stroke", halo)
         .attr("stroke-width", haloWidth)
         .text(d => d.name)
+}
+
+// Update top info box with data of clicked node
+function nodeShowInfo(event, node) {
+    // Remove id "activeNode" from the last active node, if any
+    const lastActive = document.getElementById("activeNode");
+    if (lastActive) {lastActive.removeAttribute("id");}
+
+    // Add id "activeNode" at the current node
+    const circleElement = node.querySelector("circle");
+    circleElement.setAttribute("id", "activeNode");
+
+    // Search the text nodes
+    const infoBoxName = document.getElementById("infoTextName");
+    const infoBoxSynonyms = document.getElementById("infoTextSynonyms");
+    const infoBoxVerbs = document.getElementById("infoTextVerbs");
+
+    // Infos in the node
+    const data = d3.select(node).datum().data;
+
+    // Set the regular expression
+    const regEx = /(?<=:<\/b> )/;
+
+    // Overwrite text in the text nodes
+    let oldStrName = infoBoxName.innerHTML.split(regEx)[0];
+    infoBoxName.innerHTML = oldStrName + data.Name;
+
+    let oldStrSyn = infoBoxSynonyms.innerHTML.split(regEx)[0];
+    let textSyn = "";
+    if (!(data.Synonyms.length === 0)) {
+        let strSyn = data.Synonyms.toString()
+            .replaceAll(",", ", ");
+        textSyn += strSyn;
+    } else {
+        textSyn += "None";
+    }
+    infoBoxSynonyms.innerHTML = oldStrSyn + textSyn;
+
+    let oldStrVer = infoBoxVerbs.innerHTML.split(regEx)[0];
+    let textVerbs = "";
+    if (!(data.Verbs.length === 0)) {
+        let strVer = data.Verbs.toString()
+            .replaceAll(",", ", ");
+        textVerbs += strVer;
+    } else {
+        textVerbs += "None";
+    }
+    infoBoxVerbs.innerHTML = oldStrVer + textVerbs;
+
+    // Updated the different fields, edit the margin of svg correctly to avoid overlapping
+    const topMarginOffset = document.getElementById("infoBox").offsetHeight;
+    const graphSvg = d3.select("#graph");
+    graphSvg.style("margin-top", topMarginOffset + "px");
+}
+
+// Collapse a node when double-clicked, or reopen a collapsed node
+// A collapsed node can be distinguished by its color (refer to styles.css file)
+function nodeVisualCollapse(event, node, nodeLeafClass, nodeNormClass, nodeCollClass) {
+    const nodeCircle = node.querySelector("circle");    // Get current node icon
+    const nodeClass = nodeCircle.getAttribute("class"); // Get current node class
+    const nodeData = d3.select(node).datum().data;      // Get current node data
+
+    if (!(nodeClass === nodeLeafClass)) {
+        const nodeHypers = [...nodeData.Hypers];        // Create new array with Hypers of node
+        nodeHypers.push(nodeData.Name);                 // Add node name to the list
+
+        // Get container with all nodes,
+        // then save in filteredNodes only those that are his children (in data)
+        const nodes = d3.selectAll("#groupNode a");
+        const filteredNodes = [];
+        nodes.each(function() {
+            const currentNode = d3.select(this);
+            const currentData = currentNode.datum().data;
+            const currentHypers = currentData.Hypers;
+
+            if (
+                currentHypers.length >= nodeHypers.length &&
+                nodeHypers.every(v => currentHypers.includes(v))
+            ) {
+                filteredNodes.push(currentNode);
+            }
+        });
+
+        // Get container with all strokes,
+        // then save in filteredStrokes only those that have source in one of the filteredNodes
+        const strokes = d3.selectAll("#groupStroke path");
+        const filteredStrokes = [];
+        strokes.each(function() {
+            const currentStroke = d3.select(this);
+            const currentData = currentStroke.datum().target.data;
+            const currentHypers = currentData.Hypers;
+
+            if (
+                currentHypers.length >= nodeHypers.length &&
+                nodeHypers.every(v => currentHypers.includes(v))
+            ) {
+                filteredStrokes.push(currentStroke);
+            }
+        });
+
+        switch (nodeClass) {
+            case nodeNormClass:
+                nodeCircle.setAttribute("class", nodeCollClass);    // Change main node color
+
+                filteredNodes.forEach(element => {                  // Set children nodes visibility
+                    element.attr("display", "none");
+                })
+
+                filteredStrokes.forEach(element => {                // Set children strokes visbility
+                    element.attr("display", "none");
+                })
+                break;
+            case nodeCollClass:
+                nodeCircle.setAttribute("class", nodeNormClass);    // Change main node color
+
+                filteredNodes.forEach(element => {                  // Set children nodes visibility
+                    element.attr("display", null);
+
+                    // Special case: if a collapsed node has been collapsed in another node,
+                    // then it will be reverted as open.
+                    const elementCircle = element.select("circle");
+                    const elementClass = elementCircle.attr("class");
+                    if (elementClass === nodeCollClass) {
+                        elementCircle.attr("class", nodeNormClass);
+                    }
+                })
+
+                filteredStrokes.forEach(element => {                // Set children strokes visbility
+                    element.attr("display", null);
+                })
+                break;
+            default:
+                console.log("NodeClass Error");
+        }
+    }
 }

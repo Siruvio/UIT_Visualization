@@ -29,6 +29,7 @@ export function mapFunction() {
         r: 4,
         nodeNormClass: "nodeNorm",
         nodeLeafClass: "nodeLeaf",
+        nodeCollClass: "nodeColl",
         stroke: "#999"
     })
 

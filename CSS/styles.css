@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    padding: 5px;
+}
+
 p.infoText {
     color: black;
     font-family: "Arial", sans-serif;
@@ -28,6 +33,7 @@ svg#graph {
     height: auto;
     font-family: sans-serif;
     font-size: 11px;
+    user-select: none;
 }
 
 circle#nodeNormLeg, circle.nodeNorm {
@@ -38,11 +44,7 @@ circle#nodeLeafLeg, circle.nodeLeaf {
     fill: #31A1ED;
 }
 
-circle#nodeCollLeg, circle.nodeColl {
-    fill: lawngreen;
-}
-
-circle#activeNode, circle#activeNodeLeg {
+#activeNode circle, circle#activeNodeLeg {
     stroke: darkred;
     stroke-width: 2px;
     stroke-linejoin: round;
@@ -50,4 +52,18 @@ circle#activeNode, circle#activeNodeLeg {
 
 circle#activeNodeLeg {
     fill: none;
+}
+
+text {
+    paint-order: stroke;
+    stroke: white;
+    stroke-width: 3;
+    stroke-linejoin: round;
+}
+
+path {
+    fill: none;
+    stroke: #555555;
+    stroke-opacity: 0.4;
+    stroke-width: 1.5;
 }

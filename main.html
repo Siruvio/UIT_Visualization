@@ -22,12 +22,17 @@
 
   </head>
   <body>
-    <div id="infoBox">
+    <div id="infoBox" >
       <p class="infoText" id="infoTextName"><b>Selected node:</b> --no node selected--</p>
       <p class="infoText" id="infoTextSynonyms"><b>Synonyms of the node:</b> --no node selected--</p>
       <p class="infoText" id="infoTextVerbs"><b>Verbs associated at the node:</b> --no node selected--</p>
-      <p class="infoText" id="infoTextReminder">Select a node in the graph below to show infos.</p>
+      <p class="infoText" id="infoTextReminder"><i>Select a node in the graph below to show infos.</i></p>
     </div>
+    <svg id="graph">
+      <g id="groupLegend"></g>
+      <g id="groupStroke"></g>
+      <g id="groupNode"></g>
+    </svg>
     <script type="module">
       import { mapFunction } from "./Scripts/mapper.js";
 

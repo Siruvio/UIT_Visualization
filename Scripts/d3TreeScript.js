@@ -8,23 +8,12 @@ export function Tree(data, {                                    // "data" is hie
     nodeCircleRadius = 3,                                       // Radius of nodes
     nodeNormClass = "",                                         // Class for nodes with children
     nodeLeafClass = "",                                         // Class for nodes without children
+    dndThreshold = 30,                                          // Threshold for drag and drop
 } = {}) {
 
-    // We assume that the data is specified as an object {children} with nested objects
-    // (a.k.a. the “flare.json” format), and use d3.hierarchy
-    const root = d3.hierarchy(data, children);
-
-    // Compute the initial layout
+    let root;
     const dx = 12;
-    const dy = width / (root.height + 1);
-
-    root.x0 = dy / 2;
-    root.y0 = 0;
-    root.descendants().forEach((d, i) => {
-        d.id = i;
-        d._children = d.children;
-        if (d.depth > 7) d.children = null;
-    });
+    let dy;
 
     // Retrieve top margin offset
     const topMarginOffset = document.getElementById("infoBox").offsetHeight;
@@ -42,14 +31,29 @@ export function Tree(data, {                                    // "data" is hie
         .attr("cursor", "pointer")
         .attr("pointer-events", "all");
 
-    // OnClick event: display node infos
-    gNode.selectAll("g")
-        .on("click", (event) => {
-        nodeShowInfo(event);
-    })
-
-    // Update is called every time the graph is modified (aka a node is collapsed or opened)
+    // Update is called every time the graph is modified
+    // (aka on creation, re-creation or if a node is collapsed or opened)
     function update(event, source) {
+        // Source is undefined only at creation
+        if (!source) {
+            // We assume that the data is specified as an object {children} with nested objects
+            // (a.k.a. the “flare.json” format), and use d3.hierarchy
+            root = d3.hierarchy(data, children);
+
+            // Compute the initial layout
+            dy = width / (root.height + 1);
+
+            root.x0 = dy / 2;
+            root.y0 = 0;
+            root.descendants().forEach((d, i) => {
+                d.id = i;
+                d._children = d.children;
+                if (d.depth > 7) d.children = null;
+            });
+
+            source = root;
+        }
+
         const duration = 500;
         const nodes = root.descendants().reverse();
         const links = root.links();
@@ -87,15 +91,26 @@ export function Tree(data, {                                    // "data" is hie
         // Enter any new nodes at the parent's previous position.
         const nodeEnter = node.enter()
             .append("g")
-            .attr("transform", () => `translate(${source.y0},${source.x0})`)
-            //.attr("id", d => `node-${d.id}`)  // Aggiungi l'attributo 'id' al gruppo di nodi
-            .on("click", (event) => {
-                nodeShowInfo(event);
-            })
-            .on("dblclick", (event, d) => {
-                d.children = d.children ? null : d._children;
-                update(event, d);
-            });
+            .attr("transform", () => `translate(${source.y0},${source.x0})`);
+            //.attr("id", d => `node-${d.id}`)
+
+        // OnClick event: display node infos
+        nodeEnter.on("click", (event) => {
+            nodeShowInfo(event);
+        })
+
+        // OnDoubleClick event: "collapse" or "expand" children of node
+        nodeEnter.on("dblclick", (event, d) => {
+            d.children = d.children ? null : d._children;
+            update(event, d);
+        })
+
+        //
+        nodeEnter.call(d3.drag()
+            .on("start", draggingStart)
+            .on("drag", dragging)
+            .on("end", draggingEnd)
+        );
 
         nodeEnter.append("circle")
             .attr("r", nodeCircleRadius)
@@ -152,6 +167,179 @@ export function Tree(data, {                                    // "data" is hie
         });
     }
 
+    // OnStartDrag: set startDragging
+    function draggingStart(event, d) {
+        // Block dragging for root
+        if (d === root) {
+            return;
+        }
+
+        d.x0 = d.x;
+        d.y0 = d.y;
+
+        d.startDragging = true;
+    }
+
+    // OnDrag: get current object position and update node position in svg
+    // Also, only during first "drag" event: hide children nodes and links with parent and all the children
+    function dragging(event, d) {
+        // Block dragging for root
+        if (d === root) {
+            return;
+        }
+
+        // This block is executed only during the first event "drag"
+        if (d.startDragging) {
+            const dHypers = [...d.data.Hypers];
+            const dName = d.data.Name;
+
+            const pathList = svg.selectAll("#groupStroke path");    // All the links
+            const nodeList = svg.selectAll("#groupNode g");         // All the nodes
+
+            // Delete link between "d" and his parent
+            const parentLink = pathList.filter(item => findElementByData(item, item.target.data))
+                .filter(function(item) {
+                    const itemName = item.target.data.Name;
+
+                    if (itemName === dName) {
+                        return item;
+                    }
+                })
+            parentLink.remove();
+
+            // Add name of the current node "d" to list of hypers
+            dHypers.push(dName)
+
+            // Delete all children nodes of "d"
+            const childrenNodes = nodeList.filter(item => findElementByData(item, item.data)).nodes();
+            childrenNodes.forEach(element => {
+                d3.select(element).remove();
+            })
+
+            // Delete links of all the children nodes
+            const childrenLinks = pathList.filter(item => findElementByData(item, item.target.data)).nodes();
+            childrenLinks.forEach(element => {
+                d3.select(element).remove();
+            })
+
+            delete d.startDragging;
+
+            // Internal function used in filter
+            // Return the item (a node or a link in the graph) only if its data.Hypers fully contains
+            //  that of the current node
+            function findElementByData(item, itemData) {
+                const itemHypers = itemData.Hypers;
+
+                if (itemHypers.length >= dHypers.length &&
+                    dHypers.every(v => itemHypers.includes(v))
+                ) {
+                    return item;
+                }
+            }
+        }
+
+        // Update node coordinates
+        d.x += event.dy;
+        d.y += event.dx;
+
+        // Update node position
+        d3.select(this)
+            .attr("transform", `translate(${d.y},${d.x})`);
+    }
+
+    // OnEndDrag:
+    function draggingEnd(event, d) {
+        // Block dragging for root
+        if (d === root) {
+            return;
+        }
+
+        console.log("Dx: " + d.x + ", Dy: " + d.y + "; Dx0: " + d.x0 + ", Dy0: " + d.y0);
+
+        // Calculate Euclidean distance between dragged node "d" and all the others.
+        // Those that fully contains d.Hypers+d.Name are excluded (children of "d"); also "d" is excluded of course.
+        const dHypers = [...d.data.Hypers];
+        dHypers.push(d.data.Name)
+
+        const distances = root.descendants()
+            .map(item => {
+                const itemHypers = item.data.Hypers;
+                if ((item !== d) &&
+                    !(dHypers.every(v => itemHypers.includes(v)))
+                ) {
+                    const dx = d.x - item.x;
+                    const dy = d.y - item.y;
+                    return Math.sqrt(dx * dx + dy * dy);
+                }
+                return Infinity;
+            });
+
+        // Get closest node index...
+        const minDistance = Math.min(...distances);
+        const minDistanceIndex = distances.indexOf(minDistance);
+
+        // ...and then closest node
+        const closestNode = root.descendants()[minDistanceIndex];
+
+        // Get node distance from his original position
+        const dx = d.x - d.x0;
+        const dy = d.y - d.y0;
+        const tranDistance = Math.sqrt(dx * dx + dy * dy);
+
+        // Two different possibilities:
+        // If tranDistance is lesser than 2, then it was not a dragging event
+        // If minDistance is greater than dndThreshold, then "d" will stay in his position in data
+        // In both these cases, the tree will be restored as before the drag-and-drop.
+        // Otherwise, update the underlying structure and create the new graph.
+        if (!((tranDistance > 2) && (minDistance < dndThreshold))) {
+            update(event, root);
+        } else {
+            // Set nodes to work on
+            const oldFather = d.parent.data;
+            const newFather = closestNode.data;
+            const currentNode = d.data;
+
+            // Remove child from oldFather node
+            let i = oldFather.Children.indexOf(currentNode);
+            oldFather.Children.splice(i, 1);
+
+            // Add child in newFather node
+            newFather.Children.push(currentNode);
+
+            // Change father in currentNode, from oldFather to newFather
+            currentNode.Father = newFather.Name;
+
+            // Change, recursively, Hypers in currentNode and all his children
+            let fatherHypers = [...newFather.Hypers];
+            fatherHypers.unshift(newFather.Name);
+            changeHypers(currentNode, fatherHypers)
+
+            data = root.data;
+            while (gLink.node().firstChild) {
+                gLink.node().firstChild.remove();
+            }
+
+            while (gNode.node().firstChild) {
+                gNode.node().firstChild.remove();
+            }
+
+            // Re-create the whole tree
+            update(event, null);
+        }
+
+        // Recursive function for changing the Hypers in node and his children
+        function changeHypers(node, hypers) {
+            node.Hypers = hypers;
+
+            let hNext = [...hypers];
+            hNext.unshift(node.Name);
+
+            node.Children.forEach(item =>
+                changeHypers(item, hNext)
+            )
+        }
+    }
+
     update(null, root);
 }
 
@@ -173,19 +361,19 @@ function nodeShowInfo(event) {
     const infoBoxVerbs = document.getElementById("infoTextVerbs");
 
     // Infos in the node
-    const data = activeNode.datum().data;
+    const nodeData = activeNode.datum().data;
 
     // Set the regular expression
     const regEx = /(?<=:<\/b> )/;
 
     // Overwrite text in the text nodes
     let oldStrName = infoBoxName.innerHTML.split(regEx)[0];
-    infoBoxName.innerHTML = oldStrName + data.Name;
+    infoBoxName.innerHTML = oldStrName + nodeData.Name;
 
     let oldStrSyn = infoBoxSynonyms.innerHTML.split(regEx)[0];
     let textSyn = "";
-    if (!(data.Synonyms.length === 0)) {
-        let strSyn = data.Synonyms
+    if (!(nodeData.Synonyms.length === 0)) {
+        let strSyn = nodeData.Synonyms
             .map(s => s.charAt(0).toUpperCase() + s.slice(1))
             .map(s => s.replace("_", " "))
             .join(", ");
@@ -197,8 +385,8 @@ function nodeShowInfo(event) {
 
     let oldStrVer = infoBoxVerbs.innerHTML.split(regEx)[0];
     let textVerbs = "";
-    if (!(data.Verbs.length === 0)) {
-        let strVer = data.Verbs
+    if (!(nodeData.Verbs.length === 0)) {
+        let strVer = nodeData.Verbs
             .map(s => s.charAt(0).toUpperCase() + s.slice(1))
             .join(", ");
         textVerbs += strVer;

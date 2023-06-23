@@ -31,6 +31,11 @@ export function Tree(data, {                                    // "data" is hie
         .attr("cursor", "pointer")
         .attr("pointer-events", "all");
 
+    // --- Button in infoBox ---
+    const saveButton = document.getElementById("dlButton");
+    saveButton.disabled = true;
+    saveButton.addEventListener("click", updatedDataSave);
+
     // Update is called every time the graph is modified
     // (aka on creation, re-creation or if a node is collapsed or opened)
     function update(event, source) {
@@ -247,14 +252,16 @@ export function Tree(data, {                                    // "data" is hie
             .attr("transform", `translate(${d.y},${d.x})`);
     }
 
-    // OnEndDrag:
+    // OnEndDrag: get the lowest Euclidean distance between dragged node and all the others in the tree (children of
+    // the dragged node are automatically excluded).
+    // Get also distance between dragged node and its original position: might have slip during double-click.
+    // Then, if some conditions are met, the data structure is updated, and then is the graphical tree;
+    // otherwise, revert the dragging.
     function draggingEnd(event, d) {
         // Block dragging for root
         if (d === root) {
             return;
         }
-
-        console.log("Dx: " + d.x + ", Dy: " + d.y + "; Dx0: " + d.x0 + ", Dy0: " + d.y0);
 
         // Calculate Euclidean distance between dragged node "d" and all the others.
         // Those that fully contains d.Hypers+d.Name are excluded (children of "d"); also "d" is excluded of course.
@@ -314,14 +321,18 @@ export function Tree(data, {                                    // "data" is hie
             fatherHypers.unshift(newFather.Name);
             changeHypers(currentNode, fatherHypers)
 
+            // Update data and remove the old drawn tree. It will be totally re-draw
             data = root.data;
             while (gLink.node().firstChild) {
                 gLink.node().firstChild.remove();
             }
-
             while (gNode.node().firstChild) {
                 gNode.node().firstChild.remove();
             }
+
+            // Activate button for save
+            saveButton.disabled = false;
+            saveButton.innerHTML = "Save updates!";
 
             // Re-create the whole tree
             update(event, null);
@@ -338,6 +349,73 @@ export function Tree(data, {                                    // "data" is hie
                 changeHypers(item, hNext)
             )
         }
+    }
+
+    // Function for the save button in the info box
+    function updatedDataSave() {
+        // Uncomment next line for a faster, but less readable, file
+        // const message = JSON.stringify(data);
+
+        // Slower but more human-readable file
+        const message = indentedRecursiveSave(data);
+
+        // Create blob for save
+        let blob = new Blob([message], {
+            type: "text/plain;charset=utf-8",
+        });
+
+        const fileName = "hierarchyData_updated.json";
+
+        saveAs(blob, fileName);
+
+        saveButton.disabled = true;
+        saveButton.innerHTML = "No updates available";
+    }
+
+    // Recursive function for update saving
+    function indentedRecursiveSave(infoData, layer = 0) {
+        const tabs = "\t".repeat(layer);
+        let message = tabs + "{";
+
+        // Name line
+        message += "\"Name\": \"" + infoData.Name + "\",\n";
+
+        // Synonyms line
+        const synStr = infoData.Synonyms
+            .map(syn => "\"" + syn + "\"")
+            .join(", ");
+        message += tabs + " \"Synonyms\": [" + synStr + "],\n";
+
+        // Hypernyms line
+        const hypStr = infoData.Hypers
+            .map(syn => "\"" + syn + "\"")
+            .join(", ");
+        message += tabs + " \"Hypers\": [" + hypStr + "],\n";
+
+        // Verbs line
+        const verStr = infoData.Verbs
+            .map(syn => "\"" + syn + "\"")
+            .join(", ");
+        message += tabs + " \"Verbs\": [" + verStr + "],\n";
+
+        //Father line
+        message += tabs + " \"Father\": \"" + infoData.Father + "\",\n";
+
+        //Children line (with the recursive call)
+        let childrenString;
+        if (infoData.Children.length > 0) {
+            const childrenMessages = infoData.Children.map(child => {
+                return indentedRecursiveSave(child, layer + 1);
+            });
+            childrenString = "[\n" + childrenMessages.join(",\n") + "\n" + tabs + "]";
+        } else {
+            childrenString = "[]";
+        }
+        message += tabs + " \"Children\": " + childrenString + "\n";
+
+        message += tabs + "}";
+
+        return message;
     }
 
     update(null, root);

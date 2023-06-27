@@ -43,10 +43,12 @@ svg#graph {
 }
 
 circle#nodeNormLeg, circle.nodeNorm {
+    /*fill: orange;*/
     fill: #ED7D31;
 }
 
 circle#nodeLeafLeg, circle.nodeLeaf {
+    /*fill: deepskyblue;*/
     fill: #31A1ED;
 }
 

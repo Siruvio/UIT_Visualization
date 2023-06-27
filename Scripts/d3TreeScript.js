@@ -38,12 +38,13 @@ export function Tree(data, {                                    // "data" is hie
 
     // Update is called every time the graph is modified
     // (aka on creation, re-creation or if a node is collapsed or opened)
-    function update(event, source) {
+    function graphUpdate(event, source) {
         // Source is undefined only at creation
         if (!source) {
             // We assume that the data is specified as an object {children} with nested objects
             // (a.k.a. the “flare.json” format), and use d3.hierarchy
             root = d3.hierarchy(data, children);
+            root.sort((a, b) => d3.ascending(a.data.Name, b.data.Name));
 
             // Compute the initial layout
             dy = width / (root.height + 1);
@@ -53,7 +54,6 @@ export function Tree(data, {                                    // "data" is hie
             root.descendants().forEach((d, i) => {
                 d.id = i;
                 d._children = d.children;
-                if (d.depth > 7) d.children = null;
             });
 
             source = root;
@@ -97,7 +97,6 @@ export function Tree(data, {                                    // "data" is hie
         const nodeEnter = node.enter()
             .append("g")
             .attr("transform", () => `translate(${source.y0},${source.x0})`);
-            //.attr("id", d => `node-${d.id}`)
 
         // OnClick event: display node infos
         nodeEnter.on("click", (event) => {
@@ -107,10 +106,10 @@ export function Tree(data, {                                    // "data" is hie
         // OnDoubleClick event: "collapse" or "expand" children of node
         nodeEnter.on("dblclick", (event, d) => {
             d.children = d.children ? null : d._children;
-            update(event, d);
+            graphUpdate(event, d);
         })
 
-        //
+        // OnDrag event: drag a node, eventually updating the underlying structure
         nodeEnter.call(d3.drag()
             .on("start", draggingStart)
             .on("drag", dragging)
@@ -125,8 +124,7 @@ export function Tree(data, {                                    // "data" is hie
             .attr("dy", "0.31em")
             .attr("x", d => d._children ? -7 : 7)
             .attr("text-anchor", d => d._children ? "end" : "start")
-            .text(d => d.data.Name)
-            .clone(true).lower();
+            .text(d => d.data.Name);
 
         // Transition nodes to their new position.
         node.merge(nodeEnter)
@@ -172,12 +170,15 @@ export function Tree(data, {                                    // "data" is hie
         });
     }
 
-    // OnStartDrag: set startDragging
+    // OnStartDrag: set startDragging and move node to the front
     function draggingStart(event, d) {
         // Block dragging for root
         if (d === root) {
             return;
         }
+
+        // Move the dragged node to the front
+        d3.select(this).raise();
 
         d.x0 = d.x;
         d.y0 = d.y;
@@ -293,19 +294,22 @@ export function Tree(data, {                                    // "data" is hie
         const dy = d.y - d.y0;
         const tranDistance = Math.sqrt(dx * dx + dy * dy);
 
-        // Two different possibilities:
+        // Set nodes to work on
+        const oldFather = d.parent.data;
+        const newFather = closestNode.data;
+        const currentNode = d.data;
+
+        // Three different possibilities:
         // If tranDistance is lesser than 2, then it was not a dragging event
         // If minDistance is greater than dndThreshold, then "d" will stay in his position in data
-        // In both these cases, the tree will be restored as before the drag-and-drop.
+        // If oldFather and newFather are the same node, then "d" will stay in his position in data
+        // In all these cases, the tree will be restored as before the drag-and-drop.
         // Otherwise, update the underlying structure and create the new graph.
-        if (!((tranDistance > 2) && (minDistance < dndThreshold))) {
-            update(event, root);
+        if (!((tranDistance > 2) &&
+            (minDistance < dndThreshold) &&
+            (oldFather !== newFather))) {
+            graphUpdate(event, root);
         } else {
-            // Set nodes to work on
-            const oldFather = d.parent.data;
-            const newFather = closestNode.data;
-            const currentNode = d.data;
-
             // Remove child from oldFather node
             let i = oldFather.Children.indexOf(currentNode);
             oldFather.Children.splice(i, 1);
@@ -335,7 +339,7 @@ export function Tree(data, {                                    // "data" is hie
             saveButton.innerHTML = "Save updates!";
 
             // Re-create the whole tree
-            update(event, null);
+            graphUpdate(event, null);
         }
 
         // Recursive function for changing the Hypers in node and his children
@@ -418,7 +422,7 @@ export function Tree(data, {                                    // "data" is hie
         return message;
     }
 
-    update(null, root);
+    graphUpdate(null, root);
 }
 
 // Update top info box with data of clicked node
@@ -483,9 +487,9 @@ function nodeShowInfo(event) {
 export function createLegend([nodeNormClass, nodeLeafClass]) {
     // Legend parameters
     const legendKeys = [
-        {name: "Node", id: nodeNormClass+"Leg"},
-        {name: "Leaf", id: nodeLeafClass+"Leg"},
-        {name: "Active", id: "activeNodeLeg"}
+        {name: "Internal Node", id: nodeNormClass+"Leg"},
+        {name: "Leaf Node", id: nodeLeafClass+"Leg"},
+        {name: "Active Node", id: "activeNodeLeg"}
     ];
     let legendRadius = 6;
     let legendSpacing = 5;

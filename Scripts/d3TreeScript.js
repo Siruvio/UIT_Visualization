@@ -6,14 +6,22 @@ export function Tree(data, {                                    // "data" is hie
     diagonal = d3.linkHorizontal().x(d => d.y).y(d => d.x),
     width = 640,                                                // Outer width, in pixels
     nodeCircleRadius = 3,                                       // Radius of nodes
+    labelSpacing = 7,                                           // Label spacing to node
     nodeNormClass = "",                                         // Class for nodes with children
     nodeLeafClass = "",                                         // Class for nodes without children
+    nodeCollClass = "",                                         // Class for collapsed nodes with children
     dndThreshold = 30,                                          // Threshold for drag and drop
+    transitionDuration = 500,                                   // Duration for transitions (milliseconds)
 } = {}) {
 
-    let root;
+    let root = undefined;
+    let infoBox = undefined;
+    let clickTimer = undefined;
+
     const dx = 12;
-    let dy;
+    let dy = 0;
+
+    let defaultViewBox;
 
     // Retrieve top margin offset
     const topMarginOffset = document.getElementById("infoBox").offsetHeight;
@@ -59,7 +67,6 @@ export function Tree(data, {                                    // "data" is hie
             source = root;
         }
 
-        const duration = 500;
         const nodes = root.descendants().reverse();
         const links = root.links();
 
@@ -70,9 +77,9 @@ export function Tree(data, {                                    // "data" is hie
         root.each(d => {            // Getting max and min heights
             if (d.x > x1) x1 = d.x;
             if (d.x < x0) x0 = d.x;
-        }).each(d => {              // Adding pads
-            d.x -= x0;              // Highest x (negative), moving the upmost x to 0
-            d.y += dy / 2 -7;       //Little space to the left
+        }).each(d => {                      // Adding pads
+            d.x -= x0;                      // Highest x (negative), moving the upmost x to 0
+            d.y += dy / 2 -labelSpacing;    //Little space to the left
         });
 
         // Find new left-most and right-most nodes
@@ -84,9 +91,11 @@ export function Tree(data, {                                    // "data" is hie
         });
         const height = right.x - left.x + 10;
 
+
+        defaultViewBox = [0, left.x - 5, width, height];
         const transition = svg.transition()
-            .duration(duration)
-            .attr("viewBox", [0, left.x - 5, width, height])
+            .duration(transitionDuration)
+            .attr("viewBox", defaultViewBox)
             .tween("resize", window.ResizeObserver ? null : () => () => svg.dispatch("toggle"));
 
         // Update the nodes
@@ -98,16 +107,64 @@ export function Tree(data, {                                    // "data" is hie
             .append("g")
             .attr("transform", () => `translate(${source.y0},${source.x0})`);
 
+        // OnClick event: check if single or multiple click, then disambiguate function
+        nodeEnter.on("click", (event, d) => {
+            // Save target element
+            const target = event.currentTarget;
+
+            if (clickTimer === undefined) {
+                clickTimer = setTimeout(function() { // 300ms timer for more than one click
+                    // Timer reset
+                    clickTimer = undefined;
+
+                    // Function for single click: infoBox
+                    nodeShowInfo(target);
+                }, 300);
+            } else { // Else is collapse or expand of a node
+                // Timer reset
+                clearTimeout(clickTimer);
+                clickTimer = undefined;
+
+                // If infoBox is opened, delete it
+                removeInfoBox()
+
+                if (d._children) {
+                    // Change visual children
+                    d.children = d.children ? null : d._children;
+
+                    // Change class
+                    d3.select(target)
+                        .select("circle")
+                        .attr("class", d => d.children ? nodeNormClass : nodeCollClass);
+
+                    // Update tree
+                    graphUpdate(event, d);
+
+                }
+            }
+        })
+
+        /*
         // OnClick event: display node infos
         nodeEnter.on("click", (event) => {
             nodeShowInfo(event);
         })
 
         // OnDoubleClick event: "collapse" or "expand" children of node
-        nodeEnter.on("dblclick", (event, d) => {
-            d.children = d.children ? null : d._children;
-            graphUpdate(event, d);
-        })
+        nodeEnter.on("dblclick", function(event, d) {
+            if (d._children) {
+                // Change visual children
+                d.children = d.children ? null : d._children;
+
+                // Change class
+                d3.select(this)
+                    .select("circle")
+                    .attr("class", d => d.children ? nodeNormClass : nodeCollClass);
+
+                graphUpdate(event, d);
+            }
+        });
+        */
 
         // OnDrag event: drag a node, eventually updating the underlying structure
         nodeEnter.call(d3.drag()
@@ -118,11 +175,11 @@ export function Tree(data, {                                    // "data" is hie
 
         nodeEnter.append("circle")
             .attr("r", nodeCircleRadius)
-            .attr("class", d => d._children ? nodeNormClass : nodeLeafClass);
+            .attr("class", d => !d._children ? nodeLeafClass : (d.children ? nodeNormClass : nodeCollClass));
 
         nodeEnter.append("text")
             .attr("dy", "0.31em")
-            .attr("x", d => d._children ? -7 : 7)
+            .attr("x", d => d._children ? -labelSpacing : labelSpacing)
             .attr("text-anchor", d => d._children ? "end" : "start")
             .text(d => d.data.Name);
 
@@ -170,15 +227,12 @@ export function Tree(data, {                                    // "data" is hie
         });
     }
 
-    // OnStartDrag: set startDragging and move node to the front
+    // OnStartDrag: set startDragging
     function draggingStart(event, d) {
         // Block dragging for root
         if (d === root) {
             return;
         }
-
-        // Move the dragged node to the front
-        d3.select(this).raise();
 
         d.x0 = d.x;
         d.y0 = d.y;
@@ -187,7 +241,8 @@ export function Tree(data, {                                    // "data" is hie
     }
 
     // OnDrag: get current object position and update node position in svg
-    // Also, only during first "drag" event: hide children nodes and links with parent and all the children
+    // During first "drag" event: hide children nodes and links with parent and all the children
+    // Also, move node to the front (moved on dragging bc in draggingStart it absorbs onClick event)
     function dragging(event, d) {
         // Block dragging for root
         if (d === root) {
@@ -196,6 +251,9 @@ export function Tree(data, {                                    // "data" is hie
 
         // This block is executed only during the first event "drag"
         if (d.startDragging) {
+            // Move the dragged node to the front
+            d3.select(this).raise();
+
             const dHypers = [...d.data.Hypers];
             const dName = d.data.Name;
 
@@ -229,6 +287,9 @@ export function Tree(data, {                                    // "data" is hie
             })
 
             delete d.startDragging;
+
+            // If infoBox is displayed, remove it
+            removeInfoBox()
 
             // Internal function used in filter
             // Return the item (a node or a link in the graph) only if its data.Hypers fully contains
@@ -299,17 +360,11 @@ export function Tree(data, {                                    // "data" is hie
         const newFather = closestNode.data;
         const currentNode = d.data;
 
-        // Three different possibilities:
-        // If tranDistance is lesser than 2, then it was not a dragging event
-        // If minDistance is greater than dndThreshold, then "d" will stay in his position in data
-        // If oldFather and newFather are the same node, then "d" will stay in his position in data
-        // In all these cases, the tree will be restored as before the drag-and-drop.
-        // Otherwise, update the underlying structure and create the new graph.
-        if (!((tranDistance > 2) &&
-            (minDistance < dndThreshold) &&
-            (oldFather !== newFather))) {
-            graphUpdate(event, root);
-        } else {
+        // If all are true, update the underlying structure and create the new graph.
+        if ((tranDistance > 2) &&           // If true, then it was not a dragging event (less than a minimum slide)
+            (minDistance < dndThreshold) && // If true, then "d" is close enough to a possible new father node
+            (oldFather !== newFather)) {    // If true, then "newFather" IS a new father
+
             // Remove child from oldFather node
             let i = oldFather.Children.indexOf(currentNode);
             oldFather.Children.splice(i, 1);
@@ -340,6 +395,13 @@ export function Tree(data, {                                    // "data" is hie
 
             // Re-create the whole tree
             graphUpdate(event, null);
+        } else {
+            // Otherwise, the tree will be restored as before the drag-and-drop.
+            if (!(d.startDragging)) {   //This checks if "dragging" has been called at least once
+                graphUpdate(event, root);
+            } else {
+                delete d.startDragging;
+            }
         }
 
         // Recursive function for changing the Hypers in node and his children
@@ -353,6 +415,208 @@ export function Tree(data, {                                    // "data" is hie
                 changeHypers(item, hNext)
             )
         }
+    }
+
+    // Support function: delete infoBox (check function "nodeShowInfo") if present and reset variable
+    function removeInfoBox() {
+        if (infoBox) {
+            infoBox.remove();
+            infoBox = undefined;
+        }
+    }
+
+    // Update top info box with data of clicked node
+    function nodeShowInfo(target) {
+        // Also moves current node to the front so the box is not under other elements
+        const currentNodeGroup = d3.select(target).raise();
+        const currentNodeElement = currentNodeGroup.node();
+        const currentNodeValues = currentNodeGroup.datum();
+        let createBox = true;
+        let finalViewBox = svg.attr("viewBox");
+
+        //const currentNode = currentItem.node();
+        //console.log(currentItem); // TODO remove
+        //console.log(currentNodeElement); // TODO remove
+
+        // If a box is displayed, delete it
+        if (infoBox) {
+            // Revert viewBox, if necessary
+            if (svg.attr("viewBox") !== defaultViewBox) {
+                finalViewBox = defaultViewBox.toString();
+            }
+
+            // Remove id "activeNode" from the last active node, if any
+            const lastActive = document.getElementById("activeNode");
+            if (lastActive) {
+                lastActive.removeAttribute("id");
+            }
+
+            // Also, if infoBox was in this node, disable new creation (aka, click was for closing it)
+            if (currentNodeValues === infoBox.datum()) {
+                createBox = false;
+            }
+
+            // Remove infoBox
+            removeInfoBox();
+        }
+
+        // Create the infoBox
+        if (createBox) {
+            // Add id "activeNode" at the current node
+            currentNodeElement.setAttribute("id", "activeNode");
+
+            // Get node label width
+            const labelWidth = currentNodeGroup.select("text").node()
+                .getBoundingClientRect().width;
+
+            // Set default box dimension
+            let infoBoxWidth = 200;
+            let infoboxHeight = 150;
+
+            // Group for infoBox
+            infoBox = currentNodeGroup.append("g")
+                .attr("id", "iBox");
+                //.attr("pointer-events", "none");
+
+            //console.log(currentNode.node().getBBox()); //TODO remove
+            //console.log("Before", currentNodeElement.getBoundingClientRect()); //TODO remove
+
+            // Add background
+            const infoBoxBack = infoBox.append("rect")
+                .attr("id", "iBoxBg")
+                .attr("fill", "red")        //TODO move in CSS
+                .attr("stroke-width", 2)    //TODO move in CSS
+                .attr("stroke", "black")    //TODO move in CSS
+                .attr("x", currentNodeValues._children ? labelSpacing : ((labelSpacing*1.5) + labelWidth))
+                /*
+                .attr("x", () => {
+                    if (currentNodeValues._children) {
+                        return labelSpacing;
+                    } else {
+                        return labelSpacing*1.5 + labelWidth;
+                        //return -(labelSpacing + infoBoxWidth); //TODO remove
+                    }
+                })
+                */
+                //.attr("y", -nodeCircleRadius)
+                .attr("y", -(infoboxHeight / 2))
+                //.attr("y", -(infoboxHeight - nodeCircleRadius))
+                /*
+                .attr("y", () => {
+                    // Get viewBox geometrical infos
+                    const viewData = svg.attr("viewBox")
+                        .split(",")
+                        .map(d => {if (typeof d === "string") return parseFloat(d)});
+
+                    // Get current node geometrical infos
+                    const currentBoundRect = currentNode.node().getBoundingClientRect();
+
+                    console.log(viewData);
+                    console.log(currentBoundRect.top);
+                    //console.log(currentNode.node().getBoundingClientRect());
+
+                    let final_y = -(infoboxHeight / 2);
+
+                    console.log((currentBoundRect.top - (infoboxHeight / 2)) < 0);
+                    if ((currentBoundRect.top - (infoboxHeight / 2)) < 0) {
+                        final_y = -nodeCircleRadius;
+                    }
+
+                    return final_y;
+                })
+                */
+                .attr("width", infoBoxWidth)
+                .attr("height", infoboxHeight);
+
+             //TODO edit viewBox dimensions
+            // Save current viewBox infos for future reset
+            //infoBox.datum()._origViewBox = svg.attr("viewBox");
+
+            // Initialize new viewBox with current one
+            let newViewBox = finalViewBox
+                .split(",")
+                .map(d => parseFloat(d));
+
+            // Get top-left point of node
+            const [nodeLeft, nodeTop] = currentNodeGroup.attr("transform")
+                .slice(10, -1)
+                .split(", ")
+                .map(d => parseFloat(d));
+
+            //console.log(currentBoundRect); //TODO remove
+            //console.log(infoBox.datum().data.Name);//TODO remove
+
+            // Check upper border
+            const upperLimit = nodeTop - (infoboxHeight / 2);
+            if (upperLimit < newViewBox[1]) {
+                newViewBox[1] += upperLimit;
+                newViewBox[3] -= upperLimit;
+            }
+
+            // Check lower border
+            const lowerLimit = nodeTop + (infoboxHeight / 2);
+            if (lowerLimit > newViewBox[3]) {
+                newViewBox[3] = lowerLimit + 8;
+            }
+
+            // Check right border
+            const rightLimit = nodeLeft + currentNodeElement.getBBox().width;
+            if (rightLimit > newViewBox[2]) {
+                newViewBox[2] = rightLimit;
+            }
+
+            finalViewBox = [0, newViewBox[1], newViewBox[2], newViewBox[3]];
+        }
+
+        svg.transition()
+            .duration(transitionDuration)
+            .attr("viewBox", finalViewBox)
+            .tween("resize", window.ResizeObserver ? null : () => () => svg.dispatch("toggle"));
+
+        // Search the text nodes
+        const infoBoxName = document.getElementById("infoTextName");
+        const infoBoxSynonyms = document.getElementById("infoTextSynonyms");
+        const infoBoxVerbs = document.getElementById("infoTextVerbs");
+
+        // Infos in the node
+        const nodeData = currentNodeValues.data;
+
+        // Set the regular expression
+        const regEx = /(?<=:<\/b> )/;
+
+        // Overwrite text in the text nodes
+        let oldStrName = infoBoxName.innerHTML.split(regEx)[0];
+        infoBoxName.innerHTML = oldStrName + nodeData.Name;
+
+        let oldStrSyn = infoBoxSynonyms.innerHTML.split(regEx)[0];
+        let textSyn = "";
+        if (!(nodeData.Synonyms.length === 0)) {
+            let strSyn = nodeData.Synonyms
+                .map(s => s.charAt(0).toUpperCase() + s.slice(1))
+                .map(s => s.replace("_", " "))
+                .join(", ");
+            textSyn += strSyn;
+        } else {
+            textSyn += "None";
+        }
+        infoBoxSynonyms.innerHTML = oldStrSyn + textSyn;
+
+        let oldStrVer = infoBoxVerbs.innerHTML.split(regEx)[0];
+        let textVerbs = "";
+        if (!(nodeData.Verbs.length === 0)) {
+            let strVer = nodeData.Verbs
+                .map(s => s.charAt(0).toUpperCase() + s.slice(1))
+                .join(", ");
+            textVerbs += strVer;
+        } else {
+            textVerbs += "None";
+        }
+        infoBoxVerbs.innerHTML = oldStrVer + textVerbs;
+
+        // Updated the different fields, edit the margin of svg correctly to avoid overlapping
+        const topMarginOffset = document.getElementById("infoBox").offsetHeight;
+        const graphSvg = d3.select("#graph");
+        graphSvg.style("margin-top", topMarginOffset + "px");
     }
 
     // Function for the save button in the info box
@@ -425,70 +689,13 @@ export function Tree(data, {                                    // "data" is hie
     graphUpdate(null, root);
 }
 
-// Update top info box with data of clicked node
-function nodeShowInfo(event) {
-    // Remove id "activeNode" from the last active node, if any
-    const lastActive = document.getElementById("activeNode");
-    if (lastActive) {
-        lastActive.removeAttribute("id");
-    }
-
-    // Add id "activeNode" at the current node
-    const activeNode = d3.select(event.currentTarget);
-    activeNode.node().setAttribute("id", "activeNode");
-
-    // Search the text nodes
-    const infoBoxName = document.getElementById("infoTextName");
-    const infoBoxSynonyms = document.getElementById("infoTextSynonyms");
-    const infoBoxVerbs = document.getElementById("infoTextVerbs");
-
-    // Infos in the node
-    const nodeData = activeNode.datum().data;
-
-    // Set the regular expression
-    const regEx = /(?<=:<\/b> )/;
-
-    // Overwrite text in the text nodes
-    let oldStrName = infoBoxName.innerHTML.split(regEx)[0];
-    infoBoxName.innerHTML = oldStrName + nodeData.Name;
-
-    let oldStrSyn = infoBoxSynonyms.innerHTML.split(regEx)[0];
-    let textSyn = "";
-    if (!(nodeData.Synonyms.length === 0)) {
-        let strSyn = nodeData.Synonyms
-            .map(s => s.charAt(0).toUpperCase() + s.slice(1))
-            .map(s => s.replace("_", " "))
-            .join(", ");
-        textSyn += strSyn;
-    } else {
-        textSyn += "None";
-    }
-    infoBoxSynonyms.innerHTML = oldStrSyn + textSyn;
-
-    let oldStrVer = infoBoxVerbs.innerHTML.split(regEx)[0];
-    let textVerbs = "";
-    if (!(nodeData.Verbs.length === 0)) {
-        let strVer = nodeData.Verbs
-            .map(s => s.charAt(0).toUpperCase() + s.slice(1))
-            .join(", ");
-        textVerbs += strVer;
-    } else {
-        textVerbs += "None";
-    }
-    infoBoxVerbs.innerHTML = oldStrVer + textVerbs;
-
-    // Updated the different fields, edit the margin of svg correctly to avoid overlapping
-    const topMarginOffset = document.getElementById("infoBox").offsetHeight;
-    const graphSvg = d3.select("#graph");
-    graphSvg.style("margin-top", topMarginOffset + "px");
-}
-
 // Add a graphical legend in the top left corner
-export function createLegend([nodeNormClass, nodeLeafClass]) {
+export function createLegend([nodeNormClass, nodeLeafClass, nodeCollClass]) {
     // Legend parameters
     const legendKeys = [
         {name: "Internal Node", id: nodeNormClass+"Leg"},
         {name: "Leaf Node", id: nodeLeafClass+"Leg"},
+        {name: "Collapsed Node", id: nodeCollClass+"Leg"},
         {name: "Active Node", id: "activeNodeLeg"}
     ];
     let legendRadius = 6;
@@ -518,5 +725,11 @@ export function createLegend([nodeNormClass, nodeLeafClass]) {
         .attr("x", (legendRadius * 2) + legendSpacing)      // Diameter + padding between icon and text
         .attr("y", (d, i) =>
             ((legendRadius * 2) + legendSpacing) * i + 11)  // 11 is a fixed value for centering the text
+        .attr("id", d => d.id)
         .text(d => d.name)
+
+    // Set main div height
+    const buttonHeight = d3.select("#dlButton").node().offsetHeight;                // Button height
+    const svgHeight = ((legendRadius * 2) + legendSpacing) * legendKeys.length;     // SVG height
+    d3.select("#extraItems").style("height", (buttonHeight + svgHeight + 5) + "px");// Set height in div
 }

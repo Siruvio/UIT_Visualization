@@ -2,7 +2,7 @@ import {Tree, createLegend} from "./d3TreeScript.js";
 import data from "../Data/hierarchyData.json" assert {type: "json"};
 
 export function mapFunction() {
-    const nodeClasses = ["nodeNorm", "nodeLeaf"];
+    const nodeClasses = ["nodeNorm", "nodeLeaf", "nodeColl"];
 
     createLegend(nodeClasses);
 
@@ -13,5 +13,6 @@ export function mapFunction() {
         nodeCircleRadius: 4,
         nodeNormClass: nodeClasses[0],
         nodeLeafClass: nodeClasses[1],
+        nodeCollClass: nodeClasses[2],
     });
 }

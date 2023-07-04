@@ -1,6 +1,9 @@
 body {
     margin: 0;
     padding: 5px;
+    font-family: sans-serif;
+    font-size: 11px;
+    user-select: none;
 }
 
 p.infoText {
@@ -26,20 +29,35 @@ div#infoBox {
     left: 0;
     width: 100%;
     background-color: white;
+
+    display: none;
+}
+
+#extraItems {
+    /* Main info */
+    border-style: solid;
+    margin: 1px;
+    background-color: white;
+    width: 150px;
+    padding: 5px;
+
+    /* Items in column */
+    display: flex;
+    flex-direction: column;
+
+    /* Top-left fixed position during scroll */
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 #dlButton {
-    position: absolute;
-    top: 5px;
-    right: 5px;
+    margin-bottom: 5px;
 }
 
 svg#graph {
     max-width: 100%;
     height: auto;
-    font-family: sans-serif;
-    font-size: 11px;
-    user-select: none;
 }
 
 circle#nodeNormLeg, circle.nodeNorm {
@@ -52,18 +70,22 @@ circle#nodeLeafLeg, circle.nodeLeaf {
     fill: #31A1ED;
 }
 
-circle.test {
-    fill: red;
-}
-
-#activeNode circle, circle#activeNodeLeg {
-    stroke: darkred;
-    stroke-width: 2px;
-    stroke-linejoin: round;
+circle#nodeCollLeg, circle.nodeColl {
+    /*fill: lawngreen;*/
+    fill: #92D050;
 }
 
 circle#activeNodeLeg {
     fill: none;
+    stroke: black;
+    stroke-width: 1px;
+    stroke-linejoin: round;
+}
+
+#activeNode text, text#activeNodeLeg   {
+    stroke: lawngreen;
+    stroke-width: 3;
+    stroke-linejoin: round;
 }
 
 text {
@@ -76,13 +98,6 @@ text {
 path {
     fill: none;
     stroke: #555555;
-    stroke-opacity: 0.4;
-    stroke-width: 1.5;
-}
-
-path.test {
-    fill: none;
-    stroke: red;
     stroke-opacity: 0.4;
     stroke-width: 1.5;
 }

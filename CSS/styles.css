@@ -33,6 +33,7 @@ div#infoBox {
     display: none;
 }
 
+/* Top-left tools settings */
 #extraItems {
     /* Main info */
     border-style: solid;
@@ -55,11 +56,13 @@ div#infoBox {
     margin-bottom: 5px;
 }
 
+/* Main graph settings */
 svg#graph {
     max-width: 100%;
     height: auto;
 }
 
+/* Node circles colors */
 circle#nodeNormLeg, circle.nodeNorm {
     /*fill: orange;*/
     fill: #ED7D31;
@@ -82,12 +85,7 @@ circle#activeNodeLeg {
     stroke-linejoin: round;
 }
 
-#activeNode text, text#activeNodeLeg   {
-    stroke: lawngreen;
-    stroke-width: 3;
-    stroke-linejoin: round;
-}
-
+/* Text colors */
 text {
     paint-order: stroke;
     stroke: white;
@@ -95,9 +93,32 @@ text {
     stroke-linejoin: round;
 }
 
+#activeNode text.nodeLabel, text#activeNodeLeg   {
+    stroke: lawngreen;
+}
+
+#iBox text {
+    stroke: none;
+    stroke-width: 0;
+}
+
+/* Path colors */
 path {
     fill: none;
     stroke: #555555;
     stroke-opacity: 0.4;
     stroke-width: 1.5;
+}
+
+path.activePath {
+    stroke: lawngreen;
+    stroke-opacity: 0.7;
+    stroke-width: 2;
+}
+
+/* InfoBox settings */
+rect#iBoxBg {
+    fill: ghostwhite;
+    stroke-width: 2;
+    stroke: black;
 }

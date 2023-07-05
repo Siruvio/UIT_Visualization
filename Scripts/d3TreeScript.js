@@ -23,13 +23,10 @@ export function Tree(data, {                                    // "data" is hie
 
     let defaultViewBox;
 
-    // Retrieve top margin offset
-    const topMarginOffset = document.getElementById("infoBox").offsetHeight;
 
     // --- Main SVG box ---
     const svg = d3.select("#graph")
-        .attr("viewBox", [0, -5, width, dx])
-        .style("margin-top", topMarginOffset + "px");
+        .attr("viewBox", [0, -5, width, dx]);
 
     // --- Stroke group ---
     const gLink = svg.select("#groupStroke");
@@ -144,28 +141,6 @@ export function Tree(data, {                                    // "data" is hie
             }
         })
 
-        /*
-        // OnClick event: display node infos
-        nodeEnter.on("click", (event) => {
-            nodeShowInfo(event);
-        })
-
-        // OnDoubleClick event: "collapse" or "expand" children of node
-        nodeEnter.on("dblclick", function(event, d) {
-            if (d._children) {
-                // Change visual children
-                d.children = d.children ? null : d._children;
-
-                // Change class
-                d3.select(this)
-                    .select("circle")
-                    .attr("class", d => d.children ? nodeNormClass : nodeCollClass);
-
-                graphUpdate(event, d);
-            }
-        });
-        */
-
         // OnDrag event: drag a node, eventually updating the underlying structure
         nodeEnter.call(d3.drag()
             .on("start", draggingStart)
@@ -178,6 +153,7 @@ export function Tree(data, {                                    // "data" is hie
             .attr("class", d => !d._children ? nodeLeafClass : (d.children ? nodeNormClass : nodeCollClass));
 
         nodeEnter.append("text")
+            .attr("class", "nodeLabel")
             .attr("dy", "0.31em")
             .attr("x", d => d._children ? -labelSpacing : labelSpacing)
             .attr("text-anchor", d => d._children ? "end" : "start")
@@ -422,6 +398,17 @@ export function Tree(data, {                                    // "data" is hie
         if (infoBox) {
             infoBox.remove();
             infoBox = undefined;
+
+            // Remove id "activeNode" from the last active node, if any
+            const lastActiveNode = document.getElementById("activeNode");
+            if (lastActiveNode) {
+                lastActiveNode.removeAttribute("id");
+            }
+
+            const lastActivePaths = [...document.getElementsByClassName("activePath")];
+            if (lastActivePaths) {
+                lastActivePaths.forEach(item => item.classList.remove("activePath"));
+            }
         }
     }
 
@@ -434,21 +421,11 @@ export function Tree(data, {                                    // "data" is hie
         let createBox = true;
         let finalViewBox = svg.attr("viewBox");
 
-        //const currentNode = currentItem.node();
-        //console.log(currentItem); // TODO remove
-        //console.log(currentNodeElement); // TODO remove
-
         // If a box is displayed, delete it
         if (infoBox) {
             // Revert viewBox, if necessary
             if (svg.attr("viewBox") !== defaultViewBox) {
                 finalViewBox = defaultViewBox.toString();
-            }
-
-            // Remove id "activeNode" from the last active node, if any
-            const lastActive = document.getElementById("activeNode");
-            if (lastActive) {
-                lastActive.removeAttribute("id");
             }
 
             // Also, if infoBox was in this node, disable new creation (aka, click was for closing it)
@@ -465,12 +442,23 @@ export function Tree(data, {                                    // "data" is hie
             // Add id "activeNode" at the current node
             currentNodeElement.setAttribute("id", "activeNode");
 
+            // Change color for paths to the activeNode
+            let targetPaths = [currentNodeValues];
+            while (targetPaths.length > 0) {
+                const target = targetPaths.shift();
+
+                d3.selectAll("#groupStroke path")
+                    .filter(item => item.target === target)
+                    .attr("class", "activePath")
+                    .each(item => targetPaths.push(item.source));
+            }
+
             // Get node label width
             const labelWidth = currentNodeGroup.select("text").node()
                 .getBoundingClientRect().width;
 
             // Set default box dimension
-            let infoBoxWidth = 200;
+            let infoBoxWidth = 250;
             let infoboxHeight = 150;
 
             // Group for infoBox
@@ -478,60 +466,44 @@ export function Tree(data, {                                    // "data" is hie
                 .attr("id", "iBox");
                 //.attr("pointer-events", "none");
 
-            //console.log(currentNode.node().getBBox()); //TODO remove
-            //console.log("Before", currentNodeElement.getBoundingClientRect()); //TODO remove
-
             // Add background
-            const infoBoxBack = infoBox.append("rect")
+            infoBox.append("rect")
                 .attr("id", "iBoxBg")
-                .attr("fill", "red")        //TODO move in CSS
-                .attr("stroke-width", 2)    //TODO move in CSS
-                .attr("stroke", "black")    //TODO move in CSS
                 .attr("x", currentNodeValues._children ? labelSpacing : ((labelSpacing*1.5) + labelWidth))
-                /*
-                .attr("x", () => {
-                    if (currentNodeValues._children) {
-                        return labelSpacing;
-                    } else {
-                        return labelSpacing*1.5 + labelWidth;
-                        //return -(labelSpacing + infoBoxWidth); //TODO remove
-                    }
-                })
-                */
-                //.attr("y", -nodeCircleRadius)
                 .attr("y", -(infoboxHeight / 2))
-                //.attr("y", -(infoboxHeight - nodeCircleRadius))
-                /*
-                .attr("y", () => {
-                    // Get viewBox geometrical infos
-                    const viewData = svg.attr("viewBox")
-                        .split(",")
-                        .map(d => {if (typeof d === "string") return parseFloat(d)});
-
-                    // Get current node geometrical infos
-                    const currentBoundRect = currentNode.node().getBoundingClientRect();
-
-                    console.log(viewData);
-                    console.log(currentBoundRect.top);
-                    //console.log(currentNode.node().getBoundingClientRect());
-
-                    let final_y = -(infoboxHeight / 2);
-
-                    console.log((currentBoundRect.top - (infoboxHeight / 2)) < 0);
-                    if ((currentBoundRect.top - (infoboxHeight / 2)) < 0) {
-                        final_y = -nodeCircleRadius;
-                    }
-
-                    return final_y;
-                })
-                */
                 .attr("width", infoBoxWidth)
                 .attr("height", infoboxHeight);
 
-             //TODO edit viewBox dimensions
-            // Save current viewBox infos for future reset
-            //infoBox.datum()._origViewBox = svg.attr("viewBox");
+            // Add infos
+            let startTextPos = -63;
+            let textToAdd;
 
+            // Text for name
+            const infoBoxTextName = infoBox.append("text")
+                .attr("x", 12 + (!currentNodeValues._children ? labelWidth + 3 : 0))
+                .attr("y", startTextPos);
+            textToAdd = "Name: " + currentNodeValues.data.Name;
+            infoBoxTextName.text(textToAdd);
+            startTextPos += infoBoxTextName.node().getBBox().height + 3; // Update next position
+
+            // Text for synonyms
+            const infoBoxTextSynonyms = infoBox.append("text")
+                .attr("x", 12 + (!currentNodeValues._children ? labelWidth + 3 : 0))
+                .attr("y", startTextPos);
+            textToAdd = "Synonyms: " + getValuesForText(currentNodeValues.data.Synonyms);
+            infoBoxTextSynonyms.text(textToAdd)
+                .call(wrapText, infoBoxWidth - 10);
+            startTextPos += infoBoxTextSynonyms.node().getBBox().height + 3; // Update next position
+
+            // Text for verbs
+            const infoBoxTextVerbs = infoBox.append("text")
+                .attr("x", 12 + (!currentNodeValues._children ? labelWidth + 3 : 0))
+                .attr("y", startTextPos);
+            textToAdd = "Verbs: " + getValuesForText(currentNodeValues.data.Verbs);
+            infoBoxTextVerbs.text(textToAdd)
+                .call(wrapText, infoBoxWidth - 10);
+
+            // Change viewBox values if infoBox is out-of-bounds
             // Initialize new viewBox with current one
             let newViewBox = finalViewBox
                 .split(",")
@@ -542,9 +514,6 @@ export function Tree(data, {                                    // "data" is hie
                 .slice(10, -1)
                 .split(", ")
                 .map(d => parseFloat(d));
-
-            //console.log(currentBoundRect); //TODO remove
-            //console.log(infoBox.datum().data.Name);//TODO remove
 
             // Check upper border
             const upperLimit = nodeTop - (infoboxHeight / 2);
@@ -566,57 +535,78 @@ export function Tree(data, {                                    // "data" is hie
             }
 
             finalViewBox = [0, newViewBox[1], newViewBox[2], newViewBox[3]];
+
+            // Internal function for formatting an array
+            function getValuesForText(origin, limit = 40) {
+                let possibleText = origin;
+
+                if (possibleText.length > 0) {
+                    if (possibleText.length > 50) {
+                        const first50 = possibleText.slice(0, limit);
+                        const remaining = possibleText.length - limit;
+
+                        possibleText = first50
+                            .map(s => s.charAt(0).toUpperCase() + s.slice(1))
+                            .map(s => s.replace("_", " "))
+                            .join(", ");
+                        possibleText += ` and ${remaining} more.`;
+                    } else {
+                        possibleText = possibleText
+                            .map(s => s.charAt(0).toUpperCase() + s.slice(1))
+                            .map(s => s.replace("_", " "))
+                            .join(", ");
+                    }
+                } else {
+                    possibleText = "None";
+                }
+
+                return possibleText;
+            }
+
+            // Internal function for split a string
+            function wrapText(text, width) {
+                text.each(function () {
+                    const text = d3.select(this);
+                    const words = text.text().split(" ").reverse();
+
+                    let word;
+                    let line = [];
+                    let lineNumber = 0;
+                    let lineHeight = 1.1;
+
+                    let x = text.attr("x");
+                    let y = text.attr("y");
+                    let dy = 0;
+
+                    let tspan = text.text(null)
+                        .append("tspan")
+                        .attr("x", x)
+                        .attr("y", y)
+                        .attr("dy", dy + "em");
+
+                    while (word = words.pop()) {
+                        line.push(word);
+                        tspan.text(line.join(" "));
+
+                        if (tspan.node().getComputedTextLength() > width) {
+                            line.pop();
+                            tspan.text(line.join(" "));
+                            line = [word];
+
+                            tspan = text.append("tspan")
+                                .attr("x", x)
+                                .attr("y", y)
+                                .attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+                        }
+                    }
+                });
+            }
         }
 
         svg.transition()
             .duration(transitionDuration)
             .attr("viewBox", finalViewBox)
             .tween("resize", window.ResizeObserver ? null : () => () => svg.dispatch("toggle"));
-
-        // Search the text nodes
-        const infoBoxName = document.getElementById("infoTextName");
-        const infoBoxSynonyms = document.getElementById("infoTextSynonyms");
-        const infoBoxVerbs = document.getElementById("infoTextVerbs");
-
-        // Infos in the node
-        const nodeData = currentNodeValues.data;
-
-        // Set the regular expression
-        const regEx = /(?<=:<\/b> )/;
-
-        // Overwrite text in the text nodes
-        let oldStrName = infoBoxName.innerHTML.split(regEx)[0];
-        infoBoxName.innerHTML = oldStrName + nodeData.Name;
-
-        let oldStrSyn = infoBoxSynonyms.innerHTML.split(regEx)[0];
-        let textSyn = "";
-        if (!(nodeData.Synonyms.length === 0)) {
-            let strSyn = nodeData.Synonyms
-                .map(s => s.charAt(0).toUpperCase() + s.slice(1))
-                .map(s => s.replace("_", " "))
-                .join(", ");
-            textSyn += strSyn;
-        } else {
-            textSyn += "None";
-        }
-        infoBoxSynonyms.innerHTML = oldStrSyn + textSyn;
-
-        let oldStrVer = infoBoxVerbs.innerHTML.split(regEx)[0];
-        let textVerbs = "";
-        if (!(nodeData.Verbs.length === 0)) {
-            let strVer = nodeData.Verbs
-                .map(s => s.charAt(0).toUpperCase() + s.slice(1))
-                .join(", ");
-            textVerbs += strVer;
-        } else {
-            textVerbs += "None";
-        }
-        infoBoxVerbs.innerHTML = oldStrVer + textVerbs;
-
-        // Updated the different fields, edit the margin of svg correctly to avoid overlapping
-        const topMarginOffset = document.getElementById("infoBox").offsetHeight;
-        const graphSvg = d3.select("#graph");
-        graphSvg.style("margin-top", topMarginOffset + "px");
     }
 
     // Function for the save button in the info box

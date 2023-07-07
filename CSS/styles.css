@@ -6,39 +6,12 @@ body {
     user-select: none;
 }
 
-p.infoText {
-    color: black;
-    font-family: "Arial", sans-serif;
-    font-size: 12px;
-    margin: 0;
-    padding: 5px 5px 0;
-}
-
-p#infoTextReminder {
-    text-align: center;
-    padding: 5px;
-}
-
-div#infoBox {
-    border-style: solid;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: white;
-
-    display: none;
-}
-
 /* Top-left tools settings */
 #extraItems {
     /* Main info */
     border-style: solid;
     margin: 1px;
-    background-color: white;
+    background-color: ghostwhite;
     width: 150px;
     padding: 5px;
 
@@ -74,8 +47,9 @@ circle#nodeLeafLeg, circle.nodeLeaf {
 }
 
 circle#nodeCollLeg, circle.nodeColl {
-    /*fill: lawngreen;*/
-    fill: #92D050;
+    /*fill: lawngreen;
+    fill: #92D050;*/
+    fill: #BC5610;
 }
 
 circle#activeNodeLeg {

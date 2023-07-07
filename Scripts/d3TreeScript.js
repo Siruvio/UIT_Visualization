@@ -74,9 +74,6 @@ export function Tree(data, {                                    // "data" is hie
         root.each(d => {            // Getting max and min heights
             if (d.x > x1) x1 = d.x;
             if (d.x < x0) x0 = d.x;
-        }).each(d => {                      // Adding pads
-            d.x -= x0;                      // Highest x (negative), moving the upmost x to 0
-            d.y += dy / 2 -labelSpacing;    //Little space to the left
         });
 
         // Find new left-most and right-most nodes
@@ -518,14 +515,16 @@ export function Tree(data, {                                    // "data" is hie
             // Check upper border
             const upperLimit = nodeTop - (infoboxHeight / 2);
             if (upperLimit < newViewBox[1]) {
-                newViewBox[1] += upperLimit;
-                newViewBox[3] -= upperLimit;
+                const difference = upperLimit - newViewBox[1] - 2;
+                newViewBox[1] += difference;
+                newViewBox[3] -= difference;
             }
 
             // Check lower border
             const lowerLimit = nodeTop + (infoboxHeight / 2);
-            if (lowerLimit > newViewBox[3]) {
-                newViewBox[3] = lowerLimit + 8;
+            const bottomLine = newViewBox[3] + newViewBox[1];
+            if (lowerLimit > bottomLine) {
+                newViewBox[3] = lowerLimit - newViewBox[1] + 2;
             }
 
             // Check right border

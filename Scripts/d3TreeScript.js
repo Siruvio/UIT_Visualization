@@ -86,7 +86,7 @@ export function Tree(data, {                                    // "data" is hie
         const height = right.x - left.x + 10;
 
 
-        defaultViewBox = [0, left.x - 5, width, height];
+        defaultViewBox = [-40, left.x - 5, width, height];
         const transition = svg.transition()
             .duration(transitionDuration)
             .attr("viewBox", defaultViewBox)
@@ -533,7 +533,7 @@ export function Tree(data, {                                    // "data" is hie
                 newViewBox[2] = rightLimit;
             }
 
-            finalViewBox = [0, newViewBox[1], newViewBox[2], newViewBox[3]];
+            finalViewBox = [-40, newViewBox[1], newViewBox[2], newViewBox[3]];
 
             // Internal function for formatting an array
             function getValuesForText(origin, limit = 40) {
